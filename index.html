@@ -1,0 +1,404 @@
+<!doctype html>
+<html lang="en-AU">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="description" content="TrueMark Vehicle Inspections — Mobile pre-purchase vehicle inspections in Sydney's Eastern Suburbs. Same-day PDF report with clear verdict, photos, and negotiation notes." />
+  <title>TrueMark Vehicle Inspections | Eastern Suburbs Sydney</title>
+
+  <style>
+    :root{
+      --bg:#0b1220;
+      --card:#0f1a33;
+      --muted:#a9b4d0;
+      --text:#eef2ff;
+      --brand:#76e4c2;
+      --brand2:#7aa7ff;
+      --border:rgba(255,255,255,.12);
+      --shadow: 0 14px 40px rgba(0,0,0,.35);
+      --radius:18px;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family: ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Arial,"Apple Color Emoji","Segoe UI Emoji";
+      background: radial-gradient(1200px 700px at 15% 10%, rgba(122,167,255,.22), transparent 60%),
+                  radial-gradient(900px 600px at 85% 30%, rgba(118,228,194,.18), transparent 55%),
+                  var(--bg);
+      color:var(--text);
+      line-height:1.5;
+    }
+    a{color:inherit}
+    .container{max-width:1100px;margin:0 auto;padding:22px}
+    .nav{
+      display:flex;align-items:center;justify-content:space-between;
+      padding:10px 0;
+    }
+    .brand{
+      display:flex;gap:10px;align-items:center;text-decoration:none;
+      font-weight:800;letter-spacing:.2px;
+    }
+    .logo{
+      width:38px;height:38px;border-radius:12px;
+      background: linear-gradient(135deg,var(--brand),var(--brand2));
+      box-shadow: var(--shadow);
+    }
+    .navlinks{display:flex;gap:18px;align-items:center}
+    .navlinks a{color:var(--muted);text-decoration:none;font-weight:600}
+    .navlinks a:hover{color:var(--text)}
+    .btn{
+      display:inline-flex;align-items:center;justify-content:center;
+      padding:12px 16px;border-radius:14px;
+      border:1px solid var(--border);
+      text-decoration:none;font-weight:800;
+      transition: transform .12s ease, border-color .12s ease, background .12s ease;
+      white-space:nowrap;
+    }
+    .btn:hover{transform:translateY(-1px);border-color:rgba(255,255,255,.28)}
+    .btn.primary{
+      background: linear-gradient(135deg, rgba(118,228,194,.22), rgba(122,167,255,.18));
+      border-color: rgba(118,228,194,.45);
+    }
+    .btn.secondary{background:rgba(255,255,255,.04)}
+    .hero{
+      padding:26px 0 18px;
+      display:grid;grid-template-columns: 1.2fr .8fr; gap:18px;
+    }
+    @media(max-width:900px){.hero{grid-template-columns:1fr}}
+    .card{
+      background: rgba(255,255,255,.04);
+      border:1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+    .heroLeft{padding:28px}
+    .heroRight{padding:22px}
+    h1{margin:0 0 10px;font-size:40px;line-height:1.12}
+    @media(max-width:520px){h1{font-size:34px}}
+    .sub{color:var(--muted);font-size:16px;max-width:60ch}
+    .pills{display:flex;flex-wrap:wrap;gap:10px;margin:16px 0 16px}
+    .pill{
+      font-weight:800;font-size:13px;color:rgba(238,242,255,.92);
+      padding:8px 10px;border-radius:999px;border:1px solid var(--border);
+      background: rgba(255,255,255,.03);
+    }
+    .ctaRow{display:flex;gap:12px;flex-wrap:wrap;margin-top:16px}
+    .trust{
+      display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-top:16px;
+    }
+    @media(max-width:520px){.trust{grid-template-columns:1fr}}
+    .trustItem{
+      padding:12px;border-radius:14px;border:1px solid var(--border);
+      background: rgba(255,255,255,.03);
+      color:var(--muted);font-weight:700;font-size:14px;
+    }
+    .section{padding:18px 0}
+    .section h2{margin:0 0 10px;font-size:26px}
+    .muted{color:var(--muted)}
+    .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+    @media(max-width:900px){.grid3{grid-template-columns:1fr}}
+    .pkg{padding:18px}
+    .pkg h3{margin:0 0 6px;font-size:18px}
+    .price{font-size:26px;font-weight:900;margin:8px 0 8px}
+    .pkg ul{margin:10px 0 0;padding-left:18px;color:var(--muted);font-weight:650}
+    .badge{
+      display:inline-block;margin-left:8px;font-size:12px;font-weight:900;
+      color:#06121b;background:rgba(118,228,194,.9);
+      padding:4px 8px;border-radius:999px;
+    }
+    .how{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+    @media(max-width:900px){.how{grid-template-columns:1fr}}
+    .step{padding:16px}
+    .num{
+      width:36px;height:36px;border-radius:12px;display:flex;align-items:center;justify-content:center;
+      background:rgba(122,167,255,.22);border:1px solid var(--border);font-weight:900;
+    }
+    .samples{display:grid;grid-template-columns:1.2fr .8fr;gap:14px}
+    @media(max-width:900px){.samples{grid-template-columns:1fr}}
+    .sampleBox{padding:18px}
+    .sampleFrame{
+      height:240px;border-radius:14px;border:1px dashed rgba(255,255,255,.25);
+      background:rgba(255,255,255,.03);
+      display:flex;align-items:center;justify-content:center;color:var(--muted);font-weight:800;
+      text-align:center;padding:18px;
+    }
+    .faq{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+    @media(max-width:900px){.faq{grid-template-columns:1fr}}
+    details{
+      padding:14px;border-radius:14px;border:1px solid var(--border);
+      background:rgba(255,255,255,.03);
+    }
+    summary{cursor:pointer;font-weight:900}
+    details p{color:var(--muted);margin:10px 0 0;font-weight:650}
+    .footer{
+      padding:22px 0 30px;color:var(--muted);font-size:14px
+    }
+    .split{
+      display:flex;gap:10px;flex-wrap:wrap;align-items:center;justify-content:space-between
+    }
+    .small{font-size:12px;color:rgba(169,180,208,.85)}
+    .divider{height:1px;background:rgba(255,255,255,.10);margin:14px 0}
+    .callout{padding:14px;border-radius:14px;border:1px solid rgba(118,228,194,.35);
+      background:rgba(118,228,194,.08);color:rgba(238,242,255,.92);font-weight:700}
+    .kpi{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:14px}
+    @media(max-width:900px){.kpi{grid-template-columns:1fr}}
+    .kpi div{padding:12px;border-radius:14px;border:1px solid var(--border);background:rgba(255,255,255,.03)}
+    .kpi strong{display:block;font-size:18px}
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <header class="nav">
+      <a class="brand" href="#top">
+        <span class="logo" aria-hidden="true"></span>
+        <span>TrueMark Vehicle Inspections</span>
+      </a>
+      <nav class="navlinks" aria-label="Primary navigation">
+        <a href="#packages">Packages</a>
+        <a href="#how">How it works</a>
+        <a href="#faq">FAQ</a>
+        <a class="btn secondary" href="#contact">Contact</a>
+        <a class="btn primary" href="YOUR_STRIPE_DEPOSIT_LINK" target="_blank" rel="noopener">Book now</a>
+      </nav>
+    </header>
+
+    <main id="top" class="hero">
+      <section class="card heroLeft">
+        <h1>Mobile pre-purchase vehicle inspections<br/>Eastern Suburbs Sydney</h1>
+        <p class="sub">
+          Decision-ready inspection report with a clear verdict (Proceed / Caution / Do Not Proceed),
+          photo evidence, and negotiation notes — delivered same day in most cases.
+        </p>
+
+        <div class="pills" role="list">
+          <span class="pill" role="listitem">Non-invasive visual + operational</span>
+          <span class="pill" role="listitem">Road test where permitted</span>
+          <span class="pill" role="listitem">Same-day PDF report</span>
+          <span class="pill" role="listitem">Photos included</span>
+          <span class="pill" role="listitem">Scan tool (Premium)</span>
+        </div>
+
+        <div class="ctaRow">
+          <a class="btn primary" href="YOUR_STRIPE_DEPOSIT_LINK" target="_blank" rel="noopener">Book now (deposit)</a>
+          <a class="btn secondary" href="YOUR_BOOKING_FORM_LINK" target="_blank" rel="noopener">Get a quote / request time</a>
+          <a class="btn secondary" href="#samples">See sample report</a>
+        </div>
+
+        <div class="trust" aria-label="Trust highlights">
+          <div class="trustItem">Clear verdict + severity summary</div>
+          <div class="trustItem">Evidence-based findings</div>
+          <div class="trustItem">Negotiation notes included</div>
+          <div class="trustItem">No dismantling — non-invasive only</div>
+        </div>
+      </section>
+
+      <aside class="card heroRight">
+        <div class="callout">
+          <strong>Fast booking + clean process.</strong><br/>
+          Book with a deposit, I inspect on-site, you receive a PDF report with photos and a verdict.
+        </div>
+
+        <div class="kpi" aria-label="Key benefits">
+          <div>
+            <strong>Same-day</strong>
+            <span class="small">Report turnaround (typical)</span>
+          </div>
+          <div>
+            <strong>On-site</strong>
+            <span class="small">Seller driveway / dealer</span>
+          </div>
+          <div>
+            <strong>Decision-ready</strong>
+            <span class="small">Verdict + priorities</span>
+          </div>
+        </div>
+
+        <div class="divider"></div>
+
+        <p class="small">
+          <strong>Service area:</strong> Bondi, Randwick, Coogee, Maroubra, Paddington, Rose Bay, Double Bay and nearby suburbs.
+          Sydney metro available by quote.
+        </p>
+
+        <p class="small">
+          <strong>Note:</strong> Business name approval pending ASIC review (if applicable). Services are provided under Australian Consumer Law.
+        </p>
+      </aside>
+    </main>
+
+    <section id="packages" class="section">
+      <h2>Packages</h2>
+      <p class="muted">Transparent pricing. Choose the level of certainty you want.</p>
+
+      <div class="grid3">
+        <div class="card pkg">
+          <h3>Essential</h3>
+          <div class="price">$XXX</div>
+          <p class="muted">Buyer confidence check with same-day PDF.</p>
+          <ul>
+            <li>Visual + operational inspection</li>
+            <li>Road test (where permitted)</li>
+            <li>Verdict + key issues summary</li>
+            <li>Photo evidence</li>
+          </ul>
+          <div class="ctaRow">
+            <a class="btn primary" href="YOUR_STRIPE_DEPOSIT_LINK" target="_blank" rel="noopener">Book Essential</a>
+          </div>
+        </div>
+
+        <div class="card pkg">
+          <h3>Standard <span class="badge">Most Popular</span></h3>
+          <div class="price">$XXX</div>
+          <p class="muted">More detail + stronger negotiation support.</p>
+          <ul>
+            <li>Everything in Essential</li>
+            <li>Expanded notes + photos</li>
+            <li>Negotiation notes section</li>
+            <li>Priority report formatting</li>
+          </ul>
+          <div class="ctaRow">
+            <a class="btn primary" href="YOUR_STRIPE_DEPOSIT_LINK" target="_blank" rel="noopener">Book Standard</a>
+          </div>
+        </div>
+
+        <div class="card pkg">
+          <h3>Premium</h3>
+          <div class="price">$XXX</div>
+          <p class="muted">Highest certainty for serious buyers.</p>
+          <ul>
+            <li>Everything in Standard</li>
+            <li><strong>Scan tool diagnostics</strong> (fault codes where supported)</li>
+            <li>Priority turnaround</li>
+            <li>Optional follow-up call</li>
+          </ul>
+          <div class="ctaRow">
+            <a class="btn primary" href="YOUR_STRIPE_DEPOSIT_LINK" target="_blank" rel="noopener">Book Premium</a>
+          </div>
+        </div>
+      </div>
+
+      <p class="small" style="margin-top:10px;">
+        *Prices are examples — update them. Travel outside Eastern Suburbs may incur a quote-based surcharge.
+      </p>
+    </section>
+
+    <section id="how" class="section">
+      <h2>How it works</h2>
+      <div class="how">
+        <div class="card step">
+          <div class="num">1</div>
+          <h3>Book + deposit</h3>
+          <p class="muted">Lock in a time with a deposit. Send vehicle details and seller location.</p>
+        </div>
+        <div class="card step">
+          <div class="num">2</div>
+          <h3>On-site inspection</h3>
+          <p class="muted">I inspect the vehicle at the seller’s driveway or dealership (non-invasive, visual + operational).</p>
+        </div>
+        <div class="card step">
+          <div class="num">3</div>
+          <h3>Same-day report</h3>
+          <p class="muted">Receive a PDF report with verdict, priorities, evidence photos and negotiation notes.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="samples" class="section samples">
+      <div class="card sampleBox">
+        <h2>Sample report</h2>
+        <p class="muted">
+          Your report is built to support a purchase decision quickly: verdict, severity priorities, photos, and negotiation notes.
+        </p>
+        <div class="ctaRow">
+          <a class="btn secondary" href="YOUR_SAMPLE_REPORT_LINK" target="_blank" rel="noopener">Open sample (PDF)</a>
+        </div>
+      </div>
+
+      <div class="card sampleBox">
+        <div class="sampleFrame">
+          Drop screenshots here later.<br/>
+          Blur name / rego / VIN before uploading.
+        </div>
+      </div>
+    </section>
+
+    <section id="faq" class="section">
+      <h2>FAQ</h2>
+      <div class="faq">
+        <details>
+          <summary>Do you road test every vehicle?</summary>
+          <p>Yes where permitted and safe. If a road test can’t be completed, it will be noted in the report and conclusions will be limited accordingly.</p>
+        </details>
+
+        <details>
+          <summary>Do you dismantle anything?</summary>
+          <p>No. Inspections are non-invasive visual and operational checks only. No wheel removal or component disassembly.</p>
+        </details>
+
+        <details>
+          <summary>Can you guarantee there are no hidden issues?</summary>
+          <p>No. Hidden or intermittent faults can exist. The report reflects observable condition at the time of inspection.</p>
+        </details>
+
+        <details>
+          <summary>Do you scan for fault codes?</summary>
+          <p>Scan tool diagnostics are included in Premium (where supported by the vehicle and diagnostic port access is available).</p>
+        </details>
+
+        <details>
+          <summary>How fast do I receive the report?</summary>
+          <p>Typically same day. Timing depends on schedule and inspection conditions.</p>
+        </details>
+
+        <details>
+          <summary>What suburbs do you cover?</summary>
+          <p>Eastern Suburbs Sydney as standard (Bondi, Randwick, Coogee, Maroubra, Paddington, Rose Bay, Double Bay). Sydney metro is available by quote.</p>
+        </details>
+      </div>
+    </section>
+
+    <section id="contact" class="section">
+      <h2>Contact</h2>
+      <p class="muted">Fastest: book online. Otherwise contact me below.</p>
+
+      <div class="grid3">
+        <div class="card pkg">
+          <h3>Phone</h3>
+          <p class="muted"><a href="tel:+61XXXXXXXXX">+61 XXX XXX XXX</a></p>
+        </div>
+        <div class="card pkg">
+          <h3>Email</h3>
+          <p class="muted"><a href="mailto:hello@yourdomain.com">hello@yourdomain.com</a></p>
+        </div>
+        <div class="card pkg">
+          <h3>Book</h3>
+          <p class="muted">Deposit required to secure a time.</p>
+          <a class="btn primary" href="YOUR_STRIPE_DEPOSIT_LINK" target="_blank" rel="noopener">Book now</a>
+        </div>
+      </div>
+
+      <p class="small" style="margin-top:10px;">
+        By booking you agree to the Service Agreement and understand the inspection is non-invasive and visual/operational only.
+        <a href="YOUR_SERVICE_AGREEMENT_LINK" target="_blank" rel="noopener">Read terms</a>.
+      </p>
+    </section>
+
+    <footer class="footer">
+      <div class="divider"></div>
+      <div class="split">
+        <span>© <span id="year"></span> TrueMark Vehicle Inspections</span>
+        <span class="small">ABN: 53 384 207 098 (optional to display)</span>
+      </div>
+      <div class="small" style="margin-top:8px;">
+        This inspection is non-invasive and based on observable conditions at the time of inspection. Hidden or intermittent faults may not be detectable.
+        Nothing on this website limits consumer guarantees under the Australian Consumer Law.
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
