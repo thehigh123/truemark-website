@@ -4,7 +4,8 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <meta name="description" content="TrueMark Vehicle Inspections — Mobile pre-purchase vehicle inspections in Sydney's Eastern Suburbs. Same-day PDF report with clear verdict, photos, and negotiation notes." />
-  <title>TrueMark Vehicle Inspections | Eastern Suburbs Sydney</title>
+  <meta name="theme-color" content="#0b1220" />
+  <title>TrueMark Vehicle Inspections | Inspect Before You Invest</title>
 
   <style>
     :root{
@@ -12,8 +13,8 @@
       --card:#0f1a33;
       --muted:#a9b4d0;
       --text:#eef2ff;
-      --brand:#76e4c2;
-      --brand2:#7aa7ff;
+      --brand:#22C55E; /* signal green */
+      --brand2:#3B82F6; /* soft blue */
       --border:rgba(255,255,255,.12);
       --shadow: 0 14px 40px rgba(0,0,0,.35);
       --radius:18px;
@@ -21,29 +22,19 @@
     *{box-sizing:border-box}
     body{
       margin:0;
-      font-family: ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Arial,"Apple Color Emoji","Segoe UI Emoji";
-      background: radial-gradient(1200px 700px at 15% 10%, rgba(122,167,255,.22), transparent 60%),
-                  radial-gradient(900px 600px at 85% 30%, rgba(118,228,194,.18), transparent 55%),
+      font-family: ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Arial;
+      background: radial-gradient(1200px 700px at 15% 10%, rgba(59,130,246,.18), transparent 60%),
+                  radial-gradient(900px 600px at 85% 30%, rgba(34,197,94,.16), transparent 55%),
                   var(--bg);
       color:var(--text);
       line-height:1.5;
     }
     a{color:inherit}
     .container{max-width:1100px;margin:0 auto;padding:22px}
-    .nav{
-      display:flex;align-items:center;justify-content:space-between;
-      padding:10px 0;
-    }
-    .brand{
-      display:flex;gap:10px;align-items:center;text-decoration:none;
-      font-weight:800;letter-spacing:.2px;
-    }
-    .logo{
-      width:38px;height:38px;border-radius:12px;
-      background: linear-gradient(135deg,var(--brand),var(--brand2));
-      box-shadow: var(--shadow);
-    }
-    .navlinks{display:flex;gap:18px;align-items:center}
+    .nav{display:flex;align-items:center;justify-content:space-between;padding:10px 0;gap:14px;flex-wrap:wrap}
+    .brand{display:flex;gap:10px;align-items:center;text-decoration:none;font-weight:800;letter-spacing:.2px}
+    .logo{width:38px;height:38px;border-radius:12px;background: linear-gradient(135deg,var(--brand),var(--brand2));box-shadow: var(--shadow);}
+    .navlinks{display:flex;gap:14px;align-items:center;flex-wrap:wrap}
     .navlinks a{color:var(--muted);text-decoration:none;font-weight:600}
     .navlinks a:hover{color:var(--text)}
     .btn{
@@ -56,21 +47,13 @@
     }
     .btn:hover{transform:translateY(-1px);border-color:rgba(255,255,255,.28)}
     .btn.primary{
-      background: linear-gradient(135deg, rgba(118,228,194,.22), rgba(122,167,255,.18));
-      border-color: rgba(118,228,194,.45);
+      background: linear-gradient(135deg, rgba(34,197,94,.22), rgba(59,130,246,.14));
+      border-color: rgba(34,197,94,.45);
     }
     .btn.secondary{background:rgba(255,255,255,.04)}
-    .hero{
-      padding:26px 0 18px;
-      display:grid;grid-template-columns: 1.2fr .8fr; gap:18px;
-    }
+    .hero{padding:26px 0 18px;display:grid;grid-template-columns: 1.2fr .8fr; gap:18px}
     @media(max-width:900px){.hero{grid-template-columns:1fr}}
-    .card{
-      background: rgba(255,255,255,.04);
-      border:1px solid var(--border);
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-    }
+    .card{background: rgba(255,255,255,.04);border:1px solid var(--border);border-radius: var(--radius);box-shadow: var(--shadow);}
     .heroLeft{padding:28px}
     .heroRight{padding:22px}
     h1{margin:0 0 10px;font-size:40px;line-height:1.12}
@@ -83,15 +66,9 @@
       background: rgba(255,255,255,.03);
     }
     .ctaRow{display:flex;gap:12px;flex-wrap:wrap;margin-top:16px}
-    .trust{
-      display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-top:16px;
-    }
+    .trust{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-top:16px}
     @media(max-width:520px){.trust{grid-template-columns:1fr}}
-    .trustItem{
-      padding:12px;border-radius:14px;border:1px solid var(--border);
-      background: rgba(255,255,255,.03);
-      color:var(--muted);font-weight:700;font-size:14px;
-    }
+    .trustItem{padding:12px;border-radius:14px;border:1px solid var(--border);background: rgba(255,255,255,.03);color:var(--muted);font-weight:700;font-size:14px;}
     .section{padding:18px 0}
     .section h2{margin:0 0 10px;font-size:26px}
     .muted{color:var(--muted)}
@@ -101,49 +78,21 @@
     .pkg h3{margin:0 0 6px;font-size:18px}
     .price{font-size:26px;font-weight:900;margin:8px 0 8px}
     .pkg ul{margin:10px 0 0;padding-left:18px;color:var(--muted);font-weight:650}
-    .badge{
-      display:inline-block;margin-left:8px;font-size:12px;font-weight:900;
-      color:#06121b;background:rgba(118,228,194,.9);
-      padding:4px 8px;border-radius:999px;
-    }
+    .badge{display:inline-block;margin-left:8px;font-size:12px;font-weight:900;color:#06121b;background:rgba(34,197,94,.9);padding:4px 8px;border-radius:999px;}
     .how{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
     @media(max-width:900px){.how{grid-template-columns:1fr}}
     .step{padding:16px}
-    .num{
-      width:36px;height:36px;border-radius:12px;display:flex;align-items:center;justify-content:center;
-      background:rgba(122,167,255,.22);border:1px solid var(--border);font-weight:900;
-    }
-    .samples{display:grid;grid-template-columns:1.2fr .8fr;gap:14px}
-    @media(max-width:900px){.samples{grid-template-columns:1fr}}
-    .sampleBox{padding:18px}
-    .sampleFrame{
-      height:240px;border-radius:14px;border:1px dashed rgba(255,255,255,.25);
-      background:rgba(255,255,255,.03);
-      display:flex;align-items:center;justify-content:center;color:var(--muted);font-weight:800;
-      text-align:center;padding:18px;
-    }
+    .num{width:36px;height:36px;border-radius:12px;display:flex;align-items:center;justify-content:center;background:rgba(59,130,246,.18);border:1px solid var(--border);font-weight:900;}
     .faq{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
     @media(max-width:900px){.faq{grid-template-columns:1fr}}
-    details{
-      padding:14px;border-radius:14px;border:1px solid var(--border);
-      background:rgba(255,255,255,.03);
-    }
+    details{padding:14px;border-radius:14px;border:1px solid var(--border);background:rgba(255,255,255,.03);}
     summary{cursor:pointer;font-weight:900}
     details p{color:var(--muted);margin:10px 0 0;font-weight:650}
-    .footer{
-      padding:22px 0 30px;color:var(--muted);font-size:14px
-    }
-    .split{
-      display:flex;gap:10px;flex-wrap:wrap;align-items:center;justify-content:space-between
-    }
+    .footer{padding:22px 0 30px;color:var(--muted);font-size:14px}
+    .split{display:flex;gap:10px;flex-wrap:wrap;align-items:center;justify-content:space-between}
     .small{font-size:12px;color:rgba(169,180,208,.85)}
     .divider{height:1px;background:rgba(255,255,255,.10);margin:14px 0}
-    .callout{padding:14px;border-radius:14px;border:1px solid rgba(118,228,194,.35);
-      background:rgba(118,228,194,.08);color:rgba(238,242,255,.92);font-weight:700}
-    .kpi{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:14px}
-    @media(max-width:900px){.kpi{grid-template-columns:1fr}}
-    .kpi div{padding:12px;border-radius:14px;border:1px solid var(--border);background:rgba(255,255,255,.03)}
-    .kpi strong{display:block;font-size:18px}
+    .callout{padding:14px;border-radius:14px;border:1px solid rgba(34,197,94,.35);background:rgba(34,197,94,.08);color:rgba(238,242,255,.92);font-weight:700}
   </style>
 </head>
 
@@ -159,7 +108,8 @@
         <a href="#how">How it works</a>
         <a href="#faq">FAQ</a>
         <a class="btn secondary" href="#contact">Contact</a>
-        <a class="btn primary" href="YOUR_STRIPE_DEPOSIT_LINK" target="_blank" rel="noopener">Book now</a>
+        <!-- For now, Book Now points to your Google Form. Later swap to Stripe deposit link -->
+        <a class="btn primary" href="PASTE_YOUR_GOOGLE_FORM_LINK_HERE" target="_blank" rel="noopener">Book now</a>
       </nav>
     </header>
 
@@ -180,14 +130,14 @@
         </div>
 
         <div class="ctaRow">
-          <a class="btn primary" href="YOUR_STRIPE_DEPOSIT_LINK" target="_blank" rel="noopener">Book now (deposit)</a>
-          <a class="btn secondary" href="YOUR_BOOKING_FORM_LINK" target="_blank" rel="noopener">Get a quote / request time</a>
-          <a class="btn secondary" href="#samples">See sample report</a>
+          <a class="btn primary" href="PASTE_YOUR_GOOGLE_FORM_LINK_HERE" target="_blank" rel="noopener">Request a booking time</a>
+          <a class="btn secondary" href="#packages">View packages</a>
+          <a class="btn secondary" href="#faq">Read FAQ</a>
         </div>
 
         <div class="trust" aria-label="Trust highlights">
-          <div class="trustItem">Clear verdict + severity summary</div>
-          <div class="trustItem">Evidence-based findings</div>
+          <div class="trustItem">Clear verdict + priority actions</div>
+          <div class="trustItem">Evidence photos included</div>
           <div class="trustItem">Negotiation notes included</div>
           <div class="trustItem">No dismantling — non-invasive only</div>
         </div>
@@ -195,23 +145,8 @@
 
       <aside class="card heroRight">
         <div class="callout">
-          <strong>Fast booking + clean process.</strong><br/>
-          Book with a deposit, I inspect on-site, you receive a PDF report with photos and a verdict.
-        </div>
-
-        <div class="kpi" aria-label="Key benefits">
-          <div>
-            <strong>Same-day</strong>
-            <span class="small">Report turnaround (typical)</span>
-          </div>
-          <div>
-            <strong>On-site</strong>
-            <span class="small">Seller driveway / dealer</span>
-          </div>
-          <div>
-            <strong>Decision-ready</strong>
-            <span class="small">Verdict + priorities</span>
-          </div>
+          <strong>Fast, clean process.</strong><br/>
+          Request a booking time, we confirm, then you receive a PDF report with photos and verdict.
         </div>
 
         <div class="divider"></div>
@@ -222,7 +157,11 @@
         </p>
 
         <p class="small">
-          <strong>Note:</strong> Business name approval pending ASIC review (if applicable). Services are provided under Australian Consumer Law.
+          <strong>Pricing:</strong> Essential $279 · Standard $349 · Premium $449
+        </p>
+
+        <p class="small">
+          <strong>ABN:</strong> 53 384 207 098
         </p>
       </aside>
     </main>
@@ -234,38 +173,39 @@
       <div class="grid3">
         <div class="card pkg">
           <h3>Essential</h3>
-          <div class="price">$XXX</div>
-          <p class="muted">Buyer confidence check with same-day PDF.</p>
+          <div class="price">$279</div>
+          <p class="muted">Solid decision-ready inspection.</p>
           <ul>
-            <li>Visual + operational inspection</li>
-            <li>Road test (where permitted)</li>
-            <li>Verdict + key issues summary</li>
-            <li>Photo evidence</li>
+            <li>Non-invasive visual + operational inspection</li>
+            <li>Road test (where permitted &amp; safe)</li>
+            <li>Photo evidence included</li>
+            <li>Verdict + priority issues</li>
+            <li>Same-day PDF report (typical)</li>
           </ul>
           <div class="ctaRow">
-            <a class="btn primary" href="YOUR_STRIPE_DEPOSIT_LINK" target="_blank" rel="noopener">Book Essential</a>
+            <a class="btn primary" href="PASTE_YOUR_GOOGLE_FORM_LINK_HERE" target="_blank" rel="noopener">Select Essential</a>
           </div>
         </div>
 
         <div class="card pkg">
           <h3>Standard <span class="badge">Most Popular</span></h3>
-          <div class="price">$XXX</div>
-          <p class="muted">More detail + stronger negotiation support.</p>
+          <div class="price">$349</div>
+          <p class="muted">Best value for most buyers.</p>
           <ul>
             <li>Everything in Essential</li>
-            <li>Expanded notes + photos</li>
-            <li>Negotiation notes section</li>
+            <li>Expanded notes + more photos</li>
+            <li>Stronger negotiation notes section</li>
             <li>Priority report formatting</li>
           </ul>
           <div class="ctaRow">
-            <a class="btn primary" href="YOUR_STRIPE_DEPOSIT_LINK" target="_blank" rel="noopener">Book Standard</a>
+            <a class="btn primary" href="PASTE_YOUR_GOOGLE_FORM_LINK_HERE" target="_blank" rel="noopener">Select Standard</a>
           </div>
         </div>
 
         <div class="card pkg">
           <h3>Premium</h3>
-          <div class="price">$XXX</div>
-          <p class="muted">Highest certainty for serious buyers.</p>
+          <div class="price">$449</div>
+          <p class="muted">Highest certainty (includes scan tool).</p>
           <ul>
             <li>Everything in Standard</li>
             <li><strong>Scan tool diagnostics</strong> (fault codes where supported)</li>
@@ -273,13 +213,13 @@
             <li>Optional follow-up call</li>
           </ul>
           <div class="ctaRow">
-            <a class="btn primary" href="YOUR_STRIPE_DEPOSIT_LINK" target="_blank" rel="noopener">Book Premium</a>
+            <a class="btn primary" href="PASTE_YOUR_GOOGLE_FORM_LINK_HERE" target="_blank" rel="noopener">Select Premium</a>
           </div>
         </div>
       </div>
 
       <p class="small" style="margin-top:10px;">
-        *Prices are examples — update them. Travel outside Eastern Suburbs may incur a quote-based surcharge.
+        Deposit: $120 to secure a booking (once Stripe is live). Travel outside Eastern Suburbs may be quoted.
       </p>
     </section>
 
@@ -288,37 +228,18 @@
       <div class="how">
         <div class="card step">
           <div class="num">1</div>
-          <h3>Book + deposit</h3>
-          <p class="muted">Lock in a time with a deposit. Send vehicle details and seller location.</p>
+          <h3>Request a time</h3>
+          <p class="muted">Submit your details + vehicle listing. I’ll confirm availability.</p>
         </div>
         <div class="card step">
           <div class="num">2</div>
           <h3>On-site inspection</h3>
-          <p class="muted">I inspect the vehicle at the seller’s driveway or dealership (non-invasive, visual + operational).</p>
+          <p class="muted">Non-invasive visual + operational checks. Road test where permitted and safe.</p>
         </div>
         <div class="card step">
           <div class="num">3</div>
-          <h3>Same-day report</h3>
-          <p class="muted">Receive a PDF report with verdict, priorities, evidence photos and negotiation notes.</p>
-        </div>
-      </div>
-    </section>
-
-    <section id="samples" class="section samples">
-      <div class="card sampleBox">
-        <h2>Sample report</h2>
-        <p class="muted">
-          Your report is built to support a purchase decision quickly: verdict, severity priorities, photos, and negotiation notes.
-        </p>
-        <div class="ctaRow">
-          <a class="btn secondary" href="YOUR_SAMPLE_REPORT_LINK" target="_blank" rel="noopener">Open sample (PDF)</a>
-        </div>
-      </div>
-
-      <div class="card sampleBox">
-        <div class="sampleFrame">
-          Drop screenshots here later.<br/>
-          Blur name / rego / VIN before uploading.
+          <h3>Same-day PDF report</h3>
+          <p class="muted">Verdict + priorities, photos, and negotiation notes delivered via email.</p>
         </div>
       </div>
     </section>
@@ -327,60 +248,47 @@
       <h2>FAQ</h2>
       <div class="faq">
         <details>
-          <summary>Do you road test every vehicle?</summary>
-          <p>Yes where permitted and safe. If a road test can’t be completed, it will be noted in the report and conclusions will be limited accordingly.</p>
+          <summary>What does “non-invasive” mean?</summary>
+          <p>No dismantling or disassembly. The inspection is visual and operational only, based on what’s observable at the time.</p>
         </details>
-
         <details>
-          <summary>Do you dismantle anything?</summary>
-          <p>No. Inspections are non-invasive visual and operational checks only. No wheel removal or component disassembly.</p>
+          <summary>Do you road test every vehicle?</summary>
+          <p>Where permitted and safe. If a road test can’t be completed, it is noted and conclusions are limited accordingly.</p>
         </details>
-
         <details>
           <summary>Can you guarantee there are no hidden issues?</summary>
           <p>No. Hidden or intermittent faults can exist. The report reflects observable condition at the time of inspection.</p>
         </details>
-
         <details>
-          <summary>Do you scan for fault codes?</summary>
-          <p>Scan tool diagnostics are included in Premium (where supported by the vehicle and diagnostic port access is available).</p>
-        </details>
-
-        <details>
-          <summary>How fast do I receive the report?</summary>
-          <p>Typically same day. Timing depends on schedule and inspection conditions.</p>
-        </details>
-
-        <details>
-          <summary>What suburbs do you cover?</summary>
-          <p>Eastern Suburbs Sydney as standard (Bondi, Randwick, Coogee, Maroubra, Paddington, Rose Bay, Double Bay). Sydney metro is available by quote.</p>
+          <summary>What does scan tool diagnostics include?</summary>
+          <p>Premium includes reading fault codes where the vehicle supports it. Results are recorded in the report.</p>
         </details>
       </div>
     </section>
 
     <section id="contact" class="section">
       <h2>Contact</h2>
-      <p class="muted">Fastest: book online. Otherwise contact me below.</p>
+      <p class="muted">Fastest: request a booking time online. Otherwise contact me below.</p>
 
       <div class="grid3">
         <div class="card pkg">
           <h3>Phone</h3>
-          <p class="muted"><a href="tel:+61XXXXXXXXX">+61 XXX XXX XXX</a></p>
+          <p class="muted"><a href="tel:+61423636633">0423 636 633</a></p>
         </div>
         <div class="card pkg">
           <h3>Email</h3>
-          <p class="muted"><a href="mailto:hello@yourdomain.com">hello@yourdomain.com</a></p>
+          <p class="muted"><a href="mailto:truemarkinspect@gmail.com">truemarkinspect@gmail.com</a></p>
         </div>
         <div class="card pkg">
           <h3>Book</h3>
-          <p class="muted">Deposit required to secure a time.</p>
-          <a class="btn primary" href="YOUR_STRIPE_DEPOSIT_LINK" target="_blank" rel="noopener">Book now</a>
+          <p class="muted">Request a time via the booking form.</p>
+          <a class="btn primary" href="PASTE_YOUR_GOOGLE_FORM_LINK_HERE" target="_blank" rel="noopener">Request booking</a>
         </div>
       </div>
 
       <p class="small" style="margin-top:10px;">
         By booking you agree to the Service Agreement and understand the inspection is non-invasive and visual/operational only.
-        <a href="YOUR_SERVICE_AGREEMENT_LINK" target="_blank" rel="noopener">Read terms</a>.
+        <a href="PASTE_YOUR_SERVICE_AGREEMENT_LINK_HERE" target="_blank" rel="noopener"> Read terms</a>.
       </p>
     </section>
 
@@ -388,7 +296,7 @@
       <div class="divider"></div>
       <div class="split">
         <span>© <span id="year"></span> TrueMark Vehicle Inspections</span>
-        <span class="small">ABN: 53 384 207 098 (optional to display)</span>
+        <span class="small">ABN: 53 384 207 098</span>
       </div>
       <div class="small" style="margin-top:8px;">
         This inspection is non-invasive and based on observable conditions at the time of inspection. Hidden or intermittent faults may not be detectable.
