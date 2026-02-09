@@ -8,6 +8,47 @@
   <title>TrueMark Vehicle Inspections | Inspect Before You Invest</title>
 
   <style>
+  :root{
+    /* TrueMark-inspired palette */
+    --bg: #ffffff;
+    --text: #0B1220;         /* deep navy */
+    --muted: #6B7280;        /* neutral grey */
+    --border: #E5E7EB;       /* light border */
+    --brand: #22C55E;        /* signal green */
+    --brand-dark: #16A34A;   /* darker green hover */
+    --card: #FFFFFF;
+    --card-shadow: 0 12px 40px rgba(0,0,0,0.08);
+  }
+
+  body{
+    background: var(--bg) !important;
+    color: var(--text) !important;
+  }
+
+  /* Common improvements */
+  a{ color: var(--brand); }
+  a:hover{ color: var(--brand-dark); }
+
+  /* If your page has sections/cards, this helps immediately */
+  .card, .panel, .box{
+    background: var(--card);
+    border: 1px solid var(--border);
+    box-shadow: var(--card-shadow);
+    border-radius: 16px;
+  }
+
+  /* Make footer fit white theme */
+  .footer{
+    background: #fff !important;
+    color: var(--muted) !important;
+    border-top: 1px solid var(--border);
+  }
+  .footer .divider{
+    background: var(--border) !important;
+  }
+</style>
+
+  <style>
     :root{
       --bg:#0b1220;
       --card:#0f1a33;
