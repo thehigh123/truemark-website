@@ -1,519 +1,297 @@
 <!doctype html>
 <html lang="en-AU">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <meta name="description" content="TrueMark Vehicle Inspections — Mobile pre-purchase vehicle inspections in Sydney's Eastern Suburbs. Same-day PDF report with clear verdict, photos, and negotiation notes." />
-  <meta name="theme-color" content="#0B1220" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="TrueMark Vehicle Inspections — Mobile pre-purchase vehicle inspections in Sydney. Same-day PDF report with verdict, photos, and negotiation notes.">
   <title>TrueMark Vehicle Inspections | Inspect Before You Invest</title>
 
-  <!-- Favicons (upload these files to your repo root) -->
-  <link rel="icon" href="favicon.ico" />
-  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png" />
-  <link rel="icon" type="image/png" sizes="16x16" href="favicon-16.png" />
-  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png" />
-
-  <!-- Social preview (optional but helps) -->
-  <meta property="og:title" content="TrueMark Vehicle Inspections | Inspect Before You Invest" />
-  <meta property="og:description" content="Mobile pre-purchase inspections across Sydney. Same-day PDF report with verdict, photos, and negotiation notes." />
-  <meta property="og:type" content="website" />
+  <!-- Favicons -->
+  <link rel="icon" href="favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon-16.png">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
 
   <style>
-    :root{
-      /* White theme + logo-aligned palette */
+    :root {
       --bg:#ffffff;
-      --bg2:#f6f8fb;
-      --text:#0B1220;        /* deep navy */
-      --muted:#6B7280;       /* slate-ish */
-      --border:#E5E7EB;
-      --brand:#22C55E;       /* signal green */
-      --brand-dark:#16A34A;
-      --navy:#0B1220;
-
-      --card:#ffffff;
-      --shadow: 0 14px 40px rgba(15, 23, 42, 0.10);
-      --shadow2: 0 18px 60px rgba(15, 23, 42, 0.14);
-      --radius:18px;
+      --card:#f8fafc;
+      --text:#0b1220;
+      --muted:#6b7280;
+      --border:#e5e7eb;
+      --brand:#22c55e;
+      --brand-dark:#16a34a;
+      --shadow:0 12px 30px rgba(0,0,0,.08);
+      --radius:16px;
     }
 
-    *{box-sizing:border-box}
-    html{scroll-behavior:smooth}
-    body{
+    * { box-sizing:border-box; }
+
+    body {
       margin:0;
-      font-family: ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Arial;
+      font-family: system-ui,-apple-system,Segoe UI,Roboto,Arial;
+      background:var(--bg);
       color:var(--text);
       line-height:1.5;
-      background:
-        radial-gradient(900px 420px at 10% 0%, rgba(34,197,94,.10), transparent 55%),
-        radial-gradient(900px 420px at 90% 10%, rgba(11,18,32,.06), transparent 55%),
-        linear-gradient(180deg, var(--bg2) 0%, var(--bg) 24%, var(--bg) 100%);
-    }
-    a{color:var(--brand);text-decoration:none}
-    a:hover{color:var(--brand-dark);text-decoration:underline}
-    img{max-width:100%;height:auto}
-
-    /* Layout */
-    .container{max-width:1120px;margin:0 auto;padding:22px}
-
-    /* Sticky top nav */
-    .navWrap{
-      position:sticky; top:0; z-index:50;
-      backdrop-filter:saturate(160%) blur(10px);
-      background:rgba(255,255,255,.75);
-      border-bottom:1px solid rgba(229,231,235,.75);
-    }
-    .nav{
-      display:flex;align-items:center;justify-content:space-between;
-      padding:14px 0;gap:14px;flex-wrap:wrap;
     }
 
-    .brand{
-      display:flex;gap:12px;align-items:center;
-      color:var(--text);
-      font-weight:900; letter-spacing:.2px;
-    }
-    /* ✅ Logo fix: use logo.png (not logo.png.png) */
-    .logoImg{
-      height:44px; width:auto; display:block;
-      border-radius:10px;
-    }
-    .brandText{display:flex;flex-direction:column;gap:2px;line-height:1.1}
-    .brandText strong{font-size:14px}
-    .brandText span{font-size:12px;color:var(--muted);font-weight:700}
+    a { color:var(--brand); text-decoration:none; }
+    a:hover { color:var(--brand-dark); }
 
-    .navlinks{display:flex;gap:14px;align-items:center;flex-wrap:wrap}
-    .navlinks a{
-      color:var(--muted);
+    .container {
+      max-width:1100px;
+      margin:0 auto;
+      padding:20px;
+    }
+
+    /* NAV */
+    .nav {
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:16px;
+      padding:12px 0;
+    }
+
+    .brand {
+      display:flex;
+      align-items:center;
+      gap:12px;
       font-weight:800;
-      text-decoration:none;
-      padding:8px 10px;border-radius:12px;
     }
-    .navlinks a:hover{color:var(--text);background:rgba(11,18,32,.05);text-decoration:none}
 
-    .btn{
-      display:inline-flex;align-items:center;justify-content:center;
-      padding:12px 16px;border-radius:14px;
-      border:1px solid var(--border);
-      text-decoration:none;font-weight:900;
-      transition: transform .14s ease, box-shadow .14s ease, border-color .14s ease, background .14s ease;
-      white-space:nowrap;
-      user-select:none;
+    .logoImg {
+      height:42px;
+      width:auto;
+      display:block;
     }
-    .btn:hover{transform:translateY(-1px);box-shadow:0 10px 28px rgba(15,23,42,.10)}
-    .btn:active{transform:translateY(0)}
-    .btn.primary{
-      background:linear-gradient(135deg, rgba(34,197,94,.18), rgba(34,197,94,.08));
-      border-color:rgba(34,197,94,.45);
-      color:var(--navy);
+
+    .brandText strong {
+      display:block;
+      font-size:15px;
     }
-    .btn.primary:hover{border-color:rgba(34,197,94,.70)}
-    .btn.secondary{
-      background:#fff;
+
+    .brandText span {
+      font-size:12px;
+      color:var(--muted);
+      font-weight:600;
+    }
+
+    .navlinks {
+      display:flex;
+      gap:16px;
+      align-items:center;
+      flex-wrap:wrap;
+    }
+
+    .navlinks a {
+      font-weight:700;
       color:var(--text);
     }
-    .btn.secondary:hover{border-color:rgba(11,18,32,.22)}
-    .btn.ghost{
-      background:transparent;
-      border-color:transparent;
-      color:var(--muted);
-    }
-    .btn.ghost:hover{background:rgba(11,18,32,.05);border-color:transparent;color:var(--text);box-shadow:none}
 
-    /* Hero */
-    .hero{padding:22px 0 10px;display:grid;grid-template-columns: 1.15fr .85fr; gap:18px}
-    @media(max-width:900px){.hero{grid-template-columns:1fr}}
-    .card{
+    .btn {
+      padding:10px 16px;
+      border-radius:999px;
+      font-weight:800;
+      border:1px solid var(--border);
+      background:#fff;
+    }
+
+    .btn.primary {
+      background:var(--brand);
+      color:#fff;
+      border:none;
+    }
+
+    .btn.primary:hover {
+      background:var(--brand-dark);
+    }
+
+    /* HERO */
+    .hero {
+      display:grid;
+      grid-template-columns:1.2fr .8fr;
+      gap:20px;
+      margin-top:20px;
+    }
+
+    @media(max-width:900px){
+      .hero { grid-template-columns:1fr; }
+    }
+
+    .card {
       background:var(--card);
       border:1px solid var(--border);
       border-radius:var(--radius);
+      padding:24px;
       box-shadow:var(--shadow);
     }
-    .heroLeft{padding:30px}
-    .heroRight{padding:22px}
 
-    h1{margin:0 0 12px;font-size:42px;line-height:1.08;letter-spacing:-.02em}
-    @media(max-width:520px){h1{font-size:34px}}
-    .sub{color:var(--muted);font-size:16px;max-width:62ch}
-
-    /* ✅ Spacing upgrade for breathing room */
-    .pills{display:flex;flex-wrap:wrap;gap:10px;margin:18px 0 18px}
-    .pill{
-      font-weight:900;font-size:13px;color:rgba(11,18,32,.92);
-      padding:9px 11px;border-radius:999px;border:1px solid var(--border);
-      background:rgba(255,255,255,.9);
+    h1 {
+      margin-top:0;
+      font-size:40px;
+      line-height:1.15;
     }
 
-    .ctaRow{display:flex;gap:12px;flex-wrap:wrap;margin-top:18px}
-    .trust{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-top:18px}
-    @media(max-width:520px){.trust{grid-template-columns:1fr}}
-    .trustItem{
-      padding:12px 12px;border-radius:14px;border:1px solid var(--border);
-      background: rgba(11,18,32,.03);
-      color:var(--muted);font-weight:850;font-size:14px;
+    @media(max-width:520px){
+      h1 { font-size:32px; }
     }
 
-    .callout{
-      padding:14px;border-radius:14px;
-      border:1px solid rgba(34,197,94,.35);
-      background:rgba(34,197,94,.10);
-      color:rgba(11,18,32,.92);
-      font-weight:850;
-    }
-
-    /* Sections */
-    .section{padding:22px 0}
-    .section h2{margin:0 0 10px;font-size:28px;letter-spacing:-.01em}
-    .muted{color:var(--muted);font-weight:700}
-
-    .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
-    @media(max-width:900px){.grid3{grid-template-columns:1fr}}
-
-    /* ✅ Hover upgrade for cards */
-    .pkg, .step{
-      padding:18px;
-      transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
-    }
-    .pkg:hover, .step:hover{
-      transform: translateY(-3px);
-      box-shadow: var(--shadow2);
-      border-color: rgba(34,197,94,.30);
-    }
-
-    .pkg h3{margin:0 0 6px;font-size:18px}
-    .price{font-size:28px;font-weight:1000;margin:10px 0 8px}
-    .pkg ul{margin:10px 0 0;padding-left:18px;color:var(--muted);font-weight:800}
-    .pkg li{margin:6px 0}
-
-    .badge{
-      display:inline-block;margin-left:8px;
-      font-size:12px;font-weight:1000;
-      color:#06121b;background:rgba(34,197,94,.9);
-      padding:4px 8px;border-radius:999px;
-    }
-
-    .how{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
-    @media(max-width:900px){.how{grid-template-columns:1fr}}
-    .num{
-      width:36px;height:36px;border-radius:12px;
-      display:flex;align-items:center;justify-content:center;
-      background:rgba(34,197,94,.12);
-      border:1px solid rgba(34,197,94,.35);
-      font-weight:1000;
-      color:var(--navy);
-      margin-bottom:10px;
-    }
-
-    .faq{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
-    @media(max-width:900px){.faq{grid-template-columns:1fr}}
-    details{
-      padding:14px;border-radius:14px;
-      border:1px solid var(--border);
-      background:rgba(255,255,255,.9);
-      box-shadow:0 6px 18px rgba(15,23,42,.06);
-    }
-    summary{cursor:pointer;font-weight:1000}
-    details p{color:var(--muted);margin:10px 0 0;font-weight:800}
-
-    /* Footer */
-    .footer{
-      margin-top:6px;
-      padding:22px 0 30px;
+    .sub {
       color:var(--muted);
-      font-size:14px;
-      background:transparent;
+      max-width:60ch;
     }
-    .split{display:flex;gap:10px;flex-wrap:wrap;align-items:center;justify-content:space-between}
-    .small{font-size:12px;color:rgba(107,114,128,.95);font-weight:700}
-    .divider{height:1px;background:rgba(229,231,235,.95);margin:14px 0}
 
-    /* Better focus (accessibility) */
-    a:focus-visible, button:focus-visible{
-      outline:3px solid rgba(34,197,94,.45);
-      outline-offset:2px;
-      border-radius:12px;
+    .pills {
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      margin:16px 0;
+    }
+
+    .pill {
+      background:#fff;
+      border:1px solid var(--border);
+      padding:8px 12px;
+      border-radius:999px;
+      font-size:13px;
+      font-weight:700;
+    }
+
+    .ctaRow {
+      display:flex;
+      gap:12px;
+      flex-wrap:wrap;
+      margin-top:16px;
+    }
+
+    /* SECTIONS */
+    .section {
+      margin-top:40px;
+    }
+
+    .section h2 {
+      font-size:26px;
+      margin-bottom:6px;
+    }
+
+    .grid3 {
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:16px;
+    }
+
+    @media(max-width:900px){
+      .grid3 { grid-template-columns:1fr; }
+    }
+
+    .pkg:hover {
+      transform:translateY(-2px);
+      transition:.15s ease;
+    }
+
+    .price {
+      font-size:26px;
+      font-weight:900;
+      margin:8px 0;
+    }
+
+    /* FOOTER */
+    footer {
+      margin-top:40px;
+      padding-top:20px;
+      border-top:1px solid var(--border);
+      font-size:13px;
+      color:var(--muted);
+    }
+
+    .footerRow {
+      display:flex;
+      justify-content:space-between;
+      flex-wrap:wrap;
+      gap:10px;
     }
   </style>
-
-  <!-- LocalBusiness schema (helps Google) -->
-  <script type="application/ld+json">
-  {
-    "@context":"https://schema.org",
-    "@type":"LocalBusiness",
-    "name":"TrueMark Vehicle Inspections",
-    "areaServed":"Sydney NSW",
-    "telephone":"+61423636633",
-    "email":"truemarkinspect@gmail.com",
-    "slogan":"Inspect Before You Invest",
-    "url":"https://thehigh123.github.io/truemark-website/"
-  }
-  </script>
 </head>
 
 <body>
-  <div class="navWrap">
-    <div class="container">
-      <header class="nav" id="top">
-        <a class="brand" href="#top" aria-label="TrueMark Vehicle Inspections">
-          <!-- ✅ Put logo.png in repo root (transparent PNG recommended) -->
-          <img class="logoImg" src="logo.png" alt="TrueMark Vehicle Inspections logo" onerror="this.style.display='none';" />
-          <span class="brandText">
-            <strong>TrueMark Vehicle Inspections</strong>
-            <span>Inspect Before You Invest.</span>
-          </span>
-        </a>
+<div class="container">
 
-        <nav class="navlinks" aria-label="Primary navigation">
-          <a href="#packages">Packages</a>
-          <a href="#how">How it works</a>
-          <a href="#faq">FAQ</a>
-          <a class="btn ghost" href="#contact">Contact</a>
+  <!-- NAV -->
+  <header class="nav">
+    <a class="brand" href="#top">
+      <img class="logoImg" src="logo.png" alt="TrueMark Vehicle Inspections logo">
+      <span class="brandText">
+        <strong>TrueMark Vehicle Inspections</strong>
+        <span>Inspect Before You Invest.</span>
+      </span>
+    </a>
 
-          <!-- Booking form link (keep this until you swap to Stripe deposit link) -->
-          <a class="btn primary"
-             href="https://docs.google.com/forms/d/e/1FAIpQLSddK492rM1vaaqaTw7wlCd_nE-w9oxoJ8QD9tHvk_7p6ZCjNA/viewform?usp=publish-editor"
-             target="_blank" rel="noopener">
-            Book now
-          </a>
-        </nav>
-      </header>
+    <nav class="navlinks">
+      <a href="#packages">Packages</a>
+      <a href="#how">How it works</a>
+      <a href="#faq">FAQ</a>
+      <a href="#contact">Contact</a>
+      <a class="btn primary" href="https://docs.google.com/forms/d/e/1FAIpQLSddK492rM1vaaqaTw7wlCd_nE-w9oxoJ8QD9tHvk_7p6ZCjNA/viewform" target="_blank">Book now</a>
+    </nav>
+  </header>
+
+  <!-- HERO -->
+  <main id="top" class="hero">
+    <section class="card">
+      <h1>Mobile pre-purchase vehicle inspections<br>Eastern Suburbs Sydney</h1>
+      <p class="sub">
+        Decision-ready inspection report with a clear verdict (Proceed / Caution / Do Not Proceed),
+        photo evidence, and negotiation notes — delivered same day in most cases.
+      </p>
+
+      <div class="pills">
+        <span class="pill">Non-invasive visual + operational</span>
+        <span class="pill">Road test where permitted</span>
+        <span class="pill">Same-day PDF report</span>
+        <span class="pill">Photos included</span>
+        <span class="pill">Scan tool (Premium)</span>
+      </div>
+
+      <div class="ctaRow">
+        <a class="btn primary" href="https://docs.google.com/forms/d/e/1FAIpQLSddK492rM1vaaqaTw7wlCd_nE-w9oxoJ8QD9tHvk_7p6ZCjNA/viewform" target="_blank">Request a booking time</a>
+        <a class="btn" href="#packages">View packages</a>
+      </div>
+    </section>
+
+    <aside class="card">
+      <strong>Fast, clean process.</strong>
+      <p class="sub">Request a booking time, we confirm, then you receive a PDF report with photos and verdict.</p>
+
+      <p class="sub"><strong>Service area:</strong> Eastern Suburbs Sydney<br>
+      <strong>Pricing:</strong> Essential $279 · Standard $349 · Premium $449<br>
+      <strong>Phone:</strong> 0423 636 633<br>
+      <strong>Email:</strong> truemarkinspect@gmail.com<br>
+      <strong>ABN:</strong> 53 384 207 098</p>
+    </aside>
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footerRow">
+      <span>© <span id="year"></span> TrueMark Vehicle Inspections</span>
+      <span>ABN: 53 384 207 098</span>
     </div>
-  </div>
+    <p>
+      <a href="https://docs.google.com/document/d/12FRhl-GTzvIE_qr2uA9L9o7ZgzRPgdJAdHsME90RxHs/edit?usp=sharing" target="_blank">
+        Service Agreement &amp; Disclaimer
+      </a>
+    </p>
+    <p>
+      This inspection is non-invasive and based on observable conditions at the time of inspection.
+      Nothing on this website limits consumer guarantees under the Australian Consumer Law.
+    </p>
+  </footer>
 
-  <div class="container">
-    <main class="hero" aria-label="Hero">
-      <section class="card heroLeft">
-        <h1>Mobile pre-purchase vehicle inspections<br/>Eastern Suburbs Sydney</h1>
-        <p class="sub">
-          Decision-ready inspection report with a clear verdict (Proceed / Caution / Do Not Proceed),
-          photo evidence, and negotiation notes — delivered same day in most cases.
-        </p>
+</div>
 
-        <div class="pills" role="list" aria-label="Highlights">
-          <span class="pill" role="listitem">Non-invasive visual + operational</span>
-          <span class="pill" role="listitem">Road test where permitted</span>
-          <span class="pill" role="listitem">Same-day PDF report</span>
-          <span class="pill" role="listitem">Photos included</span>
-          <span class="pill" role="listitem">Scan tool (Premium)</span>
-        </div>
-
-        <div class="ctaRow">
-          <a class="btn primary"
-             href="https://docs.google.com/forms/d/e/1FAIpQLSddK492rM1vaaqaTw7wlCd_nE-w9oxoJ8QD9tHvk_7p6ZCjNA/viewform?usp=publish-editor"
-             target="_blank" rel="noopener">
-            Request a booking time
-          </a>
-          <a class="btn secondary" href="#packages">View packages</a>
-          <a class="btn secondary" href="#faq">Read FAQ</a>
-        </div>
-
-        <div class="trust" aria-label="Trust highlights">
-          <div class="trustItem">Clear verdict + priority actions</div>
-          <div class="trustItem">Evidence photos included</div>
-          <div class="trustItem">Negotiation notes included</div>
-          <div class="trustItem">No dismantling — non-invasive only</div>
-        </div>
-      </section>
-
-      <aside class="card heroRight" aria-label="Quick info">
-        <div class="callout">
-          <strong>Fast, clean process.</strong><br/>
-          Request a booking time, we confirm, then you receive a PDF report with photos and verdict.
-        </div>
-
-        <div class="divider"></div>
-
-        <p class="small">
-          <strong>Service area:</strong> Bondi, Randwick, Coogee, Maroubra, Paddington, Rose Bay, Double Bay and nearby suburbs.
-          Sydney metro available by quote.
-        </p>
-
-        <p class="small">
-          <strong>Pricing:</strong> Essential $279 · Standard $349 · Premium $449
-        </p>
-
-        <p class="small">
-          <strong>Phone:</strong> <a href="tel:+61423636633">0423 636 633</a><br/>
-          <strong>Email:</strong> <a href="mailto:truemarkinspect@gmail.com">truemarkinspect@gmail.com</a>
-        </p>
-
-        <p class="small">
-          <strong>ABN:</strong> 53 384 207 098
-        </p>
-      </aside>
-    </main>
-
-    <section id="packages" class="section">
-      <h2>Packages</h2>
-      <p class="muted">Transparent pricing. Choose the level of certainty you want.</p>
-
-      <div class="grid3">
-        <div class="card pkg">
-          <h3>Essential</h3>
-          <div class="price">$279</div>
-          <p class="muted">Solid decision-ready inspection.</p>
-          <ul>
-            <li>Non-invasive visual + operational inspection</li>
-            <li>Road test (where permitted &amp; safe)</li>
-            <li>Photo evidence included</li>
-            <li>Verdict + priority issues</li>
-            <li>Same-day PDF report (typical)</li>
-          </ul>
-          <div class="ctaRow">
-            <a class="btn primary"
-               href="https://docs.google.com/forms/d/e/1FAIpQLSddK492rM1vaaqaTw7wlCd_nE-w9oxoJ8QD9tHvk_7p6ZCjNA/viewform?usp=publish-editor"
-               target="_blank" rel="noopener">
-              Select Essential
-            </a>
-          </div>
-        </div>
-
-        <div class="card pkg">
-          <h3>Standard <span class="badge">Most Popular</span></h3>
-          <div class="price">$349</div>
-          <p class="muted">Best value for most buyers.</p>
-          <ul>
-            <li>Everything in Essential</li>
-            <li>Expanded notes + more photos</li>
-            <li>Stronger negotiation notes section</li>
-            <li>Priority report formatting</li>
-          </ul>
-          <div class="ctaRow">
-            <a class="btn primary"
-               href="https://docs.google.com/forms/d/e/1FAIpQLSddK492rM1vaaqaTw7wlCd_nE-w9oxoJ8QD9tHvk_7p6ZCjNA/viewform?usp=publish-editor"
-               target="_blank" rel="noopener">
-              Select Standard
-            </a>
-          </div>
-        </div>
-
-        <div class="card pkg">
-          <h3>Premium</h3>
-          <div class="price">$449</div>
-          <p class="muted">Highest certainty (includes scan tool).</p>
-          <ul>
-            <li>Everything in Standard</li>
-            <li><strong>Scan tool diagnostics</strong> (fault codes where supported)</li>
-            <li>Priority turnaround</li>
-            <li>Optional follow-up call</li>
-          </ul>
-          <div class="ctaRow">
-            <a class="btn primary"
-               href="https://docs.google.com/forms/d/e/1FAIpQLSddK492rM1vaaqaTw7wlCd_nE-w9oxoJ8QD9tHvk_7p6ZCjNA/viewform?usp=publish-editor"
-               target="_blank" rel="noopener">
-              Select Premium
-            </a>
-          </div>
-        </div>
-      </div>
-
-      <p class="small" style="margin-top:10px;">
-        Deposit: $120 to secure a booking (once Stripe is live). Travel outside Eastern Suburbs may be quoted.
-      </p>
-    </section>
-
-    <section id="how" class="section">
-      <h2>How it works</h2>
-      <div class="how">
-        <div class="card step">
-          <div class="num">1</div>
-          <h3>Request a time</h3>
-          <p class="muted">Submit your details + vehicle listing. We confirm availability.</p>
-        </div>
-        <div class="card step">
-          <div class="num">2</div>
-          <h3>On-site inspection</h3>
-          <p class="muted">Non-invasive visual + operational checks. Road test where permitted and safe.</p>
-        </div>
-        <div class="card step">
-          <div class="num">3</div>
-          <h3>Same-day PDF report</h3>
-          <p class="muted">Verdict + priorities, photos, and negotiation notes delivered via email.</p>
-        </div>
-      </div>
-    </section>
-
-    <section id="faq" class="section">
-      <h2>FAQ</h2>
-      <div class="faq">
-        <details>
-          <summary>What does “non-invasive” mean?</summary>
-          <p>No dismantling or disassembly. The inspection is visual and operational only, based on what’s observable at the time.</p>
-        </details>
-        <details>
-          <summary>Do you road test every vehicle?</summary>
-          <p>Where permitted and safe. If a road test can’t be completed, it is noted and conclusions are limited accordingly.</p>
-        </details>
-        <details>
-          <summary>Can you guarantee there are no hidden issues?</summary>
-          <p>No. Hidden or intermittent faults can exist. The report reflects observable condition at the time of inspection.</p>
-        </details>
-        <details>
-          <summary>What does scan tool diagnostics include?</summary>
-          <p>Premium includes reading fault codes where the vehicle supports it. Results are recorded in the report.</p>
-        </details>
-      </div>
-    </section>
-
-    <section id="contact" class="section">
-      <h2>Contact</h2>
-      <p class="muted">Fastest: request a booking time online. Otherwise contact us below.</p>
-
-      <div class="grid3">
-        <div class="card pkg">
-          <h3>Phone</h3>
-          <p class="muted"><a href="tel:+61423636633">0423 636 633</a></p>
-        </div>
-        <div class="card pkg">
-          <h3>Email</h3>
-          <p class="muted"><a href="mailto:truemarkinspect@gmail.com">truemarkinspect@gmail.com</a></p>
-        </div>
-        <div class="card pkg">
-          <h3>Book</h3>
-          <p class="muted">Request a time via the booking form.</p>
-          <a class="btn primary"
-             href="https://docs.google.com/forms/d/e/1FAIpQLSddK492rM1vaaqaTw7wlCd_nE-w9oxoJ8QD9tHvk_7p6ZCjNA/viewform?usp=publish-editor"
-             target="_blank" rel="noopener">
-            Request booking
-          </a>
-        </div>
-      </div>
-
-      <p class="small" style="margin-top:10px;">
-        By booking you agree to the Service Agreement and understand the inspection is non-invasive and visual/operational only.
-        <a href="https://docs.google.com/document/d/12FRhl-GTzvIE_qr2uA9L9o7ZgzRPgdJAdHsME90RxHs/edit?usp=sharing" target="_blank" rel="noopener noreferrer">
-          Read terms
-        </a>.
-      </p>
-    </section>
-
-    <footer class="footer" aria-label="Footer">
-      <div class="divider"></div>
-      <div class="split">
-        <span>© <span id="year"></span> TrueMark Vehicle Inspections</span>
-        <span class="small">ABN: 53 384 207 098</span>
-      </div>
-
-      <!-- ✅ Footer link text exactly as requested -->
-      <div class="small" style="margin-top:8px;">
-        <a
-          href="https://docs.google.com/document/d/12FRhl-GTzvIE_qr2uA9L9o7ZgzRPgdJAdHsME90RxHs/edit?usp=sharing"
-          target="_blank"
-          rel="noopener noreferrer"
-          style="text-decoration:underline;"
-        >
-          Service Agreement &amp; Disclaimer
-        </a>
-      </div>
-
-      <div class="small" style="margin-top:10px;">
-        This inspection is non-invasive and based on observable conditions at the time of inspection. Hidden or intermittent faults may not be detectable.
-        Nothing on this website limits consumer guarantees under the Australian Consumer Law.
-      </div>
-    </footer>
-  </div>
-
-  <script>
-    document.getElementById("year").textContent = new Date().getFullYear();
-  </script>
+<script>
+  document.getElementById("year").textContent = new Date().getFullYear();
+</script>
 </body>
 </html>
