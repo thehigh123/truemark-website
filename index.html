@@ -7,21 +7,32 @@
   <meta name="theme-color" content="#0B1220" />
   <title>TrueMark Vehicle Inspections | Inspect Before You Invest</title>
 
+  <!-- Favicons (upload these files to your repo root) -->
+  <link rel="icon" href="favicon.ico" />
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon-16.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png" />
+
+  <!-- Social preview (optional but helps) -->
+  <meta property="og:title" content="TrueMark Vehicle Inspections | Inspect Before You Invest" />
+  <meta property="og:description" content="Mobile pre-purchase inspections across Sydney. Same-day PDF report with verdict, photos, and negotiation notes." />
+  <meta property="og:type" content="website" />
+
   <style>
     :root{
-      /* TrueMark brand palette (light) */
+      /* White theme + logo-aligned palette */
       --bg:#ffffff;
-      --text:#0B1220;           /* deep navy */
-      --muted:#6B7280;          /* neutral grey */
-      --border:#E5E7EB;         /* light border */
-      --brand:#22C55E;          /* signal green */
-      --brand-dark:#16A34A;     /* green hover */
-      --brand-soft: rgba(34,197,94,.10);
-      --blue-soft: rgba(59,130,246,.10);
+      --bg2:#f6f8fb;
+      --text:#0B1220;        /* deep navy */
+      --muted:#6B7280;       /* slate-ish */
+      --border:#E5E7EB;
+      --brand:#22C55E;       /* signal green */
+      --brand-dark:#16A34A;
+      --navy:#0B1220;
 
       --card:#ffffff;
-      --shadow: 0 14px 40px rgba(11,18,32,.10);
-      --shadow-sm: 0 10px 24px rgba(11,18,32,.08);
+      --shadow: 0 14px 40px rgba(15, 23, 42, 0.10);
+      --shadow2: 0 18px 60px rgba(15, 23, 42, 0.14);
       --radius:18px;
     }
 
@@ -30,238 +41,246 @@
     body{
       margin:0;
       font-family: ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Arial;
-      background: var(--bg);
-      color: var(--text);
-      line-height:1.55;
+      color:var(--text);
+      line-height:1.5;
+      background:
+        radial-gradient(900px 420px at 10% 0%, rgba(34,197,94,.10), transparent 55%),
+        radial-gradient(900px 420px at 90% 10%, rgba(11,18,32,.06), transparent 55%),
+        linear-gradient(180deg, var(--bg2) 0%, var(--bg) 24%, var(--bg) 100%);
     }
+    a{color:var(--brand);text-decoration:none}
+    a:hover{color:var(--brand-dark);text-decoration:underline}
+    img{max-width:100%;height:auto}
 
-    a{color:var(--brand); text-decoration:none}
-    a:hover{color:var(--brand-dark)}
-    .container{max-width:1100px;margin:0 auto;padding:22px}
+    /* Layout */
+    .container{max-width:1120px;margin:0 auto;padding:22px}
 
-    /* NAV */
+    /* Sticky top nav */
+    .navWrap{
+      position:sticky; top:0; z-index:50;
+      backdrop-filter:saturate(160%) blur(10px);
+      background:rgba(255,255,255,.75);
+      border-bottom:1px solid rgba(229,231,235,.75);
+    }
     .nav{
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      padding:12px 0 18px;
-      gap:14px;
-      flex-wrap:wrap;
-      border-bottom: 1px solid var(--border);
-      margin-bottom: 18px;
+      display:flex;align-items:center;justify-content:space-between;
+      padding:14px 0;gap:14px;flex-wrap:wrap;
     }
+
     .brand{
-      display:flex;
-      gap:12px;
-      align-items:center;
-      text-decoration:none;
-      font-weight:900;
-      letter-spacing:.2px;
-      color: var(--text);
+      display:flex;gap:12px;align-items:center;
+      color:var(--text);
+      font-weight:900; letter-spacing:.2px;
     }
+    /* ✅ Logo fix: use logo.png (not logo.png.png) */
     .logoImg{
-      height:44px;
-      width:auto;
-      display:block;
+      height:44px; width:auto; display:block;
+      border-radius:10px;
     }
-    .brandText{
-      display:flex;
-      flex-direction:column;
-      line-height:1.15;
-    }
-    .brandText strong{
-      font-size:16px;
-      color: var(--text);
-    }
-    .brandText span{
-      font-size:12.5px;
-      color: var(--muted);
-      font-weight:700;
-    }
+    .brandText{display:flex;flex-direction:column;gap:2px;line-height:1.1}
+    .brandText strong{font-size:14px}
+    .brandText span{font-size:12px;color:var(--muted);font-weight:700}
 
     .navlinks{display:flex;gap:14px;align-items:center;flex-wrap:wrap}
     .navlinks a{
-      color: var(--muted);
-      text-decoration:none;
+      color:var(--muted);
       font-weight:800;
-      font-size:14px;
-    }
-    .navlinks a:hover{color:var(--text)}
-
-    /* BUTTONS */
-    .btn{
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      padding:12px 16px;
-      border-radius:999px;
-      border:1px solid var(--border);
       text-decoration:none;
-      font-weight:900;
-      transition: transform .12s ease, border-color .12s ease, background .12s ease, color .12s ease;
-      white-space:nowrap;
-      color: var(--text);
-      background: #fff;
+      padding:8px 10px;border-radius:12px;
     }
-    .btn:hover{transform:translateY(-1px);border-color:#d1d5db}
-    .btn.primary{
-      background: var(--brand);
-      color:#fff;
-      border-color: rgba(34,197,94,.45);
-      box-shadow: var(--shadow-sm);
-    }
-    .btn.primary:hover{background: var(--brand-dark); border-color: rgba(22,163,74,.55)}
-    .btn.secondary{
-      background: #fff;
-      color: var(--text);
-    }
-    .btn.secondary:hover{
-      border-color: rgba(34,197,94,.45);
-      color: var(--brand-dark);
-    }
+    .navlinks a:hover{color:var(--text);background:rgba(11,18,32,.05);text-decoration:none}
 
-    /* LAYOUT */
-    .hero{
-      padding: 4px 0 12px;
-      display:grid;
-      grid-template-columns: 1.2fr .8fr;
-      gap:18px;
+    .btn{
+      display:inline-flex;align-items:center;justify-content:center;
+      padding:12px 16px;border-radius:14px;
+      border:1px solid var(--border);
+      text-decoration:none;font-weight:900;
+      transition: transform .14s ease, box-shadow .14s ease, border-color .14s ease, background .14s ease;
+      white-space:nowrap;
+      user-select:none;
     }
+    .btn:hover{transform:translateY(-1px);box-shadow:0 10px 28px rgba(15,23,42,.10)}
+    .btn:active{transform:translateY(0)}
+    .btn.primary{
+      background:linear-gradient(135deg, rgba(34,197,94,.18), rgba(34,197,94,.08));
+      border-color:rgba(34,197,94,.45);
+      color:var(--navy);
+    }
+    .btn.primary:hover{border-color:rgba(34,197,94,.70)}
+    .btn.secondary{
+      background:#fff;
+      color:var(--text);
+    }
+    .btn.secondary:hover{border-color:rgba(11,18,32,.22)}
+    .btn.ghost{
+      background:transparent;
+      border-color:transparent;
+      color:var(--muted);
+    }
+    .btn.ghost:hover{background:rgba(11,18,32,.05);border-color:transparent;color:var(--text);box-shadow:none}
+
+    /* Hero */
+    .hero{padding:22px 0 10px;display:grid;grid-template-columns: 1.15fr .85fr; gap:18px}
     @media(max-width:900px){.hero{grid-template-columns:1fr}}
     .card{
-      background: var(--card);
+      background:var(--card);
       border:1px solid var(--border);
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
+      border-radius:var(--radius);
+      box-shadow:var(--shadow);
     }
-    .heroLeft{padding:28px}
+    .heroLeft{padding:30px}
     .heroRight{padding:22px}
 
-    h1{margin:0 0 10px;font-size:40px;line-height:1.12;letter-spacing:-0.02em}
+    h1{margin:0 0 12px;font-size:42px;line-height:1.08;letter-spacing:-.02em}
     @media(max-width:520px){h1{font-size:34px}}
-    .sub{color:var(--muted);font-size:16px;max-width:60ch}
+    .sub{color:var(--muted);font-size:16px;max-width:62ch}
 
-    .pills{display:flex;flex-wrap:wrap;gap:10px;margin:16px 0 16px}
+    /* ✅ Spacing upgrade for breathing room */
+    .pills{display:flex;flex-wrap:wrap;gap:10px;margin:18px 0 18px}
     .pill{
-      font-weight:900;
-      font-size:13px;
-      color: var(--text);
-      padding:8px 12px;
-      border-radius:999px;
-      border:1px solid var(--border);
-      background: #fff;
+      font-weight:900;font-size:13px;color:rgba(11,18,32,.92);
+      padding:9px 11px;border-radius:999px;border:1px solid var(--border);
+      background:rgba(255,255,255,.9);
     }
 
-    .ctaRow{display:flex;gap:12px;flex-wrap:wrap;margin-top:16px}
-
-    .trust{
-      display:grid;
-      grid-template-columns:repeat(2,1fr);
-      gap:10px;
-      margin-top:16px
-    }
+    .ctaRow{display:flex;gap:12px;flex-wrap:wrap;margin-top:18px}
+    .trust{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-top:18px}
     @media(max-width:520px){.trust{grid-template-columns:1fr}}
     .trustItem{
-      padding:12px;
-      border-radius:14px;
-      border:1px solid var(--border);
-      background: #fff;
-      color: var(--muted);
-      font-weight:900;
-      font-size:14px;
+      padding:12px 12px;border-radius:14px;border:1px solid var(--border);
+      background: rgba(11,18,32,.03);
+      color:var(--muted);font-weight:850;font-size:14px;
     }
 
-    .section{padding:18px 0}
-    .section h2{margin:0 0 10px;font-size:26px;letter-spacing:-0.01em}
-    .muted{color:var(--muted)}
+    .callout{
+      padding:14px;border-radius:14px;
+      border:1px solid rgba(34,197,94,.35);
+      background:rgba(34,197,94,.10);
+      color:rgba(11,18,32,.92);
+      font-weight:850;
+    }
+
+    /* Sections */
+    .section{padding:22px 0}
+    .section h2{margin:0 0 10px;font-size:28px;letter-spacing:-.01em}
+    .muted{color:var(--muted);font-weight:700}
 
     .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
     @media(max-width:900px){.grid3{grid-template-columns:1fr}}
-    .pkg{padding:18px}
+
+    /* ✅ Hover upgrade for cards */
+    .pkg, .step{
+      padding:18px;
+      transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
+    }
+    .pkg:hover, .step:hover{
+      transform: translateY(-3px);
+      box-shadow: var(--shadow2);
+      border-color: rgba(34,197,94,.30);
+    }
+
     .pkg h3{margin:0 0 6px;font-size:18px}
-    .price{font-size:28px;font-weight:1000;margin:8px 0 8px;letter-spacing:-0.02em}
+    .price{font-size:28px;font-weight:1000;margin:10px 0 8px}
     .pkg ul{margin:10px 0 0;padding-left:18px;color:var(--muted);font-weight:800}
+    .pkg li{margin:6px 0}
+
     .badge{
-      display:inline-block;
-      margin-left:8px;
-      font-size:12px;
-      font-weight:1000;
-      color:#0b1220;
-      background: rgba(34,197,94,.22);
-      padding:4px 10px;
-      border-radius:999px;
-      border: 1px solid rgba(34,197,94,.35);
+      display:inline-block;margin-left:8px;
+      font-size:12px;font-weight:1000;
+      color:#06121b;background:rgba(34,197,94,.9);
+      padding:4px 8px;border-radius:999px;
     }
 
     .how{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
     @media(max-width:900px){.how{grid-template-columns:1fr}}
-    .step{padding:16px}
     .num{
       width:36px;height:36px;border-radius:12px;
       display:flex;align-items:center;justify-content:center;
-      background: var(--blue-soft);
-      border:1px solid var(--border);
+      background:rgba(34,197,94,.12);
+      border:1px solid rgba(34,197,94,.35);
       font-weight:1000;
-      color: var(--text);
-      margin-bottom: 8px;
+      color:var(--navy);
+      margin-bottom:10px;
     }
 
     .faq{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
     @media(max-width:900px){.faq{grid-template-columns:1fr}}
     details{
-      padding:14px;
-      border-radius:14px;
+      padding:14px;border-radius:14px;
       border:1px solid var(--border);
-      background:#fff;
-      box-shadow: 0 10px 22px rgba(11,18,32,.06);
+      background:rgba(255,255,255,.9);
+      box-shadow:0 6px 18px rgba(15,23,42,.06);
     }
-    summary{cursor:pointer;font-weight:1000;color:var(--text)}
+    summary{cursor:pointer;font-weight:1000}
     details p{color:var(--muted);margin:10px 0 0;font-weight:800}
 
+    /* Footer */
     .footer{
+      margin-top:6px;
       padding:22px 0 30px;
       color:var(--muted);
       font-size:14px;
-      border-top: 1px solid var(--border);
-      margin-top: 10px;
+      background:transparent;
     }
     .split{display:flex;gap:10px;flex-wrap:wrap;align-items:center;justify-content:space-between}
     .small{font-size:12px;color:rgba(107,114,128,.95);font-weight:700}
-    .divider{height:1px;background:var(--border);margin:14px 0}
+    .divider{height:1px;background:rgba(229,231,235,.95);margin:14px 0}
 
-    .callout{
-      padding:14px;
-      border-radius:14px;
-      border:1px solid rgba(34,197,94,.35);
-      background: var(--brand-soft);
-      color: var(--text);
-      font-weight:900;
+    /* Better focus (accessibility) */
+    a:focus-visible, button:focus-visible{
+      outline:3px solid rgba(34,197,94,.45);
+      outline-offset:2px;
+      border-radius:12px;
     }
   </style>
+
+  <!-- LocalBusiness schema (helps Google) -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"LocalBusiness",
+    "name":"TrueMark Vehicle Inspections",
+    "areaServed":"Sydney NSW",
+    "telephone":"+61423636633",
+    "email":"truemarkinspect@gmail.com",
+    "slogan":"Inspect Before You Invest",
+    "url":"https://thehigh123.github.io/truemark-website/"
+  }
+  </script>
 </head>
 
 <body>
+  <div class="navWrap">
+    <div class="container">
+      <header class="nav" id="top">
+        <a class="brand" href="#top" aria-label="TrueMark Vehicle Inspections">
+          <!-- ✅ Put logo.png in repo root (transparent PNG recommended) -->
+          <img class="logoImg" src="logo.png" alt="TrueMark Vehicle Inspections logo" onerror="this.style.display='none';" />
+          <span class="brandText">
+            <strong>TrueMark Vehicle Inspections</strong>
+            <span>Inspect Before You Invest.</span>
+          </span>
+        </a>
+
+        <nav class="navlinks" aria-label="Primary navigation">
+          <a href="#packages">Packages</a>
+          <a href="#how">How it works</a>
+          <a href="#faq">FAQ</a>
+          <a class="btn ghost" href="#contact">Contact</a>
+
+          <!-- Booking form link (keep this until you swap to Stripe deposit link) -->
+          <a class="btn primary"
+             href="https://docs.google.com/forms/d/e/1FAIpQLSddK492rM1vaaqaTw7wlCd_nE-w9oxoJ8QD9tHvk_7p6ZCjNA/viewform?usp=publish-editor"
+             target="_blank" rel="noopener">
+            Book now
+          </a>
+        </nav>
+      </header>
+    </div>
+  </div>
+
   <div class="container">
-    <header class="nav">
-      <a class="brand" href="#top" aria-label="TrueMark Vehicle Inspections">
-        <!-- Upload logo.png.png to your repo root -->
-        <img class="logoImg" src="logo.png.png" alt="TrueMark Vehicle Inspections logo" onerror="this.style.display='none';" />
-        <span class="brandText">
-          <strong>TrueMark Vehicle Inspections</strong>
-          <span>Inspect Before You Invest.</span>
-        </span>
-      </a>
-
-      <nav class="navlinks" aria-label="Primary navigation">
-        <a href="#packages">Packages</a>
-        <a href="#how">How it works</a>
-        <a href="#faq">FAQ</a>
-        <a class="btn secondary" href="#contact">Contact</a>
-        <a class="btn primary" href="https://docs.google.com/forms/d/e/1FAIpQLSddK492rM1vaaqaTw7wlCd_nE-w9oxoJ8QD9tHvk_7p6ZCjNA/viewform?usp=publish-editor" target="_blank" rel="noopener">Book now</a>
-      </nav>
-    </header>
-
-    <main id="top" class="hero">
+    <main class="hero" aria-label="Hero">
       <section class="card heroLeft">
         <h1>Mobile pre-purchase vehicle inspections<br/>Eastern Suburbs Sydney</h1>
         <p class="sub">
@@ -269,7 +288,7 @@
           photo evidence, and negotiation notes — delivered same day in most cases.
         </p>
 
-        <div class="pills" role="list">
+        <div class="pills" role="list" aria-label="Highlights">
           <span class="pill" role="listitem">Non-invasive visual + operational</span>
           <span class="pill" role="listitem">Road test where permitted</span>
           <span class="pill" role="listitem">Same-day PDF report</span>
@@ -278,7 +297,11 @@
         </div>
 
         <div class="ctaRow">
-          <a class="btn primary" href="https://docs.google.com/forms/d/e/1FAIpQLSddK492rM1vaaqaTw7wlCd_nE-w9oxoJ8QD9tHvk_7p6ZCjNA/viewform?usp=publish-editor" target="_blank" rel="noopener">Request a booking time</a>
+          <a class="btn primary"
+             href="https://docs.google.com/forms/d/e/1FAIpQLSddK492rM1vaaqaTw7wlCd_nE-w9oxoJ8QD9tHvk_7p6ZCjNA/viewform?usp=publish-editor"
+             target="_blank" rel="noopener">
+            Request a booking time
+          </a>
           <a class="btn secondary" href="#packages">View packages</a>
           <a class="btn secondary" href="#faq">Read FAQ</a>
         </div>
@@ -291,7 +314,7 @@
         </div>
       </section>
 
-      <aside class="card heroRight">
+      <aside class="card heroRight" aria-label="Quick info">
         <div class="callout">
           <strong>Fast, clean process.</strong><br/>
           Request a booking time, we confirm, then you receive a PDF report with photos and verdict.
@@ -306,6 +329,11 @@
 
         <p class="small">
           <strong>Pricing:</strong> Essential $279 · Standard $349 · Premium $449
+        </p>
+
+        <p class="small">
+          <strong>Phone:</strong> <a href="tel:+61423636633">0423 636 633</a><br/>
+          <strong>Email:</strong> <a href="mailto:truemarkinspect@gmail.com">truemarkinspect@gmail.com</a>
         </p>
 
         <p class="small">
@@ -331,7 +359,11 @@
             <li>Same-day PDF report (typical)</li>
           </ul>
           <div class="ctaRow">
-            <a class="btn primary" href="https://docs.google.com/forms/d/e/1FAIpQLSddK492rM1vaaqaTw7wlCd_nE-w9oxoJ8QD9tHvk_7p6ZCjNA/viewform?usp=publish-editor" target="_blank" rel="noopener">Select Essential</a>
+            <a class="btn primary"
+               href="https://docs.google.com/forms/d/e/1FAIpQLSddK492rM1vaaqaTw7wlCd_nE-w9oxoJ8QD9tHvk_7p6ZCjNA/viewform?usp=publish-editor"
+               target="_blank" rel="noopener">
+              Select Essential
+            </a>
           </div>
         </div>
 
@@ -346,7 +378,11 @@
             <li>Priority report formatting</li>
           </ul>
           <div class="ctaRow">
-            <a class="btn primary" href="https://docs.google.com/forms/d/e/1FAIpQLSddK492rM1vaaqaTw7wlCd_nE-w9oxoJ8QD9tHvk_7p6ZCjNA/viewform?usp=publish-editor" target="_blank" rel="noopener">Select Standard</a>
+            <a class="btn primary"
+               href="https://docs.google.com/forms/d/e/1FAIpQLSddK492rM1vaaqaTw7wlCd_nE-w9oxoJ8QD9tHvk_7p6ZCjNA/viewform?usp=publish-editor"
+               target="_blank" rel="noopener">
+              Select Standard
+            </a>
           </div>
         </div>
 
@@ -361,7 +397,11 @@
             <li>Optional follow-up call</li>
           </ul>
           <div class="ctaRow">
-            <a class="btn primary" href="https://docs.google.com/forms/d/e/1FAIpQLSddK492rM1vaaqaTw7wlCd_nE-w9oxoJ8QD9tHvk_7p6ZCjNA/viewform?usp=publish-editor" target="_blank" rel="noopener">Select Premium</a>
+            <a class="btn primary"
+               href="https://docs.google.com/forms/d/e/1FAIpQLSddK492rM1vaaqaTw7wlCd_nE-w9oxoJ8QD9tHvk_7p6ZCjNA/viewform?usp=publish-editor"
+               target="_blank" rel="noopener">
+              Select Premium
+            </a>
           </div>
         </div>
       </div>
@@ -377,7 +417,7 @@
         <div class="card step">
           <div class="num">1</div>
           <h3>Request a time</h3>
-          <p class="muted">Submit your details + vehicle listing. I’ll confirm availability.</p>
+          <p class="muted">Submit your details + vehicle listing. We confirm availability.</p>
         </div>
         <div class="card step">
           <div class="num">2</div>
@@ -416,7 +456,7 @@
 
     <section id="contact" class="section">
       <h2>Contact</h2>
-      <p class="muted">Fastest: request a booking time online. Otherwise contact me below.</p>
+      <p class="muted">Fastest: request a booking time online. Otherwise contact us below.</p>
 
       <div class="grid3">
         <div class="card pkg">
@@ -430,24 +470,31 @@
         <div class="card pkg">
           <h3>Book</h3>
           <p class="muted">Request a time via the booking form.</p>
-          <a class="btn primary" href="https://docs.google.com/forms/d/e/1FAIpQLSddK492rM1vaaqaTw7wlCd_nE-w9oxoJ8QD9tHvk_7p6ZCjNA/viewform?usp=publish-editor" target="_blank" rel="noopener">Request booking</a>
+          <a class="btn primary"
+             href="https://docs.google.com/forms/d/e/1FAIpQLSddK492rM1vaaqaTw7wlCd_nE-w9oxoJ8QD9tHvk_7p6ZCjNA/viewform?usp=publish-editor"
+             target="_blank" rel="noopener">
+            Request booking
+          </a>
         </div>
       </div>
 
       <p class="small" style="margin-top:10px;">
         By booking you agree to the Service Agreement and understand the inspection is non-invasive and visual/operational only.
-        <a href="https://docs.google.com/document/d/12FRhl-GTzvIE_qr2uA9L9o7ZgzRPgdJAdHsME90RxHs/edit?usp=sharing" target="_blank" rel="noopener noreferrer"> Read terms</a>.
+        <a href="https://docs.google.com/document/d/12FRhl-GTzvIE_qr2uA9L9o7ZgzRPgdJAdHsME90RxHs/edit?usp=sharing" target="_blank" rel="noopener noreferrer">
+          Read terms
+        </a>.
       </p>
     </section>
 
-    <footer class="footer">
+    <footer class="footer" aria-label="Footer">
       <div class="divider"></div>
       <div class="split">
         <span>© <span id="year"></span> TrueMark Vehicle Inspections</span>
         <span class="small">ABN: 53 384 207 098</span>
       </div>
 
-      <div class="small" style="margin-top:6px;">
+      <!-- ✅ Footer link text exactly as requested -->
+      <div class="small" style="margin-top:8px;">
         <a
           href="https://docs.google.com/document/d/12FRhl-GTzvIE_qr2uA9L9o7ZgzRPgdJAdHsME90RxHs/edit?usp=sharing"
           target="_blank"
@@ -458,7 +505,7 @@
         </a>
       </div>
 
-      <div class="small" style="margin-top:8px;">
+      <div class="small" style="margin-top:10px;">
         This inspection is non-invasive and based on observable conditions at the time of inspection. Hidden or intermittent faults may not be detectable.
         Nothing on this website limits consumer guarantees under the Australian Consumer Law.
       </div>
