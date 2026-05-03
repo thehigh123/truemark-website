@@ -671,17 +671,48 @@ select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/
     const bodyEnc = encodeURIComponent(body);
 
     submitBtn.disabled = true;
-    submitBtn.textContent = 'Sending...';
+    submitBtn.textContent = 'Sending…';
 
-    // Open mailto — works as placeholder; swap for fetch(Formspree/Stripe) later
-    window.location.href = 'mailto:truemarkinspect@gmail.com?subject=' + subject + '&body=' + bodyEnc;
-
-    // Show success card after brief delay
-    setTimeout(function(){
-      form.style.display = 'none';
-      successCard.classList.add('show');
-      window.scrollTo({top:0,behavior:'smooth'});
-    }, 800);
+    fetch('https://formspree.io/f/xrejekrp', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+      body: JSON.stringify({
+        _subject: 'Booking: ' + val('carYear') + ' ' + val('carMake') + ' ' + val('carModel') + ' (' + pkg + ')',
+        name: name,
+        phone: phone,
+        email: email,
+        booking_for: buyerSel ? buyerSel.value : '',
+        package: pkg,
+        attend_inspection: attend || 'N/A',
+        seller_access: sellerAccess || 'N/A',
+        listing_url: url,
+        car_make: val('carMake'),
+        car_model: val('carModel'),
+        car_year: val('carYear'),
+        asking_price: val('askingPrice') || 'Not provided',
+        suburb: val('suburb'),
+        concerns: val('concerns') || 'None',
+        preferred_times: dates,
+        how_heard: val('referral') || 'Not provided'
+      })
+    })
+    .then(function(res){ return res.json().then(function(d){ return {ok: res.ok, data: d}; }); })
+    .then(function(result){
+      if(result.ok){
+        form.style.display = 'none';
+        successCard.classList.add('show');
+        window.scrollTo({top: 0, behavior: 'smooth'});
+      } else {
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Send booking request →';
+        alert('Something went wrong. Please try again or call us on 0423 636 633.');
+      }
+    })
+    .catch(function(){
+      submitBtn.disabled = false;
+      submitBtn.textContent = 'Send booking request →';
+      alert('Could not connect. Please check your internet and try again, or call us on 0423 636 633.');
+    });
   });
 
 })();
