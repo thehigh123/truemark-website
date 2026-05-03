@@ -1,0 +1,691 @@
+<!doctype html>
+<html lang="en-AU">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<meta name="description" content="Book a pre-purchase vehicle inspection with TrueMark. Standard $249 or Premium $349. Mobile inspections across Sydney's Eastern Suburbs." />
+<meta name="robots" content="noindex" />
+<title>Book an Inspection &mdash; TrueMark Vehicle Inspections</title>
+<link rel="icon" href="favicon.ico" />
+<link rel="apple-touch-icon" href="apple-touch-icon.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700;900&family=DM+Serif+Display&display=swap" rel="stylesheet" />
+<style>
+:root{
+  --bg:#ffffff; --surface:#f7faf8; --card:#ffffff; --text:#0B1220; --muted:#667085;
+  --border:#E6EAE7; --brand:#1E9B57; --brand-dark:#157A43; --brand-soft:rgba(30,155,87,.10);
+  --shadow:0 14px 40px rgba(11,18,32,.10); --shadow-strong:0 18px 48px rgba(11,18,32,.16);
+  --radius:18px; --max:740px; --focus:0 0 0 3px rgba(30,155,87,.25);
+  --font-body:'DM Sans',ui-sans-serif,system-ui,sans-serif;
+  --font-display:'DM Serif Display',Georgia,serif;
+  --err:#dc2626; --err-soft:rgba(220,38,38,.08);
+}
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+  margin:0; font-family:var(--font-body); color:var(--text); line-height:1.55;
+  background:radial-gradient(900px 500px at 10% 0%,rgba(30,155,87,.09),transparent 60%),var(--bg);
+  min-height:100vh;
+}
+a{color:var(--brand);text-decoration:none;}
+a:hover{color:var(--brand-dark);text-decoration:underline;}
+
+/* Nav */
+.navWrap{
+  position:sticky; top:0; z-index:80;
+  background:rgba(255,255,255,.90); backdrop-filter:blur(12px);
+  border-bottom:1px solid rgba(230,234,231,.9);
+}
+.nav{
+  display:flex; align-items:center; justify-content:space-between;
+  padding:12px 22px; max-width:1140px; margin:0 auto; gap:14px;
+}
+.brand{display:flex;align-items:center;gap:12px;text-decoration:none;}
+.logoImg{height:46px;width:auto;display:inline-block;object-fit:contain;flex-shrink:0;}
+.brandText{display:flex;flex-direction:column;line-height:1.1;}
+.brandText strong{font-weight:900;color:var(--text);font-family:var(--font-body);font-size:15px;}
+.brandText span{font-size:11px;font-weight:700;color:var(--muted);margin-top:2px;}
+.navBack{
+  display:inline-flex;align-items:center;gap:6px;
+  color:var(--muted);font-weight:700;font-size:14px;text-decoration:none;
+  padding:8px 12px;border-radius:12px;border:1px solid var(--border);
+  background:rgba(255,255,255,.7);transition:background .12s,color .12s;
+}
+.navBack:hover{background:#fff;color:var(--text);text-decoration:none;}
+
+/* Page layout */
+.page{max-width:var(--max);margin:0 auto;padding:28px 22px 80px;}
+
+.pageHead{margin-bottom:28px;}
+.pageHead h1{font-family:var(--font-display);font-weight:400;font-size:36px;margin:0 0 8px;letter-spacing:-.3px;}
+.pageHead p{color:var(--muted);font-size:16px;font-weight:500;margin:0;}
+
+@media(max-width:520px){
+  .pageHead h1{font-size:28px;}
+  .page{padding:20px 16px 100px;}
+  .nav{padding:10px 16px;}
+}
+
+/* Form card */
+.formCard{
+  background:var(--card); border:1px solid var(--border);
+  border-radius:var(--radius); box-shadow:var(--shadow); padding:32px;
+}
+@media(max-width:520px){.formCard{padding:20px 16px;}}
+
+/* Section labels inside form */
+.formSection{margin-bottom:28px;}
+.formSection:last-of-type{margin-bottom:0;}
+.sectionLabel{
+  font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:.8px;
+  color:var(--muted); margin:0 0 14px; padding-bottom:10px;
+  border-bottom:1px solid var(--border);
+}
+
+/* Field */
+.field{margin-bottom:16px;}
+.field label{
+  display:block; font-size:14px; font-weight:700; margin-bottom:5px; color:var(--text);
+}
+.field label .req{color:var(--brand);margin-left:2px;}
+.field .hint{font-size:12.5px;color:var(--muted);font-weight:500;margin-top:4px;}
+
+input[type=text],input[type=email],input[type=tel],input[type=url],input[type=date],
+input[type=number],select,textarea{
+  width:100%; padding:11px 14px; border:1.5px solid var(--border);
+  border-radius:12px; font-family:var(--font-body); font-size:15px; color:var(--text);
+  background:#fff; outline:none; transition:border-color .15s, box-shadow .15s;
+  -webkit-appearance:none; appearance:none;
+}
+input[type=text]:focus,input[type=email]:focus,input[type=tel]:focus,
+input[type=url]:focus,input[type=date]:focus,input[type=number]:focus,
+select:focus,textarea:focus{
+  border-color:var(--brand); box-shadow:var(--focus);
+}
+input.invalid,select.invalid,textarea.invalid{
+  border-color:var(--err); box-shadow:0 0 0 3px rgba(220,38,38,.15);
+}
+textarea{resize:vertical;min-height:90px;}
+select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23667085' stroke-width='2'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 12px center;padding-right:38px;}
+
+.fieldError{font-size:12.5px;color:var(--err);font-weight:600;margin-top:4px;display:none;}
+.fieldError.show{display:block;}
+
+/* Grid for 2 cols */
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:0 14px;}
+@media(max-width:560px){.grid2{grid-template-columns:1fr;}}
+
+/* Package cards */
+.pkgGrid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:4px;}
+@media(max-width:480px){.pkgGrid{grid-template-columns:1fr;}}
+
+.pkgOption{position:relative;}
+.pkgOption input[type=radio]{
+  position:absolute; opacity:0; width:0; height:0;
+}
+.pkgLabel{
+  display:block; padding:16px; border:2px solid var(--border); border-radius:16px;
+  cursor:pointer; transition:border-color .15s, background .15s, box-shadow .15s;
+  background:#fff; height:100%;
+}
+.pkgOption input:checked + .pkgLabel{
+  border-color:var(--brand);
+  background:rgba(30,155,87,.05);
+  box-shadow:0 0 0 3px rgba(30,155,87,.14);
+}
+.pkgLabel:hover{border-color:rgba(30,155,87,.45);}
+.pkgPrice{font-size:28px;font-weight:900;font-family:var(--font-display);letter-spacing:-1px;margin:4px 0 2px;}
+.pkgName{font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:.6px;color:var(--muted);}
+.pkgDesc{font-size:13px;color:var(--muted);font-weight:500;margin-top:6px;line-height:1.45;}
+.pkgBadge{
+  display:inline-block;font-size:10px;font-weight:700;color:#fff;
+  background:var(--brand);padding:2px 7px;border-radius:999px;margin-left:6px;
+  vertical-align:middle;letter-spacing:.3px;
+}
+.pkgError{font-size:12.5px;color:var(--err);font-weight:600;margin-top:6px;display:none;}
+.pkgError.show{display:block;}
+
+/* Premium conditional section */
+.premiumBlock{
+  margin-top:4px; padding:16px; border-radius:14px;
+  border:1px solid rgba(30,155,87,.28);
+  background:rgba(30,155,87,.05);
+  display:none;
+}
+.premiumBlock.show{display:block;}
+.premiumBlock .premiumTitle{
+  font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.7px;
+  color:var(--brand);margin:0 0 14px;
+}
+
+/* Radio / checkbox group */
+.radioGroup,.checkGroup{display:flex;flex-wrap:wrap;gap:8px;margin-top:4px;}
+.radioGroup label,.checkGroup label{
+  display:flex;align-items:center;gap:7px;padding:9px 14px;
+  border:1.5px solid var(--border);border-radius:12px;cursor:pointer;
+  font-size:14px;font-weight:600;background:#fff;
+  transition:border-color .12s,background .12s;
+}
+.radioGroup label:hover,.checkGroup label:hover{border-color:rgba(30,155,87,.4);}
+.radioGroup input,.checkGroup input{accent-color:var(--brand);}
+.radioGroup label:has(input:checked),.checkGroup label:has(input:checked){
+  border-color:var(--brand);background:rgba(30,155,87,.06);
+}
+
+/* Date/time rows */
+.dateRow{
+  display:grid;grid-template-columns:1fr 1fr;gap:10px;
+  margin-bottom:10px;align-items:start;
+}
+@media(max-width:480px){.dateRow{grid-template-columns:1fr;}}
+.dateRowNum{
+  font-size:11px;font-weight:700;color:var(--muted);text-transform:uppercase;
+  letter-spacing:.5px;margin-bottom:3px;
+}
+
+/* Info box */
+.infoBox{
+  padding:14px 16px;border-radius:14px;
+  border:1px solid rgba(30,155,87,.28);
+  background:var(--brand-soft);
+  font-size:13.5px;font-weight:600;color:rgba(11,18,32,.85);
+  margin-bottom:20px;line-height:1.5;
+}
+.infoBox strong{color:var(--brand);}
+
+/* Submit */
+.submitWrap{margin-top:24px;}
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;
+  padding:14px 24px;border-radius:14px;border:1px solid transparent;
+  text-decoration:none;font-weight:700;font-family:var(--font-body);font-size:16px;
+  transition:transform .12s,box-shadow .12s,background .12s;
+  white-space:nowrap;cursor:pointer;user-select:none;gap:6px;
+}
+.btn.stripe{
+  background:linear-gradient(135deg,#1E9B57,#157A43);
+  color:#fff;width:100%;
+}
+.btn.stripe:hover{
+  background:linear-gradient(135deg,#157A43,#0f6235);
+  transform:translateY(-1px);
+  box-shadow:0 10px 28px rgba(30,155,87,.30);
+}
+.btn.stripe:disabled{opacity:.6;cursor:not-allowed;transform:none;box-shadow:none;}
+
+.submitNote{
+  text-align:center;font-size:12.5px;color:var(--muted);
+  font-weight:500;margin-top:10px;
+}
+
+/* Success state */
+.successCard{
+  display:none;text-align:center;padding:48px 32px;
+  background:var(--card);border:1px solid var(--border);
+  border-radius:var(--radius);box-shadow:var(--shadow);
+}
+.successCard.show{display:block;}
+.successIcon{font-size:56px;margin-bottom:16px;}
+.successCard h2{
+  font-family:var(--font-display);font-weight:400;font-size:28px;
+  margin:0 0 10px;
+}
+.successCard p{color:var(--muted);font-size:15px;font-weight:500;max-width:420px;margin:0 auto 20px;}
+.successCard a{
+  display:inline-flex;align-items:center;gap:6px;padding:11px 20px;
+  border-radius:12px;border:1px solid var(--border);
+  font-weight:700;font-size:14px;color:var(--text);text-decoration:none;
+}
+.successCard a:hover{background:#f5f5f5;text-decoration:none;}
+
+/* Divider */
+.divider{height:1px;background:rgba(11,18,32,.08);margin:24px 0;}
+</style>
+</head>
+<body>
+
+<div class="navWrap">
+  <header class="nav">
+    <a class="brand" href="/" aria-label="TrueMark Vehicle Inspections">
+      <img class="logoImg" src="logo.png" alt="TrueMark logo"
+        onerror="this.onerror=null;this.src='https://truemarkinspections.com.au/logo.png';" />
+      <span class="brandText">
+        <strong>TrueMark Vehicle Inspections</strong>
+        <span>Inspect Before You Invest.</span>
+      </span>
+    </a>
+    <a class="navBack" href="/">&larr; Back to home</a>
+  </header>
+</div>
+
+<div class="page">
+
+  <div class="pageHead">
+    <h1>Request a Booking</h1>
+    <p>Fill in the details below and we&rsquo;ll confirm your inspection time. Takes about 2 minutes.</p>
+  </div>
+
+  <!-- Success state (hidden until submit) -->
+  <div class="successCard" id="successCard" role="alert" aria-live="polite">
+    <div class="successIcon">&#10003;</div>
+    <h2>Request received!</h2>
+    <p>Thanks &mdash; we&rsquo;ll review your details and confirm your booking time by phone or email, usually within a few hours.</p>
+    <p style="margin-bottom:28px;">Keep an eye on your inbox and phone. If you need to change anything, just call us on <a href="tel:+61423636633" style="border:none;padding:0;font-size:inherit;">0423 636 633</a>.</p>
+    <a href="/">&larr; Back to home</a>
+  </div>
+
+  <!-- Booking form -->
+  <form class="formCard" id="bookingForm" novalidate>
+
+    <div class="infoBox">
+      <strong>No payment needed here.</strong> We&rsquo;ll confirm your booking first &mdash; the $50 deposit is collected separately once everything is locked in.
+    </div>
+
+    <!-- SECTION 1: Your details -->
+    <div class="formSection">
+      <p class="sectionLabel">1 &mdash; Your details</p>
+
+      <div class="field">
+        <label for="fullName">Full name <span class="req">*</span></label>
+        <input type="text" id="fullName" name="fullName" autocomplete="name" placeholder="e.g. Sarah Chen" required />
+        <div class="fieldError" id="err-fullName">Please enter your full name.</div>
+      </div>
+
+      <div class="grid2">
+        <div class="field">
+          <label for="phone">Phone number <span class="req">*</span></label>
+          <input type="tel" id="phone" name="phone" autocomplete="tel" placeholder="e.g. 0412 345 678" required />
+          <div class="fieldError" id="err-phone">Please enter a valid phone number.</div>
+        </div>
+        <div class="field">
+          <label for="email">Email address <span class="req">*</span></label>
+          <input type="email" id="email" name="email" autocomplete="email" placeholder="you@example.com" required />
+          <div class="fieldError" id="err-email">Please enter a valid email address.</div>
+        </div>
+      </div>
+
+      <div class="field">
+        <label>Are you the buyer, or booking on behalf of someone else? <span class="req">*</span></label>
+        <div class="radioGroup" id="buyerGroup">
+          <label><input type="radio" name="buyer" value="I am the buyer" required /> I&rsquo;m the buyer</label>
+          <label><input type="radio" name="buyer" value="Booking on behalf of someone else" /> Booking for someone else</label>
+        </div>
+        <div class="fieldError" id="err-buyer">Please select an option.</div>
+      </div>
+    </div>
+
+    <!-- SECTION 2: Package -->
+    <div class="formSection">
+      <p class="sectionLabel">2 &mdash; Package</p>
+
+      <div class="field">
+        <div class="pkgGrid" id="pkgGrid">
+          <div class="pkgOption">
+            <input type="radio" name="package" id="pkg-standard" value="Standard - $249" required />
+            <label class="pkgLabel" for="pkg-standard">
+              <div class="pkgName">Standard</div>
+              <div class="pkgPrice">$249</div>
+              <div class="pkgDesc">Everyday passenger cars under $30k. Full visual &amp; operational check, road test, verdict, photo report, phone walkthrough.</div>
+            </label>
+          </div>
+          <div class="pkgOption">
+            <input type="radio" name="package" id="pkg-premium" value="Premium - $349" required />
+            <label class="pkgLabel" for="pkg-premium">
+              <div class="pkgName">Premium <span class="pkgBadge">Recommended</span></div>
+              <div class="pkgPrice">$349</div>
+              <div class="pkgDesc">4WDs, utes, SUVs, prestige &amp; vehicles over $30k. Everything in Standard plus scan tool diagnostics, PPSR check &amp; option to attend.</div>
+            </label>
+          </div>
+        </div>
+        <div class="pkgError" id="err-package">Please select a package.</div>
+        <div class="hint" style="margin-top:8px;">Not sure? If the car is a 4WD, ute, SUV, prestige brand, or over $30k &mdash; choose Premium.</div>
+      </div>
+
+      <!-- Premium-only questions -->
+      <div class="premiumBlock" id="premiumBlock">
+        <p class="premiumTitle">&#10003; Premium extras &mdash; a couple more questions</p>
+
+        <div class="field">
+          <label>Do you want to attend the inspection?</label>
+          <div class="radioGroup">
+            <label><input type="radio" name="attend" value="Yes" /> Yes</label>
+            <label><input type="radio" name="attend" value="No" /> No</label>
+            <label><input type="radio" name="attend" value="Unsure" checked /> Unsure</label>
+          </div>
+          <div class="hint">Attendance is included in Premium where access is permitted.</div>
+        </div>
+
+        <div class="field" style="margin-bottom:0;">
+          <label>Has the seller confirmed they&rsquo;re available for an inspection?</label>
+          <div class="radioGroup">
+            <label><input type="radio" name="sellerAccess" value="Yes - seller confirmed" /> Yes, confirmed</label>
+            <label><input type="radio" name="sellerAccess" value="Not yet - TrueMark to coordinate" checked /> Not yet &mdash; you can coordinate</label>
+            <label><input type="radio" name="sellerAccess" value="Unsure" /> Unsure</label>
+          </div>
+          <div class="hint">We can contact the seller directly to arrange access &mdash; just give us the listing link below.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SECTION 3: The car -->
+    <div class="formSection">
+      <p class="sectionLabel">3 &mdash; The car</p>
+
+      <div class="field">
+        <label for="listingUrl">Car listing URL <span class="req">*</span></label>
+        <input type="url" id="listingUrl" name="listingUrl" placeholder="https://www.carsales.com.au/cars/details/..." required />
+        <div class="hint">Paste the link to the ad (Carsales, Facebook Marketplace, Gumtree, dealer site, etc.).</div>
+        <div class="fieldError" id="err-listingUrl">Please paste the listing URL.</div>
+      </div>
+
+      <div class="grid2">
+        <div class="field">
+          <label for="carMake">Make <span class="req">*</span></label>
+          <input type="text" id="carMake" name="carMake" placeholder="e.g. Toyota" required />
+          <div class="fieldError" id="err-carMake">Required.</div>
+        </div>
+        <div class="field">
+          <label for="carModel">Model <span class="req">*</span></label>
+          <input type="text" id="carModel" name="carModel" placeholder="e.g. Hilux SR5" required />
+          <div class="fieldError" id="err-carModel">Required.</div>
+        </div>
+      </div>
+
+      <div class="grid2">
+        <div class="field">
+          <label for="carYear">Year <span class="req">*</span></label>
+          <input type="number" id="carYear" name="carYear" placeholder="e.g. 2019" min="1980" max="2026" required />
+          <div class="fieldError" id="err-carYear">Please enter the year.</div>
+        </div>
+        <div class="field">
+          <label for="askingPrice">Asking price (approx.)</label>
+          <input type="text" id="askingPrice" name="askingPrice" placeholder="e.g. $28,500" />
+        </div>
+      </div>
+
+      <div class="field">
+        <label for="suburb">Suburb where the car is located <span class="req">*</span></label>
+        <input type="text" id="suburb" name="suburb" placeholder="e.g. Bondi, Randwick, Parramatta" required />
+        <div class="hint">We cover Eastern Suburbs as standard. Metro Sydney available by quote.</div>
+        <div class="fieldError" id="err-suburb">Please enter the suburb.</div>
+      </div>
+
+      <div class="field">
+        <label for="concerns">Any specific concerns about the car?</label>
+        <textarea id="concerns" name="concerns" placeholder="e.g. &quot;Owner says it had a minor accident&quot; or &quot;Please check the gearbox&quot; &mdash; leave blank if none."></textarea>
+        <div class="hint">This helps us know what to look out for before we arrive.</div>
+      </div>
+    </div>
+
+    <!-- SECTION 4: Timing -->
+    <div class="formSection">
+      <p class="sectionLabel">4 &mdash; Preferred inspection times</p>
+
+      <p style="font-size:14px;color:var(--muted);font-weight:500;margin:0 0 14px;">Give us 2&ndash;3 options and we&rsquo;ll confirm the one that works best.</p>
+
+      <div class="dateRow">
+        <div>
+          <div class="dateRowNum">Option 1 <span style="color:var(--err);">*</span></div>
+          <input type="date" id="date1" name="date1" required />
+          <div class="fieldError" id="err-date1">Please pick a date.</div>
+        </div>
+        <div>
+          <div class="dateRowNum">Preferred time</div>
+          <select id="time1" name="time1">
+            <option value="">Any time</option>
+            <option>Morning (8am&ndash;12pm)</option>
+            <option>Afternoon (12pm&ndash;5pm)</option>
+            <option>Late afternoon (5pm&ndash;7pm)</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="dateRow">
+        <div>
+          <div class="dateRowNum">Option 2</div>
+          <input type="date" id="date2" name="date2" />
+        </div>
+        <div>
+          <div class="dateRowNum">Preferred time</div>
+          <select id="time2" name="time2">
+            <option value="">Any time</option>
+            <option>Morning (8am&ndash;12pm)</option>
+            <option>Afternoon (12pm&ndash;5pm)</option>
+            <option>Late afternoon (5pm&ndash;7pm)</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="dateRow">
+        <div>
+          <div class="dateRowNum">Option 3</div>
+          <input type="date" id="date3" name="date3" />
+        </div>
+        <div>
+          <div class="dateRowNum">Preferred time</div>
+          <select id="time3" name="time3">
+            <option value="">Any time</option>
+            <option>Morning (8am&ndash;12pm)</option>
+            <option>Afternoon (12pm&ndash;5pm)</option>
+            <option>Late afternoon (5pm&ndash;7pm)</option>
+          </select>
+        </div>
+      </div>
+    </div>
+
+    <!-- SECTION 5: Final -->
+    <div class="formSection">
+      <p class="sectionLabel">5 &mdash; One last thing</p>
+
+      <div class="field" style="margin-bottom:0;">
+        <label for="referral">How did you hear about TrueMark?</label>
+        <select id="referral" name="referral">
+          <option value="">Select one (optional)</option>
+          <option>Google search</option>
+          <option>Word of mouth / referral</option>
+          <option>Instagram</option>
+          <option>Facebook</option>
+          <option>TikTok</option>
+          <option>Other social media</option>
+          <option>Other</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="submitWrap">
+      <button type="submit" class="btn stripe" id="submitBtn">
+        Send booking request &rarr;
+      </button>
+      <p class="submitNote">No payment here &mdash; we&rsquo;ll confirm your time first. By submitting you agree we may contact you by phone or email to arrange your inspection.</p>
+    </div>
+
+  </form>
+</div>
+
+<script>
+(function(){
+
+  // Show/hide Premium block when package changes
+  const pkgRadios = document.querySelectorAll('input[name="package"]');
+  const premiumBlock = document.getElementById('premiumBlock');
+  function updatePremium(){
+    const selected = document.querySelector('input[name="package"]:checked');
+    if(selected && selected.value.startsWith('Premium')){
+      premiumBlock.classList.add('show');
+    } else {
+      premiumBlock.classList.remove('show');
+    }
+  }
+  pkgRadios.forEach(r => r.addEventListener('change', updatePremium));
+
+  // Set min date on date inputs to today
+  const today = new Date().toISOString().split('T')[0];
+  ['date1','date2','date3'].forEach(id => {
+    const el = document.getElementById(id);
+    if(el) el.min = today;
+  });
+
+  // Validation helpers
+  function setError(id, show){
+    const el = document.getElementById('err-' + id);
+    if(el){ if(show){ el.classList.add('show'); } else { el.classList.remove('show'); } }
+  }
+  function markField(id, invalid){
+    const el = document.getElementById(id);
+    if(el){ if(invalid){ el.classList.add('invalid'); } else { el.classList.remove('invalid'); } }
+  }
+  function val(id){ return (document.getElementById(id)||{}).value || ''; }
+  function isEmail(v){ return /^[^s@]+@[^s@]+.[^s@]+$/.test(v); }
+  function isPhone(v){ return v.replace(/[s-().+]/g,'').length >= 8; }
+
+  // Clear errors on input
+  document.querySelectorAll('input,select,textarea').forEach(el => {
+    el.addEventListener('input', function(){ this.classList.remove('invalid'); });
+    el.addEventListener('change', function(){ this.classList.remove('invalid'); });
+  });
+
+  // Form submit
+  const form = document.getElementById('bookingForm');
+  const submitBtn = document.getElementById('submitBtn');
+  const successCard = document.getElementById('successCard');
+
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    let ok = true;
+
+    // Full name
+    const name = val('fullName').trim();
+    const nameInvalid = name.length < 2;
+    setError('fullName', nameInvalid); markField('fullName', nameInvalid);
+    if(nameInvalid) ok = false;
+
+    // Phone
+    const phone = val('phone').trim();
+    const phoneInvalid = !isPhone(phone);
+    setError('phone', phoneInvalid); markField('phone', phoneInvalid);
+    if(phoneInvalid) ok = false;
+
+    // Email
+    const email = val('email').trim();
+    const emailInvalid = !isEmail(email);
+    setError('email', emailInvalid); markField('email', emailInvalid);
+    if(emailInvalid) ok = false;
+
+    // Buyer
+    const buyerSel = document.querySelector('input[name="buyer"]:checked');
+    const buyerInvalid = !buyerSel;
+    setError('buyer', buyerInvalid);
+    if(buyerInvalid) ok = false;
+
+    // Package
+    const pkgSel = document.querySelector('input[name="package"]:checked');
+    const pkgInvalid = !pkgSel;
+    const pkgErrEl = document.getElementById('err-package');
+    if(pkgErrEl){ if(pkgInvalid){ pkgErrEl.classList.add('show'); } else { pkgErrEl.classList.remove('show'); } }
+    if(pkgInvalid) ok = false;
+
+    // Listing URL
+    const url = val('listingUrl').trim();
+    const urlInvalid = url.length < 5;
+    setError('listingUrl', urlInvalid); markField('listingUrl', urlInvalid);
+    if(urlInvalid) ok = false;
+
+    // Make
+    const makeInvalid = val('carMake').trim().length < 1;
+    setError('carMake', makeInvalid); markField('carMake', makeInvalid);
+    if(makeInvalid) ok = false;
+
+    // Model
+    const modelInvalid = val('carModel').trim().length < 1;
+    setError('carModel', modelInvalid); markField('carModel', modelInvalid);
+    if(modelInvalid) ok = false;
+
+    // Year
+    const year = parseInt(val('carYear'));
+    const yearInvalid = isNaN(year) || year < 1980 || year > 2026;
+    setError('carYear', yearInvalid); markField('carYear', yearInvalid);
+    if(yearInvalid) ok = false;
+
+    // Suburb
+    const suburbInvalid = val('suburb').trim().length < 2;
+    setError('suburb', suburbInvalid); markField('suburb', suburbInvalid);
+    if(suburbInvalid) ok = false;
+
+    // Date 1
+    const date1Invalid = val('date1').length < 1;
+    setError('date1', date1Invalid); markField('date1', date1Invalid);
+    if(date1Invalid) ok = false;
+
+    if(!ok){
+      // Scroll to first error
+      const firstInvalid = form.querySelector('.invalid, .pkgError.show, .fieldError.show');
+      if(firstInvalid){ firstInvalid.scrollIntoView({behavior:'smooth', block:'center'}); }
+      return;
+    }
+
+    // Collect data for mailto
+    const pkg = pkgSel ? pkgSel.value : '';
+    const attend = (document.querySelector('input[name="attend"]:checked')||{}).value || '';
+    const sellerAccess = (document.querySelector('input[name="sellerAccess"]:checked')||{}).value || '';
+    const d1 = val('date1') + (val('time1') ? ' ' + val('time1') : '');
+    const d2 = val('date2') ? val('date2') + (val('time2') ? ' ' + val('time2') : '') : '';
+    const d3 = val('date3') ? val('date3') + (val('time3') ? ' ' + val('time3') : '') : '';
+    const dates = [d1, d2, d3].filter(Boolean).join(' | ');
+
+    const body = [
+      'TRUEMARK BOOKING REQUEST',
+      '',
+      '--- YOUR DETAILS ---',
+      'Name: ' + name,
+      'Phone: ' + phone,
+      'Email: ' + email,
+      'Booking for: ' + (buyerSel ? buyerSel.value : ''),
+      '',
+      '--- PACKAGE ---',
+      'Package: ' + pkg,
+      attend ? 'Attend inspection: ' + attend : '',
+      sellerAccess ? 'Seller access: ' + sellerAccess : '',
+      '',
+      '--- THE CAR ---',
+      'Listing URL: ' + url,
+      'Make: ' + val('carMake'),
+      'Model: ' + val('carModel'),
+      'Year: ' + val('carYear'),
+      'Asking price: ' + (val('askingPrice') || 'Not provided'),
+      'Suburb: ' + val('suburb'),
+      'Concerns: ' + (val('concerns') || 'None'),
+      '',
+      '--- TIMING ---',
+      'Preferred times: ' + dates,
+      '',
+      '--- OTHER ---',
+      'How they heard: ' + (val('referral') || 'Not provided'),
+    ].filter(l => l !== null && l !== undefined).join('
+');
+
+    // Submit via mailto as placeholder
+    const subject = encodeURIComponent('Booking Request: ' + val('carYear') + ' ' + val('carMake') + ' ' + val('carModel') + ' (' + pkg + ')');
+    const bodyEnc = encodeURIComponent(body);
+
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Sending...';
+
+    // Open mailto — works as placeholder; swap for fetch(Formspree/Stripe) later
+    window.location.href = 'mailto:truemarkinspect@gmail.com?subject=' + subject + '&body=' + bodyEnc;
+
+    // Show success card after brief delay
+    setTimeout(function(){
+      form.style.display = 'none';
+      successCard.classList.add('show');
+      window.scrollTo({top:0,behavior:'smooth'});
+    }, 800);
+  });
+
+})();
+</script>
+
+</body>
+</html>
