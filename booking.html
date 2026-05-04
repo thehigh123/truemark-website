@@ -164,7 +164,7 @@ select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/
 .radioGroup label,.checkGroup label{
   display:flex;align-items:center;gap:7px;padding:9px 14px;
   border:1.5px solid var(--border);border-radius:12px;cursor:pointer;
-  font-size:14px;font-weight:600;background:#fff;
+  font-size:14px;font-weight:600;background:#fff
   transition:border-color .12s,background .12s;
 }
 .radioGroup label:hover,.checkGroup label:hover{border-color:rgba(30,155,87,.4);}
@@ -279,7 +279,7 @@ select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/
   <form class="formCard" id="bookingForm" novalidate>
 
     <div class="infoBox">
-      <strong>No payment needed here.</strong> We&rsquo;ll confirm your booking first &mdash; the $50 deposit is collected separately once everything is locked in.
+      <strong>A $50 deposit is required to secure your inspection.</strong> Fill in your details below &mdash; after submitting you&rsquo;ll be taken to our secure payment page.
     </div>
 
     <!-- SECTION 1: Your details -->
@@ -499,7 +499,7 @@ select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/
       <button type="submit" class="btn stripe" id="submitBtn">
         Send booking request &rarr;
       </button>
-      <p class="submitNote">No payment here &mdash; we&rsquo;ll confirm your time first. By submitting you agree we may contact you by phone or email to arrange your inspection.</p>
+      <p class="submitNote">A $50 deposit is required to secure your booking. By submitting, your booking details are sent to us and you&rsquo;ll be taken to our secure payment page.</p>
     </div>
 
   </form>
@@ -699,9 +699,7 @@ select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/
     .then(function(res){ return res.json().then(function(d){ return {ok: res.ok, data: d}; }); })
     .then(function(result){
       if(result.ok){
-        form.style.display = 'none';
-        successCard.classList.add('show');
-        window.scrollTo({top: 0, behavior: 'smooth'});
+        window.location.href = 'https://buy.stripe.com/fZu28k4APgD77k9eBRcAo01';
       } else {
         submitBtn.disabled = false;
         submitBtn.textContent = 'Send booking request →';
