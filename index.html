@@ -802,6 +802,7 @@ ul{ margin: 10px 0 0; padding-left: 18px; }
   ]
 }
 </script>
+  <link rel="canonical" href="https://truemarkinspections.com.au/" />
 </head>
 
 <body>
@@ -828,9 +829,9 @@ ul{ margin: 10px 0 0; padding-left: 18px; }
 
     <nav class="navlinks" id="navlinks" aria-label="Primary navigation">
       <a class="link" href="#packages">Packages</a>
-      <a class="link" href="#sample-report">Sample report</a>
-      <a class="link" href="sell.html">Sell your car</a>
       <a class="link" href="inspections.html">Inspected cars</a>
+      <a class="link" href="sell.html">Sell your car</a>
+      <a class="link" href="#sample-report">Sample report</a>
       <a class="link" href="#how">How it works</a>
       <a class="link" href="#service-area">Service area</a>
       <a class="link" href="#faq">FAQ</a>
@@ -974,28 +975,28 @@ ul{ margin: 10px 0 0; padding-left: 18px; }
     </div>
   </section>
 
-  <!-- ══════════════════════════════
+  <!-- ââââââââââââââââââââââââââââââ
        SELLING A CAR? SECTION
-  ══════════════════════════════ -->
+  ââââââââââââââââââââââââââââââ -->
   <section class="section" style="background:var(--surface,#f7f3f0);" id="sell-your-car">
     <div class="container">
       <div style="display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center;max-width:1100px;margin:0 auto;">
         <div>
           <p class="label" style="color:#1E9B57;font-size:0.78rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:10px;">For private sellers</p>
           <h2 style="font-family:'DM Serif Display',serif;font-size:clamp(1.8rem,3.5vw,2.4rem);margin-bottom:16px;line-height:1.2;">Selling a car?</h2>
-          <p style="color:#6b7280;font-size:1rem;margin-bottom:24px;line-height:1.65;">Get your car independently inspected before you list it. Buyers pay more when the report backs up your price — and your car appears on our Inspected Cars page for 90 days.</p>
+          <p style="color:#6b7280;font-size:1rem;margin-bottom:24px;line-height:1.65;">Get your car independently inspected before you list it. Buyers pay more when the report backs up your price â and your car appears on our Inspected Cars page for 90 days.</p>
           <ul style="list-style:none;display:flex;flex-direction:column;gap:12px;">
             <li style="display:flex;align-items:flex-start;gap:10px;font-size:0.95rem;color:#1a1a1a;">
-              <span style="color:#1E9B57;font-weight:700;font-size:1.1rem;flex-shrink:0;">✓</span>
-              <span><strong>Stand out in any ad</strong> — paste your unique TrueMark link into Gumtree, Facebook Marketplace or Carsales</span>
+              <span style="color:#1E9B57;font-weight:700;font-size:1.1rem;flex-shrink:0;">â</span>
+              <span><strong>Stand out in any ad</strong> â paste your unique TrueMark link into Gumtree, Facebook Marketplace or Carsales</span>
             </li>
             <li style="display:flex;align-items:flex-start;gap:10px;font-size:0.95rem;color:#1a1a1a;">
-              <span style="color:#1E9B57;font-weight:700;font-size:1.1rem;flex-shrink:0;">✓</span>
-              <span><strong>Justify your asking price</strong> — an independent report gives buyers confidence and reduces lowball offers</span>
+              <span style="color:#1E9B57;font-weight:700;font-size:1.1rem;flex-shrink:0;">â</span>
+              <span><strong>Justify your asking price</strong> â an independent report gives buyers confidence and reduces lowball offers</span>
             </li>
             <li style="display:flex;align-items:flex-start;gap:10px;font-size:0.95rem;color:#1a1a1a;">
-              <span style="color:#1E9B57;font-weight:700;font-size:1.1rem;flex-shrink:0;">✓</span>
-              <span><strong>Listed on our Inspected Cars page</strong> — 90-day listing included with every seller package</span>
+              <span style="color:#1E9B57;font-weight:700;font-size:1.1rem;flex-shrink:0;">â</span>
+              <span><strong>Listed on our Inspected Cars page</strong> â 90-day listing included with every seller package</span>
             </li>
           </ul>
         </div>
@@ -1018,7 +1019,7 @@ ul{ margin: 10px 0 0; padding-left: 18px; }
                 <p style="font-family:'DM Serif Display',serif;font-size:1.8rem;color:#1E9B57;font-weight:400;">$299</p>
               </div>
             </div>
-            <a href="sell.html" style="display:block;text-align:center;padding:13px 20px;background:#1E9B57;color:#fff;font-family:'DM Sans',sans-serif;font-weight:700;font-size:0.95rem;border-radius:8px;text-decoration:none;transition:background 0.2s;" onmouseover="this.style.background='#167a44'" onmouseout="this.style.background='#1E9B57'">Learn more about selling →</a>
+            <a href="sell.html" class="sell-section-cta">Learn more about selling →</a>
           </div>
         </div>
       </div>
@@ -1027,7 +1028,13 @@ ul{ margin: 10px 0 0; padding-left: 18px; }
       @media (max-width: 768px) {
         #sell-your-car > .container > div { grid-template-columns: 1fr !important; gap: 28px !important; }
       }
-    </style>
+    
+      .sell-section-cta{display:block;text-align:center;padding:13px 20px;background:#1E9B57;color:#fff;font-family:'DM Sans',sans-serif;font-weight:700;font-size:0.95rem;border-radius:8px;text-decoration:none;transition:background 0.2s;}
+      .sell-section-cta:hover{background:#167a44;}
+      .floatingMobileCTA{display:none;position:fixed;bottom:0;left:0;right:0;background:#fff;border-top:1px solid #e5e7eb;padding:12px 20px;z-index:200;}
+      .floatingMobileCTA a{display:block;text-align:center;background:#1E9B57;color:#fff;font-weight:700;font-size:1rem;padding:14px;border-radius:10px;text-decoration:none;font-family:'DM Sans',sans-serif;}
+      @media(max-width:768px){.floatingMobileCTA{display:block!important;}body{padding-bottom:80px;}}
+</style>
   </section>
 
 
@@ -1423,5 +1430,7 @@ document.querySelectorAll('[data-track]').forEach(el => {
 });
 </script>
 
+
+  <div class="floatingMobileCTA"><a href="booking.html">Book an inspection</a></div>
 </body>
     </html>
