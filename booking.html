@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
-<meta name="description" content="Book a pre-purchase vehicle inspection with TrueMark. Standard $249 or Premium $349. Mobile inspections across Sydney's Eastern Suburbs." />
+<meta name="description" content="Book a pre-purchase or pre-sale vehicle inspection with TrueMark. Buyer packages from $249. Seller inspection packages from $199. Mobile inspections across Sydney." />
 <meta name="robots" content="noindex" />
 <title>Book an Inspection &mdash; TrueMark Vehicle Inspections</title>
 <link rel="icon" href="favicon.ico" />
@@ -242,7 +242,7 @@ select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/
 /* Divider */
 .divider{height:1px;background:rgba(11,18,32,.08);margin:24px 0;}
 
-    /* ── SELLER BLOCK ── */
+    /* ââ SELLER BLOCK ââ */
     .sellerSubPkgs {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -266,6 +266,12 @@ select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/
     .sellerPkgLabel .spPrice { font-size: 1.3rem; font-weight: 700; color: var(--green); margin: 4px 0; }
     .sellerPkgLabel .spDesc { font-size: 0.8rem; color: var(--muted); }
 </style>
+  <meta property="og:title" content="Book a Vehicle Inspection | TrueMark" />
+  <meta property="og:description" content="Book a pre-purchase or pre-sale vehicle inspection. Buyer packages from $249, seller packages from $199. Mobile, Sydney-wide." />
+  <meta property="og:image" content="https://truemarkinspections.com.au/logo.png" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://truemarkinspections.com.au/booking.html" />
+  <link rel="canonical" href="https://truemarkinspections.com.au/booking.html" />
 </head>
 <body>
 
@@ -362,7 +368,7 @@ select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/
             </label>
           </div>
         </div>
-      <input type="radio" name="pkg" id="pkg-seller" class="pkgOption" value="seller" hidden />
+      <input type="radio" name="package" id="pkg-seller" class="pkgOption" value="seller" hidden />
       <label for="pkg-seller" class="pkgLabel">
         <div class="pkgName">Seller Inspection</div>
         <div class="pkgBadge">List on TrueMark</div>
@@ -386,7 +392,7 @@ select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/
           </div>
           <div class="hint">Attendance is included in Premium where access is permitted.</div>
         </div>
-      <!-- SELLER BLOCK — shown when "Seller Inspection" package is selected -->
+      <!-- SELLER BLOCK â shown when "Seller Inspection" package is selected -->
       <div id="sellerBlock" style="display:none">
         <p class="premiumTitle">Seller package</p>
         <div class="sellerSubPkgs">
@@ -394,13 +400,13 @@ select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/
           <label for="sp-standard" class="sellerPkgLabel">
             <div class="spName">Seller Standard</div>
             <div class="spPrice">$199</div>
-            <div class="spDesc">Cars under $30k — full inspection, report &amp; 90-day listing</div>
+            <div class="spDesc">Cars under $30k â full inspection, report &amp; 90-day listing</div>
           </label>
           <input type="radio" name="sellerPkg" id="sp-premium" class="sellerPkgOption" value="Seller Premium" />
           <label for="sp-premium" class="sellerPkgLabel">
             <div class="spName">Seller Premium</div>
             <div class="spPrice">$299</div>
-            <div class="spDesc">4WDs, utes, SUVs, prestige &amp; cars over $30k — includes scan tool, PPSR &amp; Verified badge</div>
+            <div class="spDesc">4WDs, utes, SUVs, prestige &amp; cars over $30k â includes scan tool, PPSR &amp; Verified badge</div>
           </label>
         </div>
         <div class="field">
@@ -584,7 +590,7 @@ select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/
   const pkgRadios = document.querySelectorAll('input[name="package"]');
   const premiumBlock = document.getElementById('premiumBlock');
   function updatePremium() {
-    const sel = document.querySelector('input[name="pkg"]:checked');
+    const sel = document.querySelector('input[name="package"]:checked');
     const val = sel ? sel.value : '';
     const premEl = document.getElementById('premiumBlock');
     const sellEl = document.getElementById('sellerBlock');
@@ -769,7 +775,7 @@ select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/
     const bodyEnc = encodeURIComponent(body);
 
     submitBtn.disabled = true;
-    submitBtn.textContent = 'Sendingâ¦';
+    submitBtn.textContent = 'Sending…';
 
     fetch('https://formspree.io/f/xrejekrp', {
       method: 'POST',
@@ -800,13 +806,13 @@ select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/
         window.location.href = 'https://buy.stripe.com/fZu28k4APgD77k9eBRcAo01';
       } else {
         submitBtn.disabled = false;
-        submitBtn.textContent = 'Send booking request â';
+        submitBtn.textContent = 'Send booking request →';
         alert('Something went wrong. Please try again or call us on 0423 636 633.');
       }
     })
     .catch(function(){
       submitBtn.disabled = false;
-      submitBtn.textContent = 'Send booking request â';
+      submitBtn.textContent = 'Send booking request →';
       alert('Could not connect. Please check your internet and try again, or call us on 0423 636 633.');
     });
   });
