@@ -23,7 +23,9 @@
       --bg: #f9fafb;
       --white: #ffffff;
       --radius: 12px;
-    }
+    
+      --green-border: #c8ead8;
+      --green-light: #f0faf4;}
 
     body {
       font-family: 'DM Sans', sans-serif;
@@ -32,7 +34,7 @@
       line-height: 1.6;
     }
 
-    /* ââ NAV ââ */
+    /* Ã¢ÂÂÃ¢ÂÂ NAV Ã¢ÂÂÃ¢ÂÂ */
     nav {
       background: var(--white);
       border-bottom: 1px solid var(--border);
@@ -67,7 +69,7 @@
     .nav-back:hover { color: var(--green-dark); }
     .nav-back svg { flex-shrink: 0; }
 
-    /* ââ PAGE HEADER ââ */
+    /* Ã¢ÂÂÃ¢ÂÂ PAGE HEADER Ã¢ÂÂÃ¢ÂÂ */
     .page-header {
       background: linear-gradient(135deg, #f0faf4 0%, #e6f7ee 100%);
       border-bottom: 1px solid #c8ead8;
@@ -87,7 +89,7 @@
       margin: 0 auto;
     }
 
-    /* ââ EXPLAINER STRIP ââ */
+    /* Ã¢ÂÂÃ¢ÂÂ EXPLAINER STRIP Ã¢ÂÂÃ¢ÂÂ */
     .explainer {
       background: var(--white);
       border-bottom: 1px solid var(--border);
@@ -122,7 +124,7 @@
       color: var(--muted);
     }
 
-    /* ââ FILTER BAR ââ */
+    /* Ã¢ÂÂÃ¢ÂÂ FILTER BAR Ã¢ÂÂÃ¢ÂÂ */
     .filter-section {
       padding: 24px;
       max-width: 1200px;
@@ -187,7 +189,7 @@
       color: var(--green);
     }
 
-    /* ââ CAR GRID ââ */
+    /* Ã¢ÂÂÃ¢ÂÂ CAR GRID Ã¢ÂÂÃ¢ÂÂ */
     .listings-section {
       padding: 0 24px 48px;
       max-width: 1200px;
@@ -210,7 +212,7 @@
       gap: 24px;
     }
 
-    /* ââ CAR CARD ââ */
+    /* Ã¢ÂÂÃ¢ÂÂ CAR CARD Ã¢ÂÂÃ¢ÂÂ */
     .car-card {
       background: var(--white);
       border: 1px solid var(--border);
@@ -299,7 +301,7 @@
     .verdict-badge.proceed { background: #dcfce7; color: #15803d; }
     .verdict-badge.caution { background: #fef3c7; color: #b45309; }
     .verdict-badge.do-not-proceed { background: #fee2e2; color: #b91c1c; }
-    .verdict-badge::before { content: 'â'; font-size: 0.6rem; }
+    .verdict-badge::before { content: 'Ã¢ÂÂ'; font-size: 0.6rem; }
 
     .car-meta {
       display: grid;
@@ -339,7 +341,7 @@
       position: relative;
     }
     .findings-list li::before {
-      content: 'â¢';
+      content: 'Ã¢ÂÂ¢';
       position: absolute;
       left: 4px;
       color: var(--green);
@@ -369,7 +371,7 @@
     }
     .buy-btn:active { transform: translateY(0); }
 
-    /* ââ NO RESULTS ââ */
+    /* Ã¢ÂÂÃ¢ÂÂ NO RESULTS Ã¢ÂÂÃ¢ÂÂ */
     .no-results {
       grid-column: 1/-1;
       text-align: center;
@@ -380,7 +382,7 @@
     .no-results h3 { font-size: 1.1rem; margin-bottom: 8px; color: var(--text); }
     .no-results p { font-size: 0.9rem; }
 
-    /* ââ CTA SECTION ââ */
+    /* Ã¢ÂÂÃ¢ÂÂ CTA SECTION Ã¢ÂÂÃ¢ÂÂ */
     .cta-section {
       background: var(--green);
       padding: 56px 24px;
@@ -410,7 +412,7 @@
     }
     .cta-btn:hover { background: #f0faf4; transform: translateY(-2px); }
 
-    /* ââ RESPONSIVE ââ */
+    /* Ã¢ÂÂÃ¢ÂÂ RESPONSIVE Ã¢ÂÂÃ¢ÂÂ */
     @media (max-width: 768px) {
       .explainer-grid { grid-template-columns: 1fr; gap: 12px; }
       .filter-bar { padding: 16px; }
@@ -423,7 +425,7 @@
       .filter-group { flex: 1 1 100%; }
     }
   
-    /* ── SELLER VERIFIED BADGE ── */
+    /* ââ SELLER VERIFIED BADGE ââ */
     .seller-verified-badge {
       display: inline-flex;
       align-items: center;
@@ -437,9 +439,9 @@
       color: #1d4ed8;
       margin-left: 6px;
     }
-    .seller-verified-badge::before { content: '✓'; font-size: 0.75rem; }
+    .seller-verified-badge::before { content: 'â'; font-size: 0.75rem; }
 
-    /* ── TYPE TABS ── */
+    /* ââ TYPE TABS ââ */
     .type-tabs {
       display: flex;
       gap: 8px;
@@ -460,7 +462,7 @@
     .type-tab:hover { border-color: var(--green); color: var(--green); }
     .type-tab.active { background: var(--green); border-color: var(--green); color: var(--white); }
 
-    /* ── SELLER BANNER ── */
+    /* ââ SELLER BANNER ââ */
     .seller-banner {
       background: linear-gradient(90deg, #f0faf4 0%, #e6f7ee 100%);
       border: 1px solid var(--green-border, #c8ead8);
@@ -483,63 +485,74 @@
     }
     .seller-banner a:hover { text-decoration: underline; }
 </style>
+  <meta property="og:title" content="Inspected Cars | TrueMark Vehicle Inspections" />
+  <meta property="og:description" content="Browse cars already inspected by TrueMark. See the verdict free. Buy the full report for $19." />
+  <meta property="og:image" content="https://truemarkinspections.com.au/logo.png" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://truemarkinspections.com.au/inspections.html" />
+  <link rel="canonical" href="https://truemarkinspections.com.au/inspections.html" />
 </head>
 <body>
 
-  <!-- ââââââââââââââââââââââââââââââââââââââââââââââ
+  <!-- Ã¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂ
        NAV BAR
-  ââââââââââââââââââââââââââââââââââââââââââââââ -->
+  Ã¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂ -->
   <nav>
-    <a href="index.html" class="nav-logo" aria-label="TrueMark Vehicle Inspections â Home">
+    <a href="index.html" class="nav-logo" aria-label="TrueMark Vehicle Inspections">
       <img src="logo.png" alt="TrueMark Vehicle Inspections logo" />
     </a>
-    <a href="index.html" class="nav-back">
-      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
-        <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"/>
-      </svg>
-      Back to home
-    </a>
+    <ul class="nav-links" style="display:flex;align-items:center;gap:4px;list-style:none;margin:0;padding:0;">
+      <li><a href="index.html#packages" style="text-decoration:none;font-size:0.88rem;font-weight:500;color:#6b7280;padding:6px 12px;border-radius:6px;transition:color 0.2s,background 0.2s;" onmouseover="this.style.color='#1E9B57';this.style.background='#f0faf4'" onmouseout="this.style.color='#6b7280';this.style.background=''">Packages</a></li>
+      <li><a href="inspections.html" style="text-decoration:none;font-size:0.88rem;font-weight:700;color:#1E9B57;padding:6px 12px;border-radius:6px;background:#f0faf4;">Inspected cars</a></li>
+      <li><a href="sell.html" style="text-decoration:none;font-size:0.88rem;font-weight:500;color:#6b7280;padding:6px 12px;border-radius:6px;" onmouseover="this.style.color='#1E9B57';this.style.background='#f0faf4'" onmouseout="this.style.color='#6b7280';this.style.background=''">Sell your car</a></li>
+      <li><a href="index.html#sample-report" style="text-decoration:none;font-size:0.88rem;font-weight:500;color:#6b7280;padding:6px 12px;border-radius:6px;" onmouseover="this.style.color='#1E9B57';this.style.background='#f0faf4'" onmouseout="this.style.color='#6b7280';this.style.background=''">Sample report</a></li>
+      <li><a href="index.html#how" style="text-decoration:none;font-size:0.88rem;font-weight:500;color:#6b7280;padding:6px 12px;border-radius:6px;" onmouseover="this.style.color='#1E9B57';this.style.background='#f0faf4'" onmouseout="this.style.color='#6b7280';this.style.background=''">How it works</a></li>
+      <li><a href="index.html#service-area" style="text-decoration:none;font-size:0.88rem;font-weight:500;color:#6b7280;padding:6px 12px;border-radius:6px;" onmouseover="this.style.color='#1E9B57';this.style.background='#f0faf4'" onmouseout="this.style.color='#6b7280';this.style.background=''">Service area</a></li>
+      <li><a href="index.html#faq" style="text-decoration:none;font-size:0.88rem;font-weight:500;color:#6b7280;padding:6px 12px;border-radius:6px;" onmouseover="this.style.color='#1E9B57';this.style.background='#f0faf4'" onmouseout="this.style.color='#6b7280';this.style.background=''">FAQ</a></li>
+      <li><a href="index.html#contact" style="text-decoration:none;font-size:0.88rem;font-weight:500;color:#6b7280;padding:6px 12px;border-radius:6px;" onmouseover="this.style.color='#1E9B57';this.style.background='#f0faf4'" onmouseout="this.style.color='#6b7280';this.style.background=''">Contact</a></li>
+      <li><a href="booking.html" style="display:inline-flex;align-items:center;padding:8px 18px;background:#1E9B57;color:#fff;border-radius:8px;font-weight:700;font-size:0.88rem;text-decoration:none;">Book now</a></li>
+    </ul>
+    <a href="booking.html" style="display:none;padding:8px 16px;background:#1E9B57;color:#fff;border-radius:8px;font-weight:700;font-size:0.88rem;text-decoration:none;" id="navBookMobile">Book</a>
   </nav>
-
-  <!-- ââââââââââââââââââââââââââââââââââââââââââââââ
+  <!-- Ã¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂ
        PAGE HEADER
-  ââââââââââââââââââââââââââââââââââââââââââââââ -->
+  Ã¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂ -->
   <header class="page-header">
     <h1>Inspected Cars</h1>
-    <p>Browse cars we've already inspected. See the verdict before you contact the seller â or buy the full report for $19.</p>
+    <p>Browse cars we've already inspected. See the verdict before you contact the seller Ã¢ÂÂ or buy the full report for $19.</p>
   </header>
 
-  <!-- ââââââââââââââââââââââââââââââââââââââââââââââ
+  <!-- Ã¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂ
        EXPLAINER STRIP
-  ââââââââââââââââââââââââââââââââââââââââââââââ -->
+  Ã¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂ -->
   <section class="explainer">
     <div class="explainer-grid">
       <div class="explainer-card">
-        <div class="icon">â¡</div>
-        <h3>Already inspected â no wait time</h3>
-        <p>These cars have been through a full TrueMark inspection. No need to book â results are ready now.</p>
+        <div class="icon">Ã¢ÂÂ¡</div>
+        <h3>Already inspected Ã¢ÂÂ no wait time</h3>
+        <p>These cars have been through a full TrueMark inspection. No need to book Ã¢ÂÂ results are ready now.</p>
       </div>
       <div class="explainer-card">
-        <div class="icon">ðï¸</div>
+        <div class="icon">Ã°ÂÂÂÃ¯Â¸Â</div>
         <h3>See verdict + key findings free</h3>
         <p>Each listing shows the overall verdict and 3 key findings at no cost, so you know what you're buying into.</p>
       </div>
       <div class="explainer-card">
-        <div class="icon">ð</div>
+        <div class="icon">Ã°ÂÂÂ</div>
         <h3>Buy full report for $19</h3>
-        <p>Get the complete inspection report instantly â every check, every detail, every photo.</p>
+        <p>Get the complete inspection report instantly Ã¢ÂÂ every check, every detail, every photo.</p>
       </div>
     </div>
   </section>
 
-  <!-- ââââââââââââââââââââââââââââââââââââââââââââââ
+  <!-- Ã¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂ
        FILTER BAR
-  ââââââââââââââââââââââââââââââââââââââââââââââ -->
+  Ã¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂ -->
   <section class="filter-section">
     <div class="filter-bar" id="filterBar">
       <div class="filter-group">
         <label for="filterSearch">Search</label>
-        <input type="text" id="filterSearch" placeholder="Make, model, suburbâ¦" />
+        <input type="text" id="filterSearch" placeholder="Make, model, suburbÃ¢ÂÂ¦" />
       </div>
       <div class="filter-group">
         <label for="filterMake">Make</label>
@@ -576,9 +589,9 @@
         <select id="filterPrice">
           <option value="">Any price</option>
           <option value="0-10000">Under $10,000</option>
-          <option value="10000-20000">$10,000 â $20,000</option>
-          <option value="20000-30000">$20,000 â $30,000</option>
-          <option value="30000-50000">$30,000 â $50,000</option>
+          <option value="10000-20000">$10,000 Ã¢ÂÂ $20,000</option>
+          <option value="20000-30000">$20,000 Ã¢ÂÂ $30,000</option>
+          <option value="30000-50000">$30,000 Ã¢ÂÂ $50,000</option>
           <option value="50000-999999">$50,000+</option>
         </select>
       </div>
@@ -603,34 +616,34 @@
     </div>
   </section>
 
-  <!-- ââââââââââââââââââââââââââââââââââââââââââââââ
+  <!-- Ã¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂ
        CAR LISTINGS
-       âââââââââââââââââââââââââââââââââââââââââââââ
+       Ã¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂ
        HOW TO ADD A NEW CAR LISTING
-       âââââââââââââââââââââââââââââââââââââââââââââ
+       Ã¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂ
        Copy one of the .car-card divs below and update
        the following data-* attributes on the <article> tag:
 
-         data-make="Toyota"            â Car manufacturer (must match a <option> in #filterMake)
-         data-model="Camry"            â Model name
-         data-year="2019"              â 4-digit year
-         data-price="18500"            â Asking price in dollars (numbers only, no $ or commas)
-         data-verdict="proceed"        â One of: proceed | caution | do-not-proceed
-         data-package="Standard"       â One of: Standard | Premium
-         data-search="extra keywords"  â Any extra text to match in the search box (e.g. suburb)
+         data-make="Toyota"            Ã¢ÂÂ Car manufacturer (must match a <option> in #filterMake)
+         data-model="Camry"            Ã¢ÂÂ Model name
+         data-year="2019"              Ã¢ÂÂ 4-digit year
+         data-price="18500"            Ã¢ÂÂ Asking price in dollars (numbers only, no $ or commas)
+         data-verdict="proceed"        Ã¢ÂÂ One of: proceed | caution | do-not-proceed
+         data-package="Standard"       Ã¢ÂÂ One of: Standard | Premium
+         data-search="extra keywords"  Ã¢ÂÂ Any extra text to match in the search box (e.g. suburb)
 
        Then update the visible content inside the card:
-         .car-title           â "YEAR Make Model"
-         .car-photo-placeholder â optionally replace with an <img> tag
-         .example-badge       â REMOVE this span for real listings
-         .meta-value spans    â Odometer, Asking price, Suburb, Inspection date
-         .verdict-badge       â Update class (proceed / caution / do-not-proceed) and text
-         .findings-list li    â Replace the 3 bullet points with real key findings
-         .buy-btn href        â Update the Stripe link for this specific report if using unique links
+         .car-title           Ã¢ÂÂ "YEAR Make Model"
+         .car-photo-placeholder Ã¢ÂÂ optionally replace with an <img> tag
+         .example-badge       Ã¢ÂÂ REMOVE this span for real listings
+         .meta-value spans    Ã¢ÂÂ Odometer, Asking price, Suburb, Inspection date
+         .verdict-badge       Ã¢ÂÂ Update class (proceed / caution / do-not-proceed) and text
+         .findings-list li    Ã¢ÂÂ Replace the 3 bullet points with real key findings
+         .buy-btn href        Ã¢ÂÂ Update the Stripe link for this specific report if using unique links
 
        Example Stripe link (same for all reports unless you create per-report links):
          href="https://buy.stripe.com/fZu28k4APgD77k9eBRcAo01"
-  ââââââââââââââââââââââââââââââââââââââââââââââ -->
+  Ã¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂ -->
 
   <section class="listings-section"
         data-type="buyer">
@@ -639,8 +652,8 @@
     </div>
 
     <div class="seller-banner">
-      <p>🚗 Selling your car? Get it independently inspected and listed right here.</p>
-      <a href="sell.html">Find out more →</a>
+      <p>ð Selling your car? Get it independently inspected and listed right here.</p>
+      <a href="sell.html">Find out more â</a>
     </div>
     <div class="type-tabs" id="typeTabs" style="margin-bottom:16px;">
       <button class="type-tab active" data-tab="all" type="button">All</button>
@@ -649,7 +662,7 @@
     </div>
     <div class="car-grid" id="carGrid">
 
-      <!-- ââ EXAMPLE CAR 1 ââ -->
+      <!-- Ã¢ÂÂÃ¢ÂÂ EXAMPLE CAR 1 Ã¢ÂÂÃ¢ÂÂ -->
       <article class="car-card"
         data-make="Toyota"
         data-model="Camry"
@@ -693,18 +706,18 @@
             </div>
           </div>
           <ul class="findings-list">
-            <li>Minor surface rust on rear subframe â cosmetic only, not structurally significant</li>
-            <li>Front brake pads at approx. 40% â replacement recommended within 12 months</li>
+            <li>Minor surface rust on rear subframe Ã¢ÂÂ cosmetic only, not structurally significant</li>
+            <li>Front brake pads at approx. 40% Ã¢ÂÂ replacement recommended within 12 months</li>
             <li>All mechanical systems operating within normal parameters</li>
           </ul>
           <a href="https://buy.stripe.com/fZu28k4APgD77k9eBRcAo01" class="buy-btn" target="_blank" rel="noopener">
-            Buy Full Report â $19
+            Buy Full Report Ã¢ÂÂ $19
           </a>
         </div>
       </article>
 
-      <!-- ââ EXAMPLE CAR 2 ââ -->
-            <!-- ── EXAMPLE CAR 2 — SELLER LISTED ── -->
+      <!-- Ã¢ÂÂÃ¢ÂÂ EXAMPLE CAR 2 Ã¢ÂÂÃ¢ÂÂ -->
+            <!-- ââ EXAMPLE CAR 2 â SELLER LISTED ââ -->
       <article class="car-card"
         data-make="Mazda"
         data-model="CX-5"
@@ -752,18 +765,18 @@
             </div>
           </div>
           <ul class="findings-list">
-            <li>Evidence of a previous repaired rear impact — paint blending visible on rear quarter panel</li>
-            <li>Minor oil seep from valve cover gasket — monitor and budget for eventual replacement</li>
-            <li>Tyres unevenly worn on front axle — possible alignment or suspension issue worth investigating</li>
+            <li>Evidence of a previous repaired rear impact â paint blending visible on rear quarter panel</li>
+            <li>Minor oil seep from valve cover gasket â monitor and budget for eventual replacement</li>
+            <li>Tyres unevenly worn on front axle â possible alignment or suspension issue worth investigating</li>
           </ul>
           <a href="https://buy.stripe.com/fZu28k4APgD77k9eBRcAo01" class="buy-btn" target="_blank" rel="noopener">
-            Buy Full Report — $19
+            Buy Full Report â $19
           </a>
         </div>
       </article>
 
 
-      <!-- ââ NO RESULTS MESSAGE ââ -->
+      <!-- Ã¢ÂÂÃ¢ÂÂ NO RESULTS MESSAGE Ã¢ÂÂÃ¢ÂÂ -->
       <div class="no-results" id="noResults">
         <h3>No cars match your filters</h3>
         <p>Try adjusting your search or filters, or <a href="booking.html" style="color:var(--green);font-weight:600;">book a fresh inspection</a>.</p>
@@ -772,18 +785,18 @@
     </div><!-- /car-grid -->
   </section>
 
-  <!-- ââââââââââââââââââââââââââââââââââââââââââââââ
+  <!-- Ã¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂ
        BOTTOM CTA
-  ââââââââââââââââââââââââââââââââââââââââââââââ -->
+  Ã¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂ -->
   <section class="cta-section">
     <h2>Don't see the car you're after?</h2>
-    <p>Book a fresh inspection â we'll check any car in the metro area, fast.</p>
+    <p>Book a fresh inspection Ã¢ÂÂ we'll check any car in the metro area, fast.</p>
     <a href="booking.html" class="cta-btn">Book a Fresh Inspection</a>
   </section>
 
-  <!-- ââââââââââââââââââââââââââââââââââââââââââââââ
+  <!-- Ã¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂ
        FILTER JAVASCRIPT
-  ââââââââââââââââââââââââââââââââââââââââââââââ -->
+  Ã¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂ -->
   <script>
     (function () {
       const cards = Array.from(document.querySelectorAll('.car-card[data-make]'));
@@ -791,7 +804,7 @@
       const noResults = document.getElementById('noResults');
       const countEl = document.getElementById('listingsCount');
 
-      // ââ Build dynamic dropdowns ââ
+      // Ã¢ÂÂÃ¢ÂÂ Build dynamic dropdowns Ã¢ÂÂÃ¢ÂÂ
       const makes = [...new Set(cards.map(c => c.dataset.make))].sort();
       const makeSelect = document.getElementById('filterMake');
       // Clear and re-populate to only show makes that exist in listings
@@ -832,7 +845,7 @@
         applyFilters();
       });
 
-      // ââ Core filter function ââ
+      // Ã¢ÂÂÃ¢ÂÂ Core filter function Ã¢ÂÂÃ¢ÂÂ
       function applyFilters() {
         const search = document.getElementById('filterSearch').value.toLowerCase().trim();
         const make = makeSelect.value;
@@ -860,14 +873,14 @@
             (!pkg || card.dataset.package === pkg);
 
           card.classList.toggle('hidden', !matches);
-          if (matches) visible++;
+          if (matches && !card.classList.contains('tab-hidden')) visible++;
         });
 
         countEl.textContent = visible === 1 ? '1 car listed' : visible + ' cars listed';
         noResults.style.display = visible === 0 ? 'block' : 'none';
       }
 
-      // ââ Attach listeners ââ
+      // Ã¢ÂÂÃ¢ÂÂ Attach listeners Ã¢ÂÂÃ¢ÂÂ
       ['filterSearch','filterModel','filterYear','filterPrice','filterVerdict','filterPackage']
         .forEach(id => {
           const el = document.getElementById(id);
@@ -883,13 +896,16 @@
         document.getElementById('filterPrice').value = '';
         document.getElementById('filterVerdict').value = '';
         document.getElementById('filterPackage').value = '';
+        activeTab = 'all';
+        document.querySelectorAll('.type-tab').forEach(t => t.classList.toggle('active', t.dataset.tab === 'all'));
+        document.querySelectorAll('.car-card[data-make]').forEach(function(c){ c.classList.remove('tab-hidden'); });
         applyFilters();
       });
 
-      // ââ Initial count ââ
+      // Ã¢ÂÂÃ¢ÂÂ Initial count Ã¢ÂÂÃ¢ÂÂ
       applyFilters()
 
-      // ── Tab filtering ──
+      // ââ Tab filtering ââ
       let activeTab = 'all';
       function applyTabFilter() {
         const allCards = Array.from(document.querySelectorAll('.car-card[data-make]'));
@@ -945,6 +961,18 @@
 ;
     })();
   </script>
+
+
+  <!-- FOOTER -->
+  <footer style="background:#111;color:rgba(255,255,255,0.55);padding:32px;text-align:center;font-size:0.85rem;font-family:'DM Sans',sans-serif;line-height:1.8;">
+    <p style="color:rgba(255,255,255,0.8);font-weight:700;margin-bottom:4px;">TrueMark Vehicle Inspections</p>
+    <p><a href="tel:+61423636633" style="color:rgba(255,255,255,0.65);text-decoration:none;">0423 636 633</a> &nbsp;&middot;&nbsp; <a href="mailto:truemarkinspect@gmail.com" style="color:rgba(255,255,255,0.65);text-decoration:none;">truemarkinspect@gmail.com</a></p>
+    <p>ABN 53 384 207 098</p>
+    <p style="margin-top:8px;"><a href="index.html" style="color:rgba(255,255,255,0.65);text-decoration:none;">Home</a> &nbsp;&middot;&nbsp; <a href="booking.html" style="color:rgba(255,255,255,0.65);text-decoration:none;">Book now</a> &nbsp;&middot;&nbsp; <a href="inspections.html" style="color:rgba(255,255,255,0.65);text-decoration:none;">Inspected cars</a> &nbsp;&middot;&nbsp; <a href="sell.html" style="color:rgba(255,255,255,0.65);text-decoration:none;">Sell your car</a> &nbsp;&middot;&nbsp; <a href="index.html#contact" style="color:rgba(255,255,255,0.65);text-decoration:none;">Contact</a></p>
+    <p style="margin-top:12px;font-size:0.78rem;color:rgba(255,255,255,0.4);">TrueMark Vehicle Inspections provides pre-purchase and pre-sale vehicle inspection services. Reports are for informational purposes only. &copy; 2026 TrueMark Vehicle Inspections.</p>
+  </footer>
+  <div style="display:none;position:fixed;bottom:0;left:0;right:0;background:#fff;border-top:1px solid #e5e7eb;padding:12px 20px;z-index:200;" id="floatingCTA"><a href="booking.html" style="display:block;text-align:center;background:#1E9B57;color:#fff;font-weight:700;font-size:1rem;padding:14px;border-radius:10px;text-decoration:none;font-family:'DM Sans',sans-serif;">Book an inspection</a></div>
+  <style>@media(max-width:768px){#floatingCTA{display:block!important;}body{padding-bottom:80px;}#navBookMobile{display:inline-flex!important;}}</style>
 
 </body>
 </html>
