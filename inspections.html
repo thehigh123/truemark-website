@@ -32,7 +32,7 @@
       line-height: 1.6;
     }
 
-    /* ── NAV ── */
+    /* ââ NAV ââ */
     nav {
       background: var(--white);
       border-bottom: 1px solid var(--border);
@@ -67,7 +67,7 @@
     .nav-back:hover { color: var(--green-dark); }
     .nav-back svg { flex-shrink: 0; }
 
-    /* ── PAGE HEADER ── */
+    /* ââ PAGE HEADER ââ */
     .page-header {
       background: linear-gradient(135deg, #f0faf4 0%, #e6f7ee 100%);
       border-bottom: 1px solid #c8ead8;
@@ -87,7 +87,7 @@
       margin: 0 auto;
     }
 
-    /* ── EXPLAINER STRIP ── */
+    /* ââ EXPLAINER STRIP ââ */
     .explainer {
       background: var(--white);
       border-bottom: 1px solid var(--border);
@@ -122,7 +122,7 @@
       color: var(--muted);
     }
 
-    /* ── FILTER BAR ── */
+    /* ââ FILTER BAR ââ */
     .filter-section {
       padding: 24px;
       max-width: 1200px;
@@ -187,7 +187,7 @@
       color: var(--green);
     }
 
-    /* ── CAR GRID ── */
+    /* ââ CAR GRID ââ */
     .listings-section {
       padding: 0 24px 48px;
       max-width: 1200px;
@@ -210,7 +210,7 @@
       gap: 24px;
     }
 
-    /* ── CAR CARD ── */
+    /* ââ CAR CARD ââ */
     .car-card {
       background: var(--white);
       border: 1px solid var(--border);
@@ -299,7 +299,7 @@
     .verdict-badge.proceed { background: #dcfce7; color: #15803d; }
     .verdict-badge.caution { background: #fef3c7; color: #b45309; }
     .verdict-badge.do-not-proceed { background: #fee2e2; color: #b91c1c; }
-    .verdict-badge::before { content: '●'; font-size: 0.6rem; }
+    .verdict-badge::before { content: 'â'; font-size: 0.6rem; }
 
     .car-meta {
       display: grid;
@@ -339,7 +339,7 @@
       position: relative;
     }
     .findings-list li::before {
-      content: '•';
+      content: 'â¢';
       position: absolute;
       left: 4px;
       color: var(--green);
@@ -369,7 +369,7 @@
     }
     .buy-btn:active { transform: translateY(0); }
 
-    /* ── NO RESULTS ── */
+    /* ââ NO RESULTS ââ */
     .no-results {
       grid-column: 1/-1;
       text-align: center;
@@ -380,7 +380,7 @@
     .no-results h3 { font-size: 1.1rem; margin-bottom: 8px; color: var(--text); }
     .no-results p { font-size: 0.9rem; }
 
-    /* ── CTA SECTION ── */
+    /* ââ CTA SECTION ââ */
     .cta-section {
       background: var(--green);
       padding: 56px 24px;
@@ -410,7 +410,7 @@
     }
     .cta-btn:hover { background: #f0faf4; transform: translateY(-2px); }
 
-    /* ── RESPONSIVE ── */
+    /* ââ RESPONSIVE ââ */
     @media (max-width: 768px) {
       .explainer-grid { grid-template-columns: 1fr; gap: 12px; }
       .filter-bar { padding: 16px; }
@@ -422,15 +422,75 @@
     @media (max-width: 480px) {
       .filter-group { flex: 1 1 100%; }
     }
-  </style>
+  
+    /* ── SELLER VERIFIED BADGE ── */
+    .seller-verified-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      padding: 4px 10px;
+      border-radius: 20px;
+      font-size: 0.72rem;
+      font-weight: 700;
+      white-space: nowrap;
+      background: #dbeafe;
+      color: #1d4ed8;
+      margin-left: 6px;
+    }
+    .seller-verified-badge::before { content: '✓'; font-size: 0.75rem; }
+
+    /* ── TYPE TABS ── */
+    .type-tabs {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 0;
+    }
+    .type-tab {
+      padding: 8px 18px;
+      border: 1.5px solid var(--border);
+      border-radius: 20px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.875rem;
+      font-weight: 600;
+      color: var(--muted);
+      background: var(--white);
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .type-tab:hover { border-color: var(--green); color: var(--green); }
+    .type-tab.active { background: var(--green); border-color: var(--green); color: var(--white); }
+
+    /* ── SELLER BANNER ── */
+    .seller-banner {
+      background: linear-gradient(90deg, #f0faf4 0%, #e6f7ee 100%);
+      border: 1px solid var(--green-border, #c8ead8);
+      border-radius: var(--radius);
+      padding: 14px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 20px;
+      flex-wrap: wrap;
+    }
+    .seller-banner p { font-size: 0.9rem; color: var(--text); font-weight: 500; }
+    .seller-banner a {
+      font-size: 0.875rem;
+      font-weight: 700;
+      color: var(--green);
+      text-decoration: none;
+      white-space: nowrap;
+    }
+    .seller-banner a:hover { text-decoration: underline; }
+</style>
 </head>
 <body>
 
-  <!-- ══════════════════════════════════════════════
+  <!-- ââââââââââââââââââââââââââââââââââââââââââââââ
        NAV BAR
-  ══════════════════════════════════════════════ -->
+  ââââââââââââââââââââââââââââââââââââââââââââââ -->
   <nav>
-    <a href="index.html" class="nav-logo" aria-label="TrueMark Vehicle Inspections — Home">
+    <a href="index.html" class="nav-logo" aria-label="TrueMark Vehicle Inspections â Home">
       <img src="logo.png" alt="TrueMark Vehicle Inspections logo" />
     </a>
     <a href="index.html" class="nav-back">
@@ -441,45 +501,45 @@
     </a>
   </nav>
 
-  <!-- ══════════════════════════════════════════════
+  <!-- ââââââââââââââââââââââââââââââââââââââââââââââ
        PAGE HEADER
-  ══════════════════════════════════════════════ -->
+  ââââââââââââââââââââââââââââââââââââââââââââââ -->
   <header class="page-header">
     <h1>Inspected Cars</h1>
-    <p>Browse cars we've already inspected. See the verdict before you contact the seller — or buy the full report for $19.</p>
+    <p>Browse cars we've already inspected. See the verdict before you contact the seller â or buy the full report for $19.</p>
   </header>
 
-  <!-- ══════════════════════════════════════════════
+  <!-- ââââââââââââââââââââââââââââââââââââââââââââââ
        EXPLAINER STRIP
-  ══════════════════════════════════════════════ -->
+  ââââââââââââââââââââââââââââââââââââââââââââââ -->
   <section class="explainer">
     <div class="explainer-grid">
       <div class="explainer-card">
-        <div class="icon">⚡</div>
-        <h3>Already inspected — no wait time</h3>
-        <p>These cars have been through a full TrueMark inspection. No need to book — results are ready now.</p>
+        <div class="icon">â¡</div>
+        <h3>Already inspected â no wait time</h3>
+        <p>These cars have been through a full TrueMark inspection. No need to book â results are ready now.</p>
       </div>
       <div class="explainer-card">
-        <div class="icon">👁️</div>
+        <div class="icon">ðï¸</div>
         <h3>See verdict + key findings free</h3>
         <p>Each listing shows the overall verdict and 3 key findings at no cost, so you know what you're buying into.</p>
       </div>
       <div class="explainer-card">
-        <div class="icon">📄</div>
+        <div class="icon">ð</div>
         <h3>Buy full report for $19</h3>
-        <p>Get the complete inspection report instantly — every check, every detail, every photo.</p>
+        <p>Get the complete inspection report instantly â every check, every detail, every photo.</p>
       </div>
     </div>
   </section>
 
-  <!-- ══════════════════════════════════════════════
+  <!-- ââââââââââââââââââââââââââââââââââââââââââââââ
        FILTER BAR
-  ══════════════════════════════════════════════ -->
+  ââââââââââââââââââââââââââââââââââââââââââââââ -->
   <section class="filter-section">
     <div class="filter-bar" id="filterBar">
       <div class="filter-group">
         <label for="filterSearch">Search</label>
-        <input type="text" id="filterSearch" placeholder="Make, model, suburb…" />
+        <input type="text" id="filterSearch" placeholder="Make, model, suburbâ¦" />
       </div>
       <div class="filter-group">
         <label for="filterMake">Make</label>
@@ -516,9 +576,9 @@
         <select id="filterPrice">
           <option value="">Any price</option>
           <option value="0-10000">Under $10,000</option>
-          <option value="10000-20000">$10,000 – $20,000</option>
-          <option value="20000-30000">$20,000 – $30,000</option>
-          <option value="30000-50000">$30,000 – $50,000</option>
+          <option value="10000-20000">$10,000 â $20,000</option>
+          <option value="20000-30000">$20,000 â $30,000</option>
+          <option value="30000-50000">$30,000 â $50,000</option>
           <option value="50000-999999">$50,000+</option>
         </select>
       </div>
@@ -543,43 +603,53 @@
     </div>
   </section>
 
-  <!-- ══════════════════════════════════════════════
+  <!-- ââââââââââââââââââââââââââââââââââââââââââââââ
        CAR LISTINGS
-       ─────────────────────────────────────────────
+       âââââââââââââââââââââââââââââââââââââââââââââ
        HOW TO ADD A NEW CAR LISTING
-       ─────────────────────────────────────────────
+       âââââââââââââââââââââââââââââââââââââââââââââ
        Copy one of the .car-card divs below and update
        the following data-* attributes on the <article> tag:
 
-         data-make="Toyota"            — Car manufacturer (must match a <option> in #filterMake)
-         data-model="Camry"            — Model name
-         data-year="2019"              — 4-digit year
-         data-price="18500"            — Asking price in dollars (numbers only, no $ or commas)
-         data-verdict="proceed"        — One of: proceed | caution | do-not-proceed
-         data-package="Standard"       — One of: Standard | Premium
-         data-search="extra keywords"  — Any extra text to match in the search box (e.g. suburb)
+         data-make="Toyota"            â Car manufacturer (must match a <option> in #filterMake)
+         data-model="Camry"            â Model name
+         data-year="2019"              â 4-digit year
+         data-price="18500"            â Asking price in dollars (numbers only, no $ or commas)
+         data-verdict="proceed"        â One of: proceed | caution | do-not-proceed
+         data-package="Standard"       â One of: Standard | Premium
+         data-search="extra keywords"  â Any extra text to match in the search box (e.g. suburb)
 
        Then update the visible content inside the card:
-         .car-title           — "YEAR Make Model"
-         .car-photo-placeholder — optionally replace with an <img> tag
-         .example-badge       — REMOVE this span for real listings
-         .meta-value spans    — Odometer, Asking price, Suburb, Inspection date
-         .verdict-badge       — Update class (proceed / caution / do-not-proceed) and text
-         .findings-list li    — Replace the 3 bullet points with real key findings
-         .buy-btn href        — Update the Stripe link for this specific report if using unique links
+         .car-title           â "YEAR Make Model"
+         .car-photo-placeholder â optionally replace with an <img> tag
+         .example-badge       â REMOVE this span for real listings
+         .meta-value spans    â Odometer, Asking price, Suburb, Inspection date
+         .verdict-badge       â Update class (proceed / caution / do-not-proceed) and text
+         .findings-list li    â Replace the 3 bullet points with real key findings
+         .buy-btn href        â Update the Stripe link for this specific report if using unique links
 
        Example Stripe link (same for all reports unless you create per-report links):
          href="https://buy.stripe.com/fZu28k4APgD77k9eBRcAo01"
-  ══════════════════════════════════════════════ -->
+  ââââââââââââââââââââââââââââââââââââââââââââââ -->
 
-  <section class="listings-section">
+  <section class="listings-section"
+        data-type="buyer">
     <div class="listings-header">
       <p class="listings-count" id="listingsCount"></p>
     </div>
 
+    <div class="seller-banner">
+      <p>🚗 Selling your car? Get it independently inspected and listed right here.</p>
+      <a href="sell.html">Find out more →</a>
+    </div>
+    <div class="type-tabs" id="typeTabs" style="margin-bottom:16px;">
+      <button class="type-tab active" data-tab="all" type="button">All</button>
+      <button class="type-tab" data-tab="buyer" type="button">Buyer inspected</button>
+      <button class="type-tab" data-tab="seller" type="button">Seller listed</button>
+    </div>
     <div class="car-grid" id="carGrid">
 
-      <!-- ── EXAMPLE CAR 1 ── -->
+      <!-- ââ EXAMPLE CAR 1 ââ -->
       <article class="car-card"
         data-make="Toyota"
         data-model="Camry"
@@ -623,17 +693,18 @@
             </div>
           </div>
           <ul class="findings-list">
-            <li>Minor surface rust on rear subframe — cosmetic only, not structurally significant</li>
-            <li>Front brake pads at approx. 40% — replacement recommended within 12 months</li>
+            <li>Minor surface rust on rear subframe â cosmetic only, not structurally significant</li>
+            <li>Front brake pads at approx. 40% â replacement recommended within 12 months</li>
             <li>All mechanical systems operating within normal parameters</li>
           </ul>
           <a href="https://buy.stripe.com/fZu28k4APgD77k9eBRcAo01" class="buy-btn" target="_blank" rel="noopener">
-            Buy Full Report — $19
+            Buy Full Report â $19
           </a>
         </div>
       </article>
 
-      <!-- ── EXAMPLE CAR 2 ── -->
+      <!-- ââ EXAMPLE CAR 2 ââ -->
+            <!-- ── EXAMPLE CAR 2 — SELLER LISTED ── -->
       <article class="car-card"
         data-make="Mazda"
         data-model="CX-5"
@@ -641,6 +712,7 @@
         data-price="32500"
         data-verdict="caution"
         data-package="Premium"
+        data-type="seller"
         data-search="CX5 CX 5 Maroubra Mazda 2020">
         <div class="car-photo-placeholder">
           <span class="example-badge">Example listing</span>
@@ -652,7 +724,10 @@
         <div class="car-body">
           <div class="car-title-row">
             <h2 class="car-title">2020 Mazda CX-5</h2>
-            <span class="verdict-badge caution">Caution</span>
+            <div style="display:flex;flex-direction:column;align-items:flex-end;gap:4px;">
+              <span class="verdict-badge caution">Caution</span>
+              <span class="seller-verified-badge">Seller Verified</span>
+            </div>
           </div>
           <div class="car-meta">
             <div class="car-meta-item">
@@ -673,7 +748,7 @@
             </div>
             <div class="car-meta-item">
               <span class="meta-label">Package</span>
-              <span class="meta-value">Premium</span>
+              <span class="meta-value">Seller Premium</span>
             </div>
           </div>
           <ul class="findings-list">
@@ -687,7 +762,8 @@
         </div>
       </article>
 
-      <!-- ── NO RESULTS MESSAGE ── -->
+
+      <!-- ââ NO RESULTS MESSAGE ââ -->
       <div class="no-results" id="noResults">
         <h3>No cars match your filters</h3>
         <p>Try adjusting your search or filters, or <a href="booking.html" style="color:var(--green);font-weight:600;">book a fresh inspection</a>.</p>
@@ -696,18 +772,18 @@
     </div><!-- /car-grid -->
   </section>
 
-  <!-- ══════════════════════════════════════════════
+  <!-- ââââââââââââââââââââââââââââââââââââââââââââââ
        BOTTOM CTA
-  ══════════════════════════════════════════════ -->
+  ââââââââââââââââââââââââââââââââââââââââââââââ -->
   <section class="cta-section">
     <h2>Don't see the car you're after?</h2>
-    <p>Book a fresh inspection — we'll check any car in the metro area, fast.</p>
+    <p>Book a fresh inspection â we'll check any car in the metro area, fast.</p>
     <a href="booking.html" class="cta-btn">Book a Fresh Inspection</a>
   </section>
 
-  <!-- ══════════════════════════════════════════════
+  <!-- ââââââââââââââââââââââââââââââââââââââââââââââ
        FILTER JAVASCRIPT
-  ══════════════════════════════════════════════ -->
+  ââââââââââââââââââââââââââââââââââââââââââââââ -->
   <script>
     (function () {
       const cards = Array.from(document.querySelectorAll('.car-card[data-make]'));
@@ -715,7 +791,7 @@
       const noResults = document.getElementById('noResults');
       const countEl = document.getElementById('listingsCount');
 
-      // ── Build dynamic dropdowns ──
+      // ââ Build dynamic dropdowns ââ
       const makes = [...new Set(cards.map(c => c.dataset.make))].sort();
       const makeSelect = document.getElementById('filterMake');
       // Clear and re-populate to only show makes that exist in listings
@@ -756,7 +832,7 @@
         applyFilters();
       });
 
-      // ── Core filter function ──
+      // ââ Core filter function ââ
       function applyFilters() {
         const search = document.getElementById('filterSearch').value.toLowerCase().trim();
         const make = makeSelect.value;
@@ -791,7 +867,7 @@
         noResults.style.display = visible === 0 ? 'block' : 'none';
       }
 
-      // ── Attach listeners ──
+      // ââ Attach listeners ââ
       ['filterSearch','filterModel','filterYear','filterPrice','filterVerdict','filterPackage']
         .forEach(id => {
           const el = document.getElementById(id);
@@ -810,8 +886,63 @@
         applyFilters();
       });
 
-      // ── Initial count ──
-      applyFilters();
+      // ââ Initial count ââ
+      applyFilters()
+
+      // ── Tab filtering ──
+      let activeTab = 'all';
+      function applyTabFilter() {
+        const allCards = Array.from(document.querySelectorAll('.car-card[data-make]'));
+        allCards.forEach(card => {
+          const type = card.dataset.type || 'buyer'; // default to buyer if not set
+          if (activeTab === 'all') {
+            card.classList.remove('tab-hidden');
+          } else {
+            card.classList.toggle('tab-hidden', type !== activeTab);
+          }
+        });
+        // Re-run count
+        const visible = allCards.filter(c => !c.classList.contains('hidden') && !c.classList.contains('tab-hidden')).length;
+        const countEl = document.getElementById('listingsCount');
+        if (countEl) countEl.textContent = visible === 1 ? '1 car listed' : visible + ' cars listed';
+        const noResults = document.getElementById('noResults');
+        if (noResults) noResults.style.display = visible === 0 ? 'block' : 'none';
+      }
+
+      // Override applyFilters to also respect tab
+      const _originalApply = applyFilters;
+      // Patch car-card hidden class check to include tab-hidden
+      document.getElementById('typeTabs').addEventListener('click', function(e) {
+        const btn = e.target.closest('.type-tab');
+        if (!btn) return;
+        document.querySelectorAll('.type-tab').forEach(t => t.classList.remove('active'));
+        btn.classList.add('active');
+        activeTab = btn.dataset.tab;
+        // Re-apply dropdown filters first
+        applyFilters();
+        // Then apply tab
+        const allCards = Array.from(document.querySelectorAll('.car-card[data-make]'));
+        allCards.forEach(card => {
+          const type = card.dataset.type || 'buyer';
+          if (activeTab === 'all') {
+            card.classList.remove('tab-hidden');
+          } else {
+            card.classList.toggle('tab-hidden', type !== activeTab);
+          }
+        });
+        // Recount
+        const visible = allCards.filter(c => !c.classList.contains('hidden') && !c.classList.contains('tab-hidden')).length;
+        const countEl = document.getElementById('listingsCount');
+        if (countEl) countEl.textContent = visible === 1 ? '1 car listed' : visible + ' cars listed';
+        const noResults = document.getElementById('noResults');
+        if (noResults) noResults.style.display = visible === 0 ? 'block' : 'none';
+      });
+
+      // Add tab-hidden style
+      const tabStyle = document.createElement('style');
+      tabStyle.textContent = '.car-card.tab-hidden { display: none !important; }';
+      document.head.appendChild(tabStyle);
+;
     })();
   </script>
 
