@@ -241,6 +241,30 @@ select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/
 
 /* Divider */
 .divider{height:1px;background:rgba(11,18,32,.08);margin:24px 0;}
+
+    /* ── SELLER BLOCK ── */
+    .sellerSubPkgs {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+      margin-bottom: 16px;
+    }
+    .sellerPkgOption { display: none; }
+    .sellerPkgLabel {
+      display: block;
+      border: 2px solid var(--border);
+      border-radius: 10px;
+      padding: 16px;
+      cursor: pointer;
+      transition: border-color 0.2s, background 0.2s;
+    }
+    .sellerPkgOption:checked + .sellerPkgLabel {
+      border-color: var(--green);
+      background: var(--green-bg);
+    }
+    .sellerPkgLabel .spName { font-weight: 700; font-size: 0.95rem; color: var(--text); }
+    .sellerPkgLabel .spPrice { font-size: 1.3rem; font-weight: 700; color: var(--green); margin: 4px 0; }
+    .sellerPkgLabel .spDesc { font-size: 0.8rem; color: var(--muted); }
 </style>
 </head>
 <body>
@@ -338,6 +362,13 @@ select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/
             </label>
           </div>
         </div>
+      <input type="radio" name="pkg" id="pkg-seller" class="pkgOption" value="seller" hidden />
+      <label for="pkg-seller" class="pkgLabel">
+        <div class="pkgName">Seller Inspection</div>
+        <div class="pkgBadge">List on TrueMark</div>
+        <div class="pkgPrice">From $199</div>
+        <div class="pkgDesc">Pre-sale inspection + 90-day listing on our Inspected Cars page + shareable link for your ads.</div>
+      </label>
         <div class="pkgError" id="err-package">Please select a package.</div>
         <div class="hint" style="margin-top:8px;">Not sure? If the car is a 4WD, ute, SUV, prestige brand, or over $30k &mdash; choose Premium.</div>
       </div>
@@ -355,6 +386,47 @@ select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/
           </div>
           <div class="hint">Attendance is included in Premium where access is permitted.</div>
         </div>
+      <!-- SELLER BLOCK — shown when "Seller Inspection" package is selected -->
+      <div id="sellerBlock" style="display:none">
+        <p class="premiumTitle">Seller package</p>
+        <div class="sellerSubPkgs">
+          <input type="radio" name="sellerPkg" id="sp-standard" class="sellerPkgOption" value="Seller Standard" />
+          <label for="sp-standard" class="sellerPkgLabel">
+            <div class="spName">Seller Standard</div>
+            <div class="spPrice">$199</div>
+            <div class="spDesc">Cars under $30k — full inspection, report &amp; 90-day listing</div>
+          </label>
+          <input type="radio" name="sellerPkg" id="sp-premium" class="sellerPkgOption" value="Seller Premium" />
+          <label for="sp-premium" class="sellerPkgLabel">
+            <div class="spName">Seller Premium</div>
+            <div class="spPrice">$299</div>
+            <div class="spDesc">4WDs, utes, SUVs, prestige &amp; cars over $30k — includes scan tool, PPSR &amp; Verified badge</div>
+          </label>
+        </div>
+        <div class="field">
+          <label for="sellReason">Why are you selling? <span class="req">*</span></label>
+          <input type="text" id="sellReason" name="sellReason" placeholder="e.g. Upgrading, moving overseas, bought new car..." autocomplete="off" />
+          <span class="error" id="err-sellReason"></span>
+        </div>
+        <div class="field">
+          <label for="ownedHow">How long have you had the car? <span class="req">*</span></label>
+          <input type="text" id="ownedHow" name="ownedHow" placeholder="e.g. 2 years, 6 months..." autocomplete="off" />
+          <span class="error" id="err-ownedHow"></span>
+        </div>
+        <div class="field">
+          <label for="knownIssues">Any known issues? <span class="req">*</span></label>
+          <textarea id="knownIssues" name="knownIssues" rows="3" placeholder="List any faults, warning lights, damage, or issues you're aware of. If none, write 'None known'."></textarea>
+        </div>
+        <div class="field">
+          <label for="listedYet">Have you already listed it anywhere?</label>
+          <div class="radioGroup" style="margin-bottom:8px">
+            <label><input type="radio" name="listedYet" value="No" checked /> No, not yet</label>
+            <label><input type="radio" name="listedYet" value="Yes" id="listedYetYes" /> Yes</label>
+          </div>
+          <input type="url" id="existingListingUrl" name="existingListingUrl" placeholder="Paste your Gumtree/Facebook/Carsales link here" style="display:none" autocomplete="off" />
+        </div>
+      </div><!-- /sellerBlock -->
+
 
         <div class="field" style="margin-bottom:0;">
           <label>Has the seller confirmed they&rsquo;re available for an inspection?</label>
@@ -511,15 +583,41 @@ select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/
   // Show/hide Premium block when package changes
   const pkgRadios = document.querySelectorAll('input[name="package"]');
   const premiumBlock = document.getElementById('premiumBlock');
-  function updatePremium(){
-    const selected = document.querySelector('input[name="package"]:checked');
-    if(selected && selected.value.startsWith('Premium')){
-      premiumBlock.classList.add('show');
-    } else {
-      premiumBlock.classList.remove('show');
-    }
+  function updatePremium() {
+    const sel = document.querySelector('input[name="pkg"]:checked');
+    const val = sel ? sel.value : '';
+    const premEl = document.getElementById('premiumBlock');
+    const sellEl = document.getElementById('sellerBlock');
+    if (premEl) premEl.style.display = val === 'premium' ? '' : 'none';
+    if (sellEl) sellEl.style.display = val === 'seller' ? '' : 'none';
   }
   pkgRadios.forEach(r => r.addEventListener('change', updatePremium));
+
+  // Toggle existing listing URL field based on listedYet radio
+  document.querySelectorAll('input[name="listedYet"]').forEach(r => {
+    r.addEventListener('change', function() {
+      const urlField = document.getElementById('existingListingUrl');
+      if (urlField) urlField.style.display = this.value === 'Yes' ? '' : 'none';
+    });
+  });
+
+  // Auto-select seller sub-package if URL param present
+  (function() {
+    const params = new URLSearchParams(window.location.search);
+    const type = params.get('type');
+    const pkg = params.get('pkg');
+    if (type === 'seller') {
+      const sellerPkgEl = document.getElementById('pkg-seller');
+      if (sellerPkgEl) { sellerPkgEl.checked = true; updatePremium(); }
+      if (pkg === 'premium') {
+        const spPrem = document.getElementById('sp-premium');
+        if (spPrem) spPrem.checked = true;
+      } else {
+        const spStd = document.getElementById('sp-standard');
+        if (spStd) spStd.checked = true;
+      }
+    }
+  })();
 
   // Set min date on date inputs to today
   const today = new Date().toISOString().split('T')[0];
@@ -671,7 +769,7 @@ select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/
     const bodyEnc = encodeURIComponent(body);
 
     submitBtn.disabled = true;
-    submitBtn.textContent = 'Sending…';
+    submitBtn.textContent = 'Sendingâ¦';
 
     fetch('https://formspree.io/f/xrejekrp', {
       method: 'POST',
@@ -702,13 +800,13 @@ select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/
         window.location.href = 'https://buy.stripe.com/fZu28k4APgD77k9eBRcAo01';
       } else {
         submitBtn.disabled = false;
-        submitBtn.textContent = 'Send booking request →';
+        submitBtn.textContent = 'Send booking request â';
         alert('Something went wrong. Please try again or call us on 0423 636 633.');
       }
     })
     .catch(function(){
       submitBtn.disabled = false;
-      submitBtn.textContent = 'Send booking request →';
+      submitBtn.textContent = 'Send booking request â';
       alert('Could not connect. Please check your internet and try again, or call us on 0423 636 633.');
     });
   });
