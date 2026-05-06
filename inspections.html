@@ -1,0 +1,819 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Inspected Cars | TrueMark Vehicle Inspections</title>
+  <meta name="description" content="Browse cars already inspected by TrueMark. See the verdict before contacting the seller, or buy the full report for $19." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet" />
+  <link rel="icon" type="image/x-icon" href="favicon.ico" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --green: #1E9B57;
+      --green-dark: #167a44;
+      --amber: #F59E0B;
+      --red: #EF4444;
+      --text: #1a1a1a;
+      --muted: #6b7280;
+      --border: #e5e7eb;
+      --bg: #f9fafb;
+      --white: #ffffff;
+      --radius: 12px;
+    }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      color: var(--text);
+      background: var(--bg);
+      line-height: 1.6;
+    }
+
+    /* ── NAV ── */
+    nav {
+      background: var(--white);
+      border-bottom: 1px solid var(--border);
+      padding: 0 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 64px;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      text-decoration: none;
+    }
+    .nav-logo img {
+      height: 40px;
+      width: auto;
+    }
+    .nav-back {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      text-decoration: none;
+      color: var(--green);
+      font-weight: 600;
+      font-size: 0.95rem;
+      transition: color 0.2s;
+    }
+    .nav-back:hover { color: var(--green-dark); }
+    .nav-back svg { flex-shrink: 0; }
+
+    /* ── PAGE HEADER ── */
+    .page-header {
+      background: linear-gradient(135deg, #f0faf4 0%, #e6f7ee 100%);
+      border-bottom: 1px solid #c8ead8;
+      padding: 56px 24px 48px;
+      text-align: center;
+    }
+    .page-header h1 {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(2rem, 5vw, 3rem);
+      color: var(--text);
+      margin-bottom: 12px;
+    }
+    .page-header p {
+      font-size: clamp(1rem, 2.5vw, 1.15rem);
+      color: var(--muted);
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    /* ── EXPLAINER STRIP ── */
+    .explainer {
+      background: var(--white);
+      border-bottom: 1px solid var(--border);
+      padding: 32px 24px;
+    }
+    .explainer-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    .explainer-card {
+      text-align: center;
+      padding: 24px 16px;
+      border-radius: var(--radius);
+      border: 1px solid #d1fae5;
+      background: #f0faf4;
+    }
+    .explainer-card .icon {
+      font-size: 2rem;
+      margin-bottom: 10px;
+    }
+    .explainer-card h3 {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--green);
+      margin-bottom: 4px;
+    }
+    .explainer-card p {
+      font-size: 0.875rem;
+      color: var(--muted);
+    }
+
+    /* ── FILTER BAR ── */
+    .filter-section {
+      padding: 24px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .filter-bar {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 20px 24px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      align-items: flex-end;
+    }
+    .filter-group {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      flex: 1 1 140px;
+    }
+    .filter-group label {
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    .filter-group select,
+    .filter-group input[type="text"] {
+      padding: 9px 12px;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.9rem;
+      color: var(--text);
+      background: var(--white);
+      cursor: pointer;
+      transition: border-color 0.2s;
+      width: 100%;
+    }
+    .filter-group select:focus,
+    .filter-group input[type="text"]:focus {
+      outline: none;
+      border-color: var(--green);
+    }
+    .filter-reset-btn {
+      padding: 9px 18px;
+      background: transparent;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.9rem;
+      color: var(--muted);
+      cursor: pointer;
+      transition: all 0.2s;
+      align-self: flex-end;
+      white-space: nowrap;
+    }
+    .filter-reset-btn:hover {
+      border-color: var(--green);
+      color: var(--green);
+    }
+
+    /* ── CAR GRID ── */
+    .listings-section {
+      padding: 0 24px 48px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .listings-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 20px;
+      padding-top: 8px;
+    }
+    .listings-count {
+      font-size: 0.9rem;
+      color: var(--muted);
+    }
+    .car-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+      gap: 24px;
+    }
+
+    /* ── CAR CARD ── */
+    .car-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+      transition: box-shadow 0.2s, transform 0.2s;
+      display: flex;
+      flex-direction: column;
+    }
+    .car-card:hover {
+      box-shadow: 0 8px 24px rgba(0,0,0,0.10);
+      transform: translateY(-2px);
+    }
+    .car-card.hidden { display: none; }
+
+    .car-photo {
+      width: 100%;
+      aspect-ratio: 16/9;
+      object-fit: cover;
+      background: #e5e7eb;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #9ca3af;
+      font-size: 0.85rem;
+      font-weight: 500;
+      position: relative;
+    }
+    .car-photo-placeholder {
+      width: 100%;
+      aspect-ratio: 16/9;
+      background: linear-gradient(135deg, #e5e7eb 0%, #d1d5db 100%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      color: #9ca3af;
+    }
+    .car-photo-placeholder svg { opacity: 0.5; }
+    .car-photo-placeholder span { font-size: 0.8rem; }
+    .example-badge {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      background: rgba(0,0,0,0.6);
+      color: #fff;
+      font-size: 0.7rem;
+      font-weight: 700;
+      padding: 3px 8px;
+      border-radius: 4px;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    .car-body {
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+      gap: 12px;
+    }
+    .car-title-row {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 8px;
+    }
+    .car-title {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.2rem;
+      line-height: 1.3;
+      color: var(--text);
+    }
+    .verdict-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      padding: 4px 10px;
+      border-radius: 20px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+    .verdict-badge.proceed { background: #dcfce7; color: #15803d; }
+    .verdict-badge.caution { background: #fef3c7; color: #b45309; }
+    .verdict-badge.do-not-proceed { background: #fee2e2; color: #b91c1c; }
+    .verdict-badge::before { content: '●'; font-size: 0.6rem; }
+
+    .car-meta {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 6px 16px;
+      font-size: 0.85rem;
+    }
+    .car-meta-item {
+      display: flex;
+      flex-direction: column;
+      gap: 1px;
+    }
+    .car-meta-item .meta-label {
+      color: var(--muted);
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+    .car-meta-item .meta-value {
+      color: var(--text);
+      font-weight: 600;
+    }
+
+    .findings-list {
+      border-top: 1px solid var(--border);
+      padding-top: 12px;
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    .findings-list li {
+      font-size: 0.875rem;
+      color: var(--muted);
+      padding-left: 18px;
+      position: relative;
+    }
+    .findings-list li::before {
+      content: '•';
+      position: absolute;
+      left: 4px;
+      color: var(--green);
+      font-weight: 700;
+    }
+
+    .buy-btn {
+      display: block;
+      width: 100%;
+      padding: 13px 20px;
+      background: var(--green);
+      color: var(--white);
+      text-align: center;
+      text-decoration: none;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.95rem;
+      font-weight: 700;
+      border-radius: 8px;
+      border: none;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.1s;
+      margin-top: auto;
+    }
+    .buy-btn:hover {
+      background: var(--green-dark);
+      transform: translateY(-1px);
+    }
+    .buy-btn:active { transform: translateY(0); }
+
+    /* ── NO RESULTS ── */
+    .no-results {
+      grid-column: 1/-1;
+      text-align: center;
+      padding: 48px 24px;
+      color: var(--muted);
+      display: none;
+    }
+    .no-results h3 { font-size: 1.1rem; margin-bottom: 8px; color: var(--text); }
+    .no-results p { font-size: 0.9rem; }
+
+    /* ── CTA SECTION ── */
+    .cta-section {
+      background: var(--green);
+      padding: 56px 24px;
+      text-align: center;
+    }
+    .cta-section h2 {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(1.5rem, 4vw, 2.2rem);
+      color: var(--white);
+      margin-bottom: 12px;
+    }
+    .cta-section p {
+      color: rgba(255,255,255,0.85);
+      font-size: 1rem;
+      margin-bottom: 28px;
+    }
+    .cta-btn {
+      display: inline-block;
+      padding: 14px 32px;
+      background: var(--white);
+      color: var(--green);
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 1rem;
+      border-radius: 8px;
+      transition: background 0.2s, transform 0.1s;
+    }
+    .cta-btn:hover { background: #f0faf4; transform: translateY(-2px); }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 768px) {
+      .explainer-grid { grid-template-columns: 1fr; gap: 12px; }
+      .filter-bar { padding: 16px; }
+      .filter-group { flex: 1 1 calc(50% - 6px); }
+      .car-grid { grid-template-columns: 1fr; }
+      nav { padding: 0 16px; }
+      .page-header { padding: 40px 16px 32px; }
+    }
+    @media (max-width: 480px) {
+      .filter-group { flex: 1 1 100%; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ══════════════════════════════════════════════
+       NAV BAR
+  ══════════════════════════════════════════════ -->
+  <nav>
+    <a href="index.html" class="nav-logo" aria-label="TrueMark Vehicle Inspections — Home">
+      <img src="logo.png" alt="TrueMark Vehicle Inspections logo" />
+    </a>
+    <a href="index.html" class="nav-back">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"/>
+      </svg>
+      Back to home
+    </a>
+  </nav>
+
+  <!-- ══════════════════════════════════════════════
+       PAGE HEADER
+  ══════════════════════════════════════════════ -->
+  <header class="page-header">
+    <h1>Inspected Cars</h1>
+    <p>Browse cars we've already inspected. See the verdict before you contact the seller — or buy the full report for $19.</p>
+  </header>
+
+  <!-- ══════════════════════════════════════════════
+       EXPLAINER STRIP
+  ══════════════════════════════════════════════ -->
+  <section class="explainer">
+    <div class="explainer-grid">
+      <div class="explainer-card">
+        <div class="icon">⚡</div>
+        <h3>Already inspected — no wait time</h3>
+        <p>These cars have been through a full TrueMark inspection. No need to book — results are ready now.</p>
+      </div>
+      <div class="explainer-card">
+        <div class="icon">👁️</div>
+        <h3>See verdict + key findings free</h3>
+        <p>Each listing shows the overall verdict and 3 key findings at no cost, so you know what you're buying into.</p>
+      </div>
+      <div class="explainer-card">
+        <div class="icon">📄</div>
+        <h3>Buy full report for $19</h3>
+        <p>Get the complete inspection report instantly — every check, every detail, every photo.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════
+       FILTER BAR
+  ══════════════════════════════════════════════ -->
+  <section class="filter-section">
+    <div class="filter-bar" id="filterBar">
+      <div class="filter-group">
+        <label for="filterSearch">Search</label>
+        <input type="text" id="filterSearch" placeholder="Make, model, suburb…" />
+      </div>
+      <div class="filter-group">
+        <label for="filterMake">Make</label>
+        <select id="filterMake">
+          <option value="">All makes</option>
+          <option value="Toyota">Toyota</option>
+          <option value="Mazda">Mazda</option>
+          <option value="Hyundai">Hyundai</option>
+          <option value="Ford">Ford</option>
+          <option value="Holden">Holden</option>
+          <option value="Subaru">Subaru</option>
+          <option value="Nissan">Nissan</option>
+          <option value="Honda">Honda</option>
+          <option value="Volkswagen">Volkswagen</option>
+          <option value="Kia">Kia</option>
+          <option value="BMW">BMW</option>
+          <option value="Mercedes-Benz">Mercedes-Benz</option>
+        </select>
+      </div>
+      <div class="filter-group">
+        <label for="filterModel">Model</label>
+        <select id="filterModel">
+          <option value="">All models</option>
+        </select>
+      </div>
+      <div class="filter-group">
+        <label for="filterYear">Year</label>
+        <select id="filterYear">
+          <option value="">All years</option>
+        </select>
+      </div>
+      <div class="filter-group">
+        <label for="filterPrice">Price range</label>
+        <select id="filterPrice">
+          <option value="">Any price</option>
+          <option value="0-10000">Under $10,000</option>
+          <option value="10000-20000">$10,000 – $20,000</option>
+          <option value="20000-30000">$20,000 – $30,000</option>
+          <option value="30000-50000">$30,000 – $50,000</option>
+          <option value="50000-999999">$50,000+</option>
+        </select>
+      </div>
+      <div class="filter-group">
+        <label for="filterVerdict">Verdict</label>
+        <select id="filterVerdict">
+          <option value="">Any verdict</option>
+          <option value="proceed">Proceed</option>
+          <option value="caution">Caution</option>
+          <option value="do-not-proceed">Do Not Proceed</option>
+        </select>
+      </div>
+      <div class="filter-group">
+        <label for="filterPackage">Package</label>
+        <select id="filterPackage">
+          <option value="">Any package</option>
+          <option value="Standard">Standard</option>
+          <option value="Premium">Premium</option>
+        </select>
+      </div>
+      <button class="filter-reset-btn" id="filterReset" type="button">Reset filters</button>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════
+       CAR LISTINGS
+       ─────────────────────────────────────────────
+       HOW TO ADD A NEW CAR LISTING
+       ─────────────────────────────────────────────
+       Copy one of the .car-card divs below and update
+       the following data-* attributes on the <article> tag:
+
+         data-make="Toyota"            — Car manufacturer (must match a <option> in #filterMake)
+         data-model="Camry"            — Model name
+         data-year="2019"              — 4-digit year
+         data-price="18500"            — Asking price in dollars (numbers only, no $ or commas)
+         data-verdict="proceed"        — One of: proceed | caution | do-not-proceed
+         data-package="Standard"       — One of: Standard | Premium
+         data-search="extra keywords"  — Any extra text to match in the search box (e.g. suburb)
+
+       Then update the visible content inside the card:
+         .car-title           — "YEAR Make Model"
+         .car-photo-placeholder — optionally replace with an <img> tag
+         .example-badge       — REMOVE this span for real listings
+         .meta-value spans    — Odometer, Asking price, Suburb, Inspection date
+         .verdict-badge       — Update class (proceed / caution / do-not-proceed) and text
+         .findings-list li    — Replace the 3 bullet points with real key findings
+         .buy-btn href        — Update the Stripe link for this specific report if using unique links
+
+       Example Stripe link (same for all reports unless you create per-report links):
+         href="https://buy.stripe.com/fZu28k4APgD77k9eBRcAo01"
+  ══════════════════════════════════════════════ -->
+
+  <section class="listings-section">
+    <div class="listings-header">
+      <p class="listings-count" id="listingsCount"></p>
+    </div>
+
+    <div class="car-grid" id="carGrid">
+
+      <!-- ── EXAMPLE CAR 1 ── -->
+      <article class="car-card"
+        data-make="Toyota"
+        data-model="Camry"
+        data-year="2018"
+        data-price="17900"
+        data-verdict="proceed"
+        data-package="Standard"
+        data-search="Camry Altise Blacktown Toyota 2018">
+        <div class="car-photo-placeholder">
+          <span class="example-badge">Example listing</span>
+          <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" fill="none" viewBox="0 0 24 24" stroke="#9ca3af" stroke-width="1.2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M3 17l2-6h14l2 6M3 17h18M3 17v2a1 1 0 001 1h1a1 1 0 001-1v-1h12v1a1 1 0 001 1h1a1 1 0 001-1v-2M7 11l1-4h8l1 4"/>
+          </svg>
+          <span>Photo placeholder</span>
+        </div>
+        <div class="car-body">
+          <div class="car-title-row">
+            <h2 class="car-title">2018 Toyota Camry</h2>
+            <span class="verdict-badge proceed">Proceed</span>
+          </div>
+          <div class="car-meta">
+            <div class="car-meta-item">
+              <span class="meta-label">Odometer</span>
+              <span class="meta-value">87,450 km</span>
+            </div>
+            <div class="car-meta-item">
+              <span class="meta-label">Asking price</span>
+              <span class="meta-value">$17,900</span>
+            </div>
+            <div class="car-meta-item">
+              <span class="meta-label">Suburb</span>
+              <span class="meta-value">Blacktown, NSW</span>
+            </div>
+            <div class="car-meta-item">
+              <span class="meta-label">Inspected</span>
+              <span class="meta-value">2 May 2026</span>
+            </div>
+            <div class="car-meta-item">
+              <span class="meta-label">Package</span>
+              <span class="meta-value">Standard</span>
+            </div>
+          </div>
+          <ul class="findings-list">
+            <li>Minor surface rust on rear subframe — cosmetic only, not structurally significant</li>
+            <li>Front brake pads at approx. 40% — replacement recommended within 12 months</li>
+            <li>All mechanical systems operating within normal parameters</li>
+          </ul>
+          <a href="https://buy.stripe.com/fZu28k4APgD77k9eBRcAo01" class="buy-btn" target="_blank" rel="noopener">
+            Buy Full Report — $19
+          </a>
+        </div>
+      </article>
+
+      <!-- ── EXAMPLE CAR 2 ── -->
+      <article class="car-card"
+        data-make="Mazda"
+        data-model="CX-5"
+        data-year="2020"
+        data-price="32500"
+        data-verdict="caution"
+        data-package="Premium"
+        data-search="CX5 CX 5 Maroubra Mazda 2020">
+        <div class="car-photo-placeholder">
+          <span class="example-badge">Example listing</span>
+          <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" fill="none" viewBox="0 0 24 24" stroke="#9ca3af" stroke-width="1.2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M3 17l2-6h14l2 6M3 17h18M3 17v2a1 1 0 001 1h1a1 1 0 001-1v-1h12v1a1 1 0 001 1h1a1 1 0 001-1v-2M7 11l1-4h8l1 4"/>
+          </svg>
+          <span>Photo placeholder</span>
+        </div>
+        <div class="car-body">
+          <div class="car-title-row">
+            <h2 class="car-title">2020 Mazda CX-5</h2>
+            <span class="verdict-badge caution">Caution</span>
+          </div>
+          <div class="car-meta">
+            <div class="car-meta-item">
+              <span class="meta-label">Odometer</span>
+              <span class="meta-value">61,200 km</span>
+            </div>
+            <div class="car-meta-item">
+              <span class="meta-label">Asking price</span>
+              <span class="meta-value">$32,500</span>
+            </div>
+            <div class="car-meta-item">
+              <span class="meta-label">Suburb</span>
+              <span class="meta-value">Maroubra, NSW</span>
+            </div>
+            <div class="car-meta-item">
+              <span class="meta-label">Inspected</span>
+              <span class="meta-value">4 May 2026</span>
+            </div>
+            <div class="car-meta-item">
+              <span class="meta-label">Package</span>
+              <span class="meta-value">Premium</span>
+            </div>
+          </div>
+          <ul class="findings-list">
+            <li>Evidence of a previous repaired rear impact — paint blending visible on rear quarter panel</li>
+            <li>Minor oil seep from valve cover gasket — monitor and budget for eventual replacement</li>
+            <li>Tyres unevenly worn on front axle — possible alignment or suspension issue worth investigating</li>
+          </ul>
+          <a href="https://buy.stripe.com/fZu28k4APgD77k9eBRcAo01" class="buy-btn" target="_blank" rel="noopener">
+            Buy Full Report — $19
+          </a>
+        </div>
+      </article>
+
+      <!-- ── NO RESULTS MESSAGE ── -->
+      <div class="no-results" id="noResults">
+        <h3>No cars match your filters</h3>
+        <p>Try adjusting your search or filters, or <a href="booking.html" style="color:var(--green);font-weight:600;">book a fresh inspection</a>.</p>
+      </div>
+
+    </div><!-- /car-grid -->
+  </section>
+
+  <!-- ══════════════════════════════════════════════
+       BOTTOM CTA
+  ══════════════════════════════════════════════ -->
+  <section class="cta-section">
+    <h2>Don't see the car you're after?</h2>
+    <p>Book a fresh inspection — we'll check any car in the metro area, fast.</p>
+    <a href="booking.html" class="cta-btn">Book a Fresh Inspection</a>
+  </section>
+
+  <!-- ══════════════════════════════════════════════
+       FILTER JAVASCRIPT
+  ══════════════════════════════════════════════ -->
+  <script>
+    (function () {
+      const cards = Array.from(document.querySelectorAll('.car-card[data-make]'));
+      const grid = document.getElementById('carGrid');
+      const noResults = document.getElementById('noResults');
+      const countEl = document.getElementById('listingsCount');
+
+      // ── Build dynamic dropdowns ──
+      const makes = [...new Set(cards.map(c => c.dataset.make))].sort();
+      const makeSelect = document.getElementById('filterMake');
+      // Clear and re-populate to only show makes that exist in listings
+      while (makeSelect.options.length > 1) makeSelect.remove(1);
+      makes.forEach(m => {
+        const opt = document.createElement('option');
+        opt.value = m; opt.textContent = m;
+        makeSelect.appendChild(opt);
+      });
+
+      // Model dropdown (populated based on make selection)
+      const modelSelect = document.getElementById('filterModel');
+      function populateModels(make) {
+        while (modelSelect.options.length > 1) modelSelect.remove(1);
+        const models = [...new Set(
+          cards.filter(c => !make || c.dataset.make === make).map(c => c.dataset.model)
+        )].sort();
+        models.forEach(m => {
+          const opt = document.createElement('option');
+          opt.value = m; opt.textContent = m;
+          modelSelect.appendChild(opt);
+        });
+      }
+      populateModels('');
+
+      // Year dropdown
+      const yearSelect = document.getElementById('filterYear');
+      const years = [...new Set(cards.map(c => c.dataset.year))].sort().reverse();
+      years.forEach(y => {
+        const opt = document.createElement('option');
+        opt.value = y; opt.textContent = y;
+        yearSelect.appendChild(opt);
+      });
+
+      makeSelect.addEventListener('change', function () {
+        populateModels(this.value);
+        modelSelect.value = '';
+        applyFilters();
+      });
+
+      // ── Core filter function ──
+      function applyFilters() {
+        const search = document.getElementById('filterSearch').value.toLowerCase().trim();
+        const make = makeSelect.value;
+        const model = modelSelect.value;
+        const year = yearSelect.value;
+        const priceRange = document.getElementById('filterPrice').value;
+        const verdict = document.getElementById('filterVerdict').value;
+        const pkg = document.getElementById('filterPackage').value;
+
+        let visible = 0;
+
+        cards.forEach(card => {
+          const price = parseInt(card.dataset.price, 10);
+          let [priceMin, priceMax] = priceRange ? priceRange.split('-').map(Number) : [0, Infinity];
+
+          const searchText = (card.dataset.search + ' ' + card.textContent).toLowerCase();
+
+          const matches =
+            (!search || searchText.includes(search)) &&
+            (!make || card.dataset.make === make) &&
+            (!model || card.dataset.model === model) &&
+            (!year || card.dataset.year === year) &&
+            (!priceRange || (price >= priceMin && price <= priceMax)) &&
+            (!verdict || card.dataset.verdict === verdict) &&
+            (!pkg || card.dataset.package === pkg);
+
+          card.classList.toggle('hidden', !matches);
+          if (matches) visible++;
+        });
+
+        countEl.textContent = visible === 1 ? '1 car listed' : visible + ' cars listed';
+        noResults.style.display = visible === 0 ? 'block' : 'none';
+      }
+
+      // ── Attach listeners ──
+      ['filterSearch','filterModel','filterYear','filterPrice','filterVerdict','filterPackage']
+        .forEach(id => {
+          const el = document.getElementById(id);
+          el.addEventListener(id === 'filterSearch' ? 'input' : 'change', applyFilters);
+        });
+
+      document.getElementById('filterReset').addEventListener('click', function () {
+        document.getElementById('filterSearch').value = '';
+        makeSelect.value = '';
+        populateModels('');
+        modelSelect.value = '';
+        yearSelect.value = '';
+        document.getElementById('filterPrice').value = '';
+        document.getElementById('filterVerdict').value = '';
+        document.getElementById('filterPackage').value = '';
+        applyFilters();
+      });
+
+      // ── Initial count ──
+      applyFilters();
+    })();
+  </script>
+
+</body>
+</html>
