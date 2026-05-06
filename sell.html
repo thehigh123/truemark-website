@@ -35,7 +35,7 @@
       line-height: 1.6;
     }
 
-    /* ── NAV ── */
+    /* ââ NAV ââ */
     nav {
       background: var(--white);
       border-bottom: 1px solid var(--border);
@@ -107,7 +107,7 @@
     }
     .nav-mobile-menu a.active { color: var(--green); background: var(--green-light); }
 
-    /* ── HERO ── */
+    /* ââ HERO ââ */
     .hero {
       background: linear-gradient(135deg, #0a3d22 0%, #1E9B57 60%, #2dc76d 100%);
       padding: 80px 32px 72px;
@@ -182,7 +182,7 @@
     }
     .btn-hero-secondary:hover { border-color: var(--white); background: rgba(255,255,255,0.1); }
 
-    /* ── SECTION WRAPPER ── */
+    /* ââ SECTION WRAPPER ââ */
     .section { padding: 72px 32px; }
     .section-inner { max-width: 1100px; margin: 0 auto; }
     .section-label {
@@ -210,7 +210,7 @@
     .section.alt { background: var(--white); }
     .section.green-bg { background: var(--green); }
 
-    /* ── HOW IT WORKS ── */
+    /* ââ HOW IT WORKS ââ */
     .steps-grid {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
@@ -255,7 +255,7 @@
     .step-card h3 { font-size: 1rem; font-weight: 700; color: var(--text); margin-bottom: 6px; }
     .step-card p { font-size: 0.875rem; color: var(--muted); line-height: 1.55; }
 
-    /* ── PACKAGES ── */
+    /* ââ PACKAGES ââ */
     .packages-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -325,7 +325,7 @@
       line-height: 1.45;
     }
     .package-features li::before {
-      content: '✓';
+      content: 'â';
       position: absolute;
       left: 0;
       color: var(--green);
@@ -348,7 +348,7 @@
     .package-btn.secondary { background: var(--green-light); color: var(--green); border: 1.5px solid var(--green-border); }
     .package-btn.secondary:hover { background: #d4f0e2; }
 
-    /* ── WHY SELL WITH US ── */
+    /* ââ WHY SELL WITH US ââ */
     .benefits-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -366,7 +366,7 @@
     .benefit-card h3 { font-size: 1.1rem; font-weight: 700; color: var(--text); margin-bottom: 8px; }
     .benefit-card p { font-size: 0.9rem; color: var(--muted); line-height: 1.6; }
 
-    /* ── FAQ ── */
+    /* ââ FAQ ââ */
     .faq-list { display: flex; flex-direction: column; gap: 0; max-width: 760px; }
     .faq-item {
       border-bottom: 1px solid var(--border);
@@ -414,7 +414,7 @@
     }
     .faq-item.open .faq-answer { max-height: 500px; }
 
-    /* ── CTA BANNER ── */
+    /* ââ CTA BANNER ââ */
     .cta-section {
       background: var(--green);
       padding: 72px 32px;
@@ -441,7 +441,7 @@
     }
     .btn-cta-white:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,0.15); }
 
-    /* ── FLOATING MOBILE CTA ── */
+    /* ââ FLOATING MOBILE CTA ââ */
     .floating-cta {
       display: none;
       position: fixed;
@@ -463,7 +463,7 @@
       text-decoration: none;
     }
 
-    /* ── FOOTER ── */
+    /* ââ FOOTER ââ */
     footer {
       background: #111;
       color: rgba(255,255,255,0.55);
@@ -475,7 +475,7 @@
     footer a { color: rgba(255,255,255,0.65); text-decoration: none; }
     footer a:hover { color: var(--white); }
 
-    /* ── RESPONSIVE ── */
+    /* ââ RESPONSIVE ââ */
     @media (max-width: 900px) {
       .steps-grid { grid-template-columns: repeat(2, 1fr); }
       .steps-grid::before { display: none; }
@@ -495,21 +495,29 @@
       .steps-grid { grid-template-columns: 1fr; }
     }
   </style>
+  <meta property="og:title" content="Sell Your Car Faster | TrueMark Vehicle Inspections" />
+  <meta property="og:description" content="Get your car independently inspected before you list it. Seller packages from $199 including 90-day listing and shareable link. Sydney-wide." />
+  <meta property="og:image" content="https://truemarkinspections.com.au/logo.png" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://truemarkinspections.com.au/sell.html" />
+  <link rel="canonical" href="https://truemarkinspections.com.au/sell.html" />
 </head>
 <body>
 
   <!-- NAV -->
   <nav>
-    <a href="index.html" aria-label="TrueMark home">
+    <a href="index.html" aria-label="TrueMark home" class="nav-logo">
       <img src="logo.png" alt="TrueMark Vehicle Inspections" />
     </a>
     <ul class="nav-links">
-      <li><a href="index.html">Home</a></li>
+      <li><a href="index.html#packages" class="nav-links a">Packages</a></li>
+      <li><a href="inspections.html" class="nav-links a">Inspected cars</a></li>
       <li><a href="sell.html" class="active">Sell your car</a></li>
-      <li><a href="inspections.html">Inspected cars</a></li>
-      <li><a href="index.html#sample-report">Sample report</a></li>
-      <li><a href="index.html#how">How it works</a></li>
-      <li><a href="index.html#faq">FAQ</a></li>
+      <li><a href="index.html#sample-report" class="nav-links a">Sample report</a></li>
+      <li><a href="index.html#how" class="nav-links a">How it works</a></li>
+      <li><a href="index.html#service-area" class="nav-links a">Service area</a></li>
+      <li><a href="index.html#faq" class="nav-links a">FAQ</a></li>
+      <li><a href="index.html#contact" class="nav-links a">Contact</a></li>
       <li><a href="booking.html" class="nav-cta">Book now</a></li>
     </ul>
     <button class="nav-hamburger" id="hamburger" aria-label="Open menu">
@@ -520,20 +528,23 @@
   </nav>
   <div class="nav-mobile-menu" id="mobileMenu">
     <a href="index.html">Home</a>
-    <a href="sell.html" class="active">Sell your car</a>
+    <a href="index.html#packages">Packages</a>
     <a href="inspections.html">Inspected cars</a>
+    <a href="sell.html" class="active">Sell your car</a>
     <a href="index.html#sample-report">Sample report</a>
     <a href="index.html#how">How it works</a>
+    <a href="index.html#service-area">Service area</a>
     <a href="index.html#faq">FAQ</a>
+    <a href="index.html#contact">Contact</a>
     <a href="booking.html" style="background:var(--green);color:#fff;margin-top:8px;">Book now</a>
   </div>
 
-  <!-- HERO -->
+<!-- HERO -->
   <section class="hero">
     <div class="hero-inner">
       <span class="hero-eyebrow">For private sellers</span>
       <h1>Sell Faster. Ask More. Prove It.</h1>
-      <p>Get your car independently inspected before you list it — buyers trust a verified report and you get a shareable link to paste into any ad.</p>
+      <p>Get your car independently inspected before you list it â buyers trust a verified report and you get a shareable link to paste into any ad.</p>
       <div class="hero-actions">
         <a href="booking.html?type=seller" class="btn-hero-primary">
           Book a seller inspection
@@ -566,12 +577,12 @@
         <div class="step-card">
           <div class="step-number">3</div>
           <h3>Listed on our site</h3>
-          <p>Your car gets a listing on the TrueMark Inspected Cars page — visible to buyers actively looking for verified vehicles.</p>
+          <p>Your car gets a listing on the TrueMark Inspected Cars page â visible to buyers actively looking for verified vehicles.</p>
         </div>
         <div class="step-card">
           <div class="step-number">4</div>
           <h3>Share your link</h3>
-          <p>Paste your unique listing link into Gumtree, Facebook Marketplace, Carsales — anywhere you advertise. Stand out instantly.</p>
+          <p>Paste your unique listing link into Gumtree, Facebook Marketplace, Carsales â anywhere you advertise. Stand out instantly.</p>
         </div>
       </div>
     </div>
@@ -634,22 +645,22 @@
     <div class="section-inner">
       <span class="section-label">Why sellers choose TrueMark</span>
       <h2 class="section-title">Your ad works harder</h2>
-      <p class="section-sub">A verified inspection isn't just a nice touch — it changes how buyers see your listing.</p>
+      <p class="section-sub">A verified inspection isn't just a nice touch â it changes how buyers see your listing.</p>
       <div class="benefits-grid">
         <div class="benefit-card">
-          <div class="benefit-icon">🤝</div>
+          <div class="benefit-icon">ð¤</div>
           <h3>Buyers trust a verified report</h3>
           <p>An independent inspection from TrueMark tells buyers the car has nothing to hide. Trust shortens the sales cycle and reduces time-wasters.</p>
         </div>
         <div class="benefit-card">
-          <div class="benefit-icon">💰</div>
+          <div class="benefit-icon">ð°</div>
           <h3>Justify your asking price</h3>
           <p>When a report backs up your condition claims, buyers are less likely to negotiate hard. A $199 inspection can easily recover its cost in a stronger sale price.</p>
         </div>
         <div class="benefit-card">
-          <div class="benefit-icon">🚀</div>
+          <div class="benefit-icon">ð</div>
           <h3>Your listing works harder</h3>
-          <p>Your car appears on our Inspected Cars page alongside your regular ads — giving it an extra channel of motivated, ready-to-buy traffic.</p>
+          <p>Your car appears on our Inspected Cars page alongside your regular ads â giving it an extra channel of motivated, ready-to-buy traffic.</p>
         </div>
       </div>
     </div>
@@ -668,7 +679,7 @@
             <span class="faq-icon">+</span>
           </button>
           <div class="faq-answer">
-            <div class="faq-answer-inner">Once your inspection is complete and your report is ready, we add your car to the TrueMark Inspected Cars page within 1 business day. Your listing shows your car's key details, the inspection verdict, and three key findings — plus a "Buy Full Report" button so serious buyers can access the full report instantly.</div>
+            <div class="faq-answer-inner">Once your inspection is complete and your report is ready, we add your car to the TrueMark Inspected Cars page within 1 business day. Your listing shows your car's key details, the inspection verdict, and three key findings â plus a "Buy Full Report" button so serious buyers can access the full report instantly.</div>
           </div>
         </div>
 
@@ -688,7 +699,7 @@
             <span class="faq-icon">+</span>
           </button>
           <div class="faq-answer">
-            <div class="faq-answer-inner">The inspection fee is non-refundable regardless of sale outcome — but you still have a full professional inspection report to share with any buyer who asks, and your listing remains live for the full 90 days. Many sellers find the report itself speeds up private sales even outside our platform.</div>
+            <div class="faq-answer-inner">The inspection fee is non-refundable regardless of sale outcome â but you still have a full professional inspection report to share with any buyer who asks, and your listing remains live for the full 90 days. Many sellers find the report itself speeds up private sales even outside our platform.</div>
           </div>
         </div>
 
@@ -698,7 +709,7 @@
             <span class="faq-icon">+</span>
           </button>
           <div class="faq-answer">
-            <div class="faq-answer-inner">Yes. Every listing includes a "Buy Full Report — $19" button. When a buyer purchases your report, they get instant access to the complete inspection — every check, every photo, every comment. This revenue goes to TrueMark and helps keep the service running. You as the seller pay nothing extra.</div>
+            <div class="faq-answer-inner">Yes. Every listing includes a "Buy Full Report â $19" button. When a buyer purchases your report, they get instant access to the complete inspection â every check, every photo, every comment. This revenue goes to TrueMark and helps keep the service running. You as the seller pay nothing extra.</div>
           </div>
         </div>
 
@@ -716,8 +727,10 @@
   <!-- FOOTER -->
   <footer>
     <p><strong style="color:rgba(255,255,255,0.8);">TrueMark Vehicle Inspections</strong></p>
-    <p>Sydney, NSW &nbsp;|&nbsp; <a href="mailto:info@truemarkinspections.com.au">info@truemarkinspections.com.au</a></p>
-    <p style="margin-top:8px;"><a href="index.html">Home</a> &nbsp;&middot;&nbsp; <a href="booking.html">Book now</a> &nbsp;&middot;&nbsp; <a href="inspections.html">Inspected cars</a> &nbsp;&middot;&nbsp; <a href="sell.html">Sell your car</a></p>
+    <p><a href="tel:+61423636633">0423 636 633</a> &nbsp;&middot;&nbsp; <a href="mailto:truemarkinspect@gmail.com">truemarkinspect@gmail.com</a></p>
+    <p>ABN 53 384 207 098</p>
+    <p style="margin-top:8px;"><a href="index.html">Home</a> &nbsp;&middot;&nbsp; <a href="booking.html">Book now</a> &nbsp;&middot;&nbsp; <a href="inspections.html">Inspected cars</a> &nbsp;&middot;&nbsp; <a href="sell.html">Sell your car</a> &nbsp;&middot;&nbsp; <a href="index.html#contact">Contact</a></p>
+    <p style="margin-top:12px;font-size:0.78rem;color:rgba(255,255,255,0.4);">TrueMark Vehicle Inspections provides pre-purchase and pre-sale vehicle inspection services. Reports are for informational purposes and do not constitute a guarantee or warranty. &copy; 2026 TrueMark Vehicle Inspections.</p>
   </footer>
 
   <!-- FLOATING CTA (mobile) -->
