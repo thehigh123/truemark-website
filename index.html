@@ -4,7 +4,7 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
 <meta name="description" content="TrueMark Vehicle Inspections - Mobile pre-purchase vehicle inspections across Sydney. Clear verdict, photos, negotiation notes, and same-day reports in most cases." />
-<meta name="theme-color" content="#0B1220" />
+<meta name="theme-color" content="#ffffff" />
 <meta name="google-site-verification" content="3ijqSv4HR4aIYkh2JdJGCLQ-N2uWp0X6w5LAQt6UcS8" />
 <title>TrueMark Vehicle Inspections | Pre-Purchase Inspections Sydney</title>
 
@@ -24,7 +24,7 @@
 <!-- Fonts -->
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700;900&family=DM+Serif+Display&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;900&family=DM+Serif+Display&display=swap" rel="stylesheet" />
 
 <!-- GA4 -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-3MJY88FY6K"></script>
@@ -36,677 +36,921 @@
 </script>
 
 <style>
+/* ========== APPLE-STYLE RESET & BASE ========== */
 :root{
-  --bg: #ffffff;
-  --surface: #f7faf8;
-  --card: #ffffff;
   --text: #0B1220;
-  --muted: #667085;
-  --border: #E6EAE7;
+  --muted: #6B7280;
+  --border: #F2F2F2;
+  --border-mid: #E5E7EB;
   --brand: #1E9B57;
   --brand-dark: #157A43;
-  --brand-soft: rgba(30,155,87,.10);
-  --shadow: 0 14px 40px rgba(11,18,32,.10);
-  --shadow-strong: 0 18px 48px rgba(11,18,32,.16);
-  --radius: 18px;
-  --max: 1140px;
-  --focus: 0 0 0 3px rgba(30,155,87,.25);
+  --shadow-sm: 0 2px 12px rgba(0,0,0,.06);
+  --radius: 16px;
+  --max: 960px;
+  --focus: 0 0 0 3px rgba(30,155,87,.22);
   --font-body: 'DM Sans', ui-sans-serif, system-ui, sans-serif;
   --font-display: 'DM Serif Display', Georgia, serif;
 }
 
-*{ box-sizing:border-box; }
+*{ box-sizing:border-box; margin:0; padding:0; }
 html{ scroll-behavior:smooth; }
 
 body{
-  margin:0;
   font-family: var(--font-body);
-  color:var(--text);
-  line-height:1.55;
-  background:
-    radial-gradient(1100px 650px at 10% 5%, rgba(30,155,87,.10), transparent 60%),
-    radial-gradient(900px 600px at 85% 25%, rgba(11,18,32,.06), transparent 55%),
-    var(--bg);
+  color: var(--text);
+  background: #fff;
+  line-height: 1.6;
+  font-size: 17px;
+  -webkit-font-smoothing: antialiased;
 }
 
 a{ color: var(--brand); text-decoration: none; }
 a:hover{ color: var(--brand-dark); text-decoration: underline; }
-.container{ max-width:var(--max); margin:0 auto; padding:22px; }
 
 .srOnly{
   position:absolute; width:1px; height:1px; padding:0; margin:-1px;
   overflow:hidden; clip:rect(0,0,0,0); border:0;
 }
 
-/* Nav */
+/* ========== LAYOUT ========== */
+.wrap{
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: 0 32px;
+}
+
+@media(max-width:640px){ .wrap{ padding: 0 20px; } }
+
+/* ========== SECTION PATTERN ========== */
+.sec{
+  padding: 96px 0;
+  border-top: 1px solid var(--border);
+}
+
+.sec:first-of-type{ border-top: none; }
+
+.secLabel{
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  color: var(--brand);
+  margin-bottom: 14px;
+}
+
+.secTitle{
+  font-family: var(--font-display);
+  font-size: 36px;
+  font-weight: 400;
+  line-height: 1.15;
+  letter-spacing: -0.3px;
+  margin-bottom: 16px;
+}
+
+.secSub{
+  font-size: 17px;
+  color: var(--muted);
+  font-weight: 500;
+  max-width: 60ch;
+  line-height: 1.65;
+  margin-bottom: 48px;
+}
+
+@media(max-width:640px){
+  .sec{ padding: 64px 0; }
+  .secTitle{ font-size: 28px; }
+  .secSub{ margin-bottom: 32px; }
+}
+
+/* ========== NAV ========== */
 .navWrap{
   position: sticky;
   top: 0;
-  z-index: 80;
-  background: rgba(255,255,255,.88);
-  backdrop-filter: blur(12px);
-  border-bottom: 1px solid rgba(230,234,231,.9);
+  z-index: 100;
+  background: rgba(255,255,255,.92);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--border);
 }
 
 .nav{
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  padding: 12px 22px;
-  max-width:var(--max);
-  margin:0 auto;
-  gap:14px;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: 0 32px;
+  height: 60px;
+  gap: 16px;
 }
 
 .brand{
   display:flex;
   align-items:center;
-  gap:12px;
+  gap:10px;
   text-decoration:none;
-  min-width: 260px;
-  flex-shrink: 0;
+  justify-self: start;
 }
 
 .logoImg{
-  height: 52px;
+  height: 40px;
   width: auto;
-  display: inline-block;
+  display: block;
   object-fit: contain;
-  flex-shrink: 0;
 }
 
 .brandText{
   display:flex;
   flex-direction:column;
-  line-height:1.1;
+  line-height:1.15;
 }
 
 .brandText strong{
-  font-weight: 900;
-  letter-spacing: .2px;
+  font-size: 14px;
+  font-weight: 700;
   color: var(--text);
-  font-family: var(--font-body);
 }
 
 .brandText span{
-  font-size: 12px;
-  font-weight: 700;
+  font-size: 11px;
+  font-weight: 600;
   color: var(--muted);
-  margin-top: 3px;
 }
 
-/* Hamburger */
+.navCenter{
+  display:flex;
+  gap:4px;
+  align-items:center;
+  justify-content:center;
+}
+
+.navCenter a{
+  color: var(--muted);
+  font-weight: 600;
+  font-size: 14px;
+  text-decoration:none;
+  padding: 6px 10px;
+  border-radius: 8px;
+  transition: color .12s, background .12s;
+  white-space: nowrap;
+}
+
+.navCenter a:hover{
+  color: var(--text);
+  background: rgba(0,0,0,.04);
+  text-decoration:none;
+}
+
+.navRight{
+  display:flex;
+  gap:8px;
+  align-items:center;
+  justify-self: end;
+}
+
 .navToggle{
   display: none;
   background: none;
-  border: 1px solid var(--border);
-  border-radius: 10px;
-  padding: 8px 10px;
+  border: 1px solid var(--border-mid);
+  border-radius: 8px;
+  padding: 7px 9px;
   cursor: pointer;
-  flex-shrink: 0;
   line-height: 1;
+  justify-self: end;
 }
 
 .navToggle svg{ display: block; }
 
 @media(max-width:820px){
-  .navToggle{ display: flex; align-items: center; justify-content: center; }
-}
-
-.navlinks{
-  display:flex;
-  gap:10px;
-  align-items:center;
-  flex-wrap:wrap;
-}
-
-.navlinks a.link{
-  color: var(--muted);
-  font-weight: 700;
-  text-decoration:none;
-  padding: 8px 10px;
-  border-radius: 12px;
-  font-size: 15px;
-}
-
-.navlinks a.link:hover{
-  color: var(--text);
-  background: rgba(11,18,32,.04);
-  text-decoration:none;
-}
-
-@media(max-width:820px){
-  .navlinks{
-    display: none;
-    position: absolute;
-    top: 100%;
-    left: 0;
-    right: 0;
+  .nav{ grid-template-columns: 1fr auto; }
+  .navCenter{ display:none; }
+  .navRight{ display:none; }
+  .navToggle{ display:flex; align-items:center; justify-content:center; }
+  .navlinks-mobile{
+    display:none;
+    position:absolute;
+    top:100%;
+    left:0; right:0;
     background: rgba(255,255,255,.98);
-    backdrop-filter: blur(16px);
+    backdrop-filter: blur(20px);
     border-bottom: 1px solid var(--border);
-    padding: 14px 22px 18px;
-    flex-direction: column;
-    align-items: stretch;
-    gap: 6px;
-    z-index: 79;
-    box-shadow: 0 10px 28px rgba(11,18,32,.10);
+    padding: 12px 20px 20px;
+    flex-direction:column;
+    gap:4px;
+    z-index:99;
+    box-shadow: 0 8px 24px rgba(0,0,0,.08);
   }
-  .navlinks.open{ display: flex; }
-  .navlinks a.link{ padding: 12px 14px; }
-  .navlinks a.btn{ text-align: center; padding: 12px 14px; }
+  .navlinks-mobile.open{ display:flex; }
+  .navlinks-mobile a{
+    color: var(--text);
+    font-weight: 600;
+    font-size: 15px;
+    padding: 10px 12px;
+    border-radius: 8px;
+    text-decoration:none;
+    display:block;
+  }
+  .navlinks-mobile a:hover{ background: rgba(0,0,0,.04); }
+  .navlinks-mobile .mob-ctas{
+    display:flex;
+    gap:8px;
+    margin-top:8px;
+    padding-top:12px;
+    border-top:1px solid var(--border);
+  }
+  .navlinks-mobile .mob-ctas a{ flex:1; text-align:center; }
 }
 
+@media(max-width:640px){ .nav{ padding: 0 20px; } }
+
+/* ========== BUTTONS ========== */
 .btn{
   display:inline-flex;
   align-items:center;
   justify-content:center;
-  padding:12px 18px;
-  border-radius:14px;
-  border:1px solid var(--border);
-  text-decoration:none;
-  font-weight:700;
+  gap:6px;
+  padding: 11px 20px;
+  border-radius: 10px;
+  border: 1px solid var(--border-mid);
   font-family: var(--font-body);
   font-size: 15px;
-  transition: transform .12s ease, box-shadow .12s ease, background .12s ease, border-color .12s ease;
-  white-space:nowrap;
-  cursor:pointer;
-  user-select:none;
-  -webkit-tap-highlight-color: transparent;
-  gap: 6px;
-}
-
-.btn:focus{ outline:none; box-shadow: var(--focus); }
-.btn:hover{
-  transform: translateY(-1px);
-  box-shadow: 0 10px 24px rgba(11,18,32,.10);
+  font-weight: 600;
   text-decoration:none;
+  cursor:pointer;
+  white-space:nowrap;
+  transition: transform .1s ease, box-shadow .1s ease, background .1s ease, border-color .1s ease;
+  -webkit-tap-highlight-color:transparent;
+  user-select:none;
 }
 
-.btn.primary{
-  background: linear-gradient(135deg, rgba(30,155,87,.18), rgba(30,155,87,.10));
-  border-color: rgba(30,155,87,.35);
-  color: var(--text);
-}
-.btn.primary:hover{
-  border-color: rgba(30,155,87,.58);
-  background: linear-gradient(135deg, rgba(30,155,87,.24), rgba(30,155,87,.12));
-}
+.btn:focus-visible{ outline:none; box-shadow: var(--focus); }
+.btn:hover{ transform:translateY(-1px); text-decoration:none; }
 
-.btn.dark{
+.btn-primary{
+  background: var(--brand);
+  border-color: var(--brand);
+  color: #fff;
+}
+.btn-primary:hover{ background: var(--brand-dark); border-color: var(--brand-dark); color:#fff; }
+
+.btn-dark{
   background: #0B1220;
-  border-color: rgba(11,18,32,.40);
+  border-color: #0B1220;
   color: #fff;
 }
-.btn.dark:hover{ background:#0a111e; border-color: rgba(11,18,32,.55); }
+.btn-dark:hover{ background: #1a2540; border-color:#1a2540; color:#fff; }
 
-.btn.secondary{
-  background: rgba(11,18,32,.03);
-  color: var(--text);
-}
-
-.btn.ghost{
+.btn-ghost{
   background: transparent;
-  border-color: rgba(11,18,32,.12);
+  border-color: var(--border-mid);
   color: var(--text);
 }
+.btn-ghost:hover{ background: rgba(0,0,0,.04); box-shadow: var(--shadow-sm); }
 
-.btn.stripe{
-  background: linear-gradient(135deg, #1E9B57, #157A43);
-  border-color: transparent;
-  color: #fff;
-  font-weight: 700;
-}
-.btn.stripe:hover{
-  background: linear-gradient(135deg, #157A43, #0f6235);
-  transform: translateY(-1px);
-  box-shadow: 0 10px 28px rgba(30,155,87,.30);
-}
-
-.btn.whatsapp{
-  background: #25D366;
-  border-color: #1ebe5e;
-  color: #fff;
-  font-weight: 700;
-}
-.btn.whatsapp:hover{
-  background: #1ebe5e;
-  transform: translateY(-1px);
-  box-shadow: 0 10px 28px rgba(37,211,102,.30);
-}
-
-.btn.sms{
-  background: linear-gradient(135deg, #007AFF, #005ecb);
-  border-color: transparent;
-  color: #fff;
-  font-weight: 700;
-}
-.btn.sms:hover{
-  background: linear-gradient(135deg, #005ecb, #0047a3);
-  transform: translateY(-1px);
-  box-shadow: 0 10px 28px rgba(0,122,255,.28);
-}
-
-.btn.small{
-  padding:9px 14px;
-  border-radius: 12px;
+.btn-sm{
+  padding: 8px 14px;
   font-size: 13px;
-  font-weight: 700;
+  border-radius: 8px;
 }
 
-.card{
-  background: var(--card);
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  box-shadow: var(--shadow);
-}
+/* Nav CTA buttons */
+.navRight .btn-ghost{ font-size:14px; padding:7px 14px; border-radius:8px; }
+.navRight .btn-dark{ font-size:14px; padding:7px 14px; border-radius:8px; }
 
-.deskCta{
-  display:none;
-  gap:10px;
-  align-items:center;
-}
-@media(min-width:821px){ .deskCta{ display:flex; } }
-
-/* HERO */
+/* ========== HERO ========== */
 .hero{
-  padding: 22px 0 10px;
-  display:grid;
-  grid-template-columns: 1.28fr .72fr;
-  gap:18px;
+  padding: 96px 0 80px;
+  text-align: center;
+  border-bottom: 1px solid var(--border);
 }
-
-@media(max-width:900px){
-  .hero{ grid-template-columns: 1fr; }
-  .nav{ padding: 12px 16px; }
-  .container{ padding: 16px; }
-}
-
-.heroLeft{ padding: 32px; }
-.heroRight{ padding: 22px; }
 
 h1{
-  margin: 0 0 10px;
-  font-size: 44px;
+  font-family: var(--font-display);
+  font-size: 56px;
+  font-weight: 400;
   line-height: 1.08;
-  letter-spacing: -0.5px;
-  font-family: var(--font-display);
-  font-weight: 400;
+  letter-spacing: -0.8px;
+  margin-bottom: 20px;
 }
 
-h2{
-  font-family: var(--font-display);
-  font-weight: 400;
-  font-size: 30px;
-  letter-spacing: -0.2px;
-  margin: 0 0 10px;
-}
-
-h3{
-  font-weight: 700;
-  font-size: 17px;
-  margin: 0 0 8px;
-}
-
-@media(max-width:520px){
-  h1{ font-size: 34px; }
-  .heroLeft{ padding: 22px; }
-}
-
-.sub{
+.heroSub{
+  font-size: 19px;
   color: var(--muted);
-  font-size: 16.5px;
-  max-width: 70ch;
-  margin: 0 0 12px;
   font-weight: 500;
+  max-width: 56ch;
+  margin: 0 auto 28px;
+  line-height: 1.65;
 }
 
-.pills{
+.heroPills{
   display:flex;
   flex-wrap:wrap;
   gap:8px;
-  margin: 14px 0 10px;
+  justify-content:center;
+  margin-bottom: 40px;
 }
 
 .pill{
-  font-weight: 700;
-  font-size: 13px;
-  color: rgba(11,18,32,.84);
-  padding: 7px 12px;
-  border-radius: 999px;
-  border: 1px solid var(--border);
-  background: rgba(255,255,255,.70);
-}
-
-.ctaRow{
-  display:flex;
-  gap:10px;
-  flex-wrap:wrap;
-  margin-top: 14px;
-}
-
-.trustStrip{
-  display:flex;
-  flex-wrap:wrap;
-  align-items:center;
-  gap:6px;
-  margin-top: 14px;
-  font-size: 13px;
-  color: var(--muted);
-  font-weight: 500;
-}
-.trustDot{ color: var(--border); font-size: 16px; line-height: 1; }
-
-.callout{
-  padding: 14px;
-  border-radius: 14px;
-  border: 1px solid rgba(30,155,87,.35);
-  background: var(--brand-soft);
-  color: rgba(11,18,32,.92);
-  font-weight: 700;
-  font-size: 15px;
-}
-
-.divider{
-  height: 1px;
-  background: rgba(11,18,32,.08);
-  margin: 14px 0;
-}
-
-.small{
-  font-size: 12.5px;
-  color: var(--muted);
-  margin: 10px 0 0;
-  font-weight: 500;
-}
-
-.trustBar{
-  margin-top: 14px;
-  display:flex;
-  gap:8px;
-  flex-wrap:wrap;
-  align-items:center;
-  justify-content:space-between;
-}
-
-.trustBar strong{ font-weight: 900; }
-.trustBar .mini{ color: var(--muted); font-weight: 500; font-size: 13px; }
-
-.depositNote{
-  margin-top: 10px;
-  font-size: 13px;
-  color: var(--muted);
-  font-weight: 500;
-}
-
-.contactQuick{
-  display:flex;
-  gap:8px;
-  flex-wrap:wrap;
-  margin-top: 12px;
-}
-
-.btn.ghostPill{
-  padding: 7px 14px;
-  border-radius: 999px;
-  border: 1px solid rgba(11,18,32,.15);
-  background: transparent;
-  color: var(--text);
   font-size: 13px;
   font-weight: 600;
-}
-.btn.ghostPill:hover{
-  background: rgba(11,18,32,.04);
-  border-color: rgba(11,18,32,.25);
+  color: var(--text);
+  padding: 6px 14px;
+  border-radius: 999px;
+  border: 1px solid var(--border-mid);
+  background: #fafafa;
 }
 
-/* Sections */
-.section{ padding: 18px 0; }
-.muted{ color: var(--muted); font-weight: 500; }
+.heroActions{
+  display:flex;
+  gap:10px;
+  justify-content:center;
+  flex-wrap:wrap;
+  margin-bottom: 20px;
+}
 
+.heroMeta{
+  font-size: 13px;
+  color: var(--muted);
+  font-weight: 500;
+  margin-bottom: 10px;
+}
+
+.heroTrust{
+  font-size: 13px;
+  color: var(--muted);
+  font-weight: 500;
+}
+
+@media(max-width:640px){
+  .hero{ padding: 64px 0 56px; }
+  h1{ font-size: 36px; }
+  .heroSub{ font-size: 17px; }
+}
+
+/* ========== WHY SECTION ========== */
 .grid3{
   display:grid;
   grid-template-columns: repeat(3,1fr);
-  gap: 14px;
+  gap: 24px;
 }
 
 .grid2{
   display:grid;
   grid-template-columns: repeat(2,1fr);
-  gap: 14px;
+  gap: 24px;
 }
 
-@media(max-width:900px){
-  .grid3{ grid-template-columns: 1fr; }
-  .grid2{ grid-template-columns: 1fr; }
+@media(max-width:760px){
+  .grid3{ grid-template-columns: 1fr; gap:16px; }
+  .grid2{ grid-template-columns: 1fr; gap:16px; }
 }
 
-.tile{
-  padding: 20px;
-  transition: transform .12s ease, box-shadow .12s ease, border-color .12s ease;
+.featureCard{
+  padding: 32px 28px;
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  background: #fff;
+  box-shadow: var(--shadow-sm);
+  transition: box-shadow .2s, transform .2s;
 }
 
-.tile:hover{
-  transform: translateY(-2px);
-  border-color: rgba(30,155,87,.30);
-  box-shadow: var(--shadow-strong);
-}
+.featureCard:hover{ box-shadow: 0 4px 24px rgba(0,0,0,.09); transform:translateY(-2px); }
 
-/* Package cards */
-.pkgCard{
-  padding: 24px;
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-  transition: transform .12s ease, box-shadow .12s ease, border-color .12s ease;
-}
+.featureEmoji{ font-size: 28px; margin-bottom: 14px; display:block; }
 
-.pkgCard:hover{
-  transform: translateY(-3px);
-  box-shadow: var(--shadow-strong);
-}
-
-.pkgTag{
-  font-size: 12px;
+.featureTitle{
+  font-size: 17px;
   font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: .8px;
-  color: var(--muted);
-  margin-bottom: 4px;
-}
-
-.pkgName{
-  font-family: var(--font-display);
-  font-size: 26px;
-  font-weight: 400;
-  margin: 0 0 2px;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
-.price{
-  font-size: 36px;
-  font-weight: 900;
-  margin: 6px 0 4px;
-  letter-spacing: -1px;
-  font-family: var(--font-display);
-}
-
-.pkgSub{
-  font-size: 13px;
-  color: var(--muted);
-  font-weight: 500;
-  margin-bottom: 12px;
-  padding-bottom: 12px;
-  border-bottom: 1px solid var(--border);
-}
-
-.pkgList{
-  list-style: none;
-  padding: 0;
-  margin: 0 0 16px;
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-  flex: 1;
-}
-
-.pkgList li{
-  font-size: 14px;
-  font-weight: 500;
-  color: rgba(11,18,32,.80);
-  display: flex;
-  align-items: flex-start;
-  gap: 8px;
-}
-
-.pkgList li::before{
-  content: "\2713";
-  color: var(--brand);
-  font-weight: 900;
-  font-size: 13px;
-  flex-shrink: 0;
-  margin-top: 1px;
-}
-
-.pkgList li.extra{
-  font-weight: 700;
+  margin-bottom: 8px;
   color: var(--text);
 }
 
-.pkgList li.extra::before{
-  content: "\2713";
+.featureBody{
+  font-size: 15px;
+  color: var(--muted);
+  font-weight: 500;
+  line-height: 1.6;
+}
+
+/* ========== SELLING SECTION ========== */
+.sellGrid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:48px;
+  align-items:center;
+}
+
+@media(max-width:720px){ .sellGrid{ grid-template-columns:1fr; gap:32px; } }
+
+.sellFeatureList{
+  list-style:none;
+  display:flex;
+  flex-direction:column;
+  gap:14px;
+  margin-top:24px;
+}
+
+.sellFeatureList li{
+  display:flex;
+  gap:12px;
+  align-items:flex-start;
+  font-size:15px;
+  color: var(--text);
+  font-weight:500;
+}
+
+.sellFeatureList li::before{
+  content:"\2713";
+  color: var(--brand);
+  font-weight:900;
+  font-size:14px;
+  flex-shrink:0;
+  margin-top:2px;
+}
+
+.sellCard{
+  border:1px solid var(--border);
+  border-radius:var(--radius);
+  padding:32px;
+  background:#fff;
+  box-shadow: var(--shadow-sm);
+}
+
+.sellPkgRow{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:16px;
+  border:1px solid var(--border);
+  border-radius:10px;
+  margin-bottom:12px;
+}
+
+.sellPkgRow.featured{
+  border-color: var(--brand);
+  background: rgba(30,155,87,.04);
+}
+
+.sellPkgName{ font-weight:700; font-size:15px; }
+.sellPkgSub{ font-size:12px; color:var(--muted); margin-top:2px; }
+.sellPrice{
+  font-family: var(--font-display);
+  font-size:28px;
   color: var(--brand);
 }
 
-.badge{
-  display:inline-block;
-  font-size: 11px;
-  font-weight: 700;
-  color: #ffffff;
-  background: var(--brand);
-  padding: 3px 8px;
-  border-radius: 999px;
-  vertical-align: middle;
-  letter-spacing: .3px;
-}
-
-.cardHighlight{
-  border-color: rgba(30,155,87,.55) !important;
-  box-shadow: 0 0 0 3px rgba(30,155,87,.16), var(--shadow-strong) !important;
-}
-
-/* How it works */
-.how{
+/* ========== SAMPLE REPORT ========== */
+.reportPreviews{
   display:grid;
-  grid-template-columns: repeat(3,1fr);
-  gap: 14px;
+  grid-template-columns:repeat(3,1fr);
+  gap:20px;
+  margin-bottom:40px;
 }
 
-@media(max-width:900px){ .how{ grid-template-columns: 1fr; } }
+@media(max-width:640px){ .reportPreviews{ grid-template-columns:1fr; } }
 
-.step{ padding: 20px; }
+.reportCard{
+  border:1px solid var(--border);
+  border-radius:var(--radius);
+  overflow:hidden;
+  background:#fff;
+  box-shadow: var(--shadow-sm);
+}
 
-.num{
-  width: 36px;
-  height: 36px;
-  border-radius: 12px;
+.reportCardHeader{
+  padding:10px 14px;
+  font-size:11px;
+  font-weight:700;
+  letter-spacing:.5px;
+  text-transform:uppercase;
+  color:#fff;
+  background:#374151;
+}
+
+.reportCardHeader.green{ background: var(--brand); }
+
+.reportCardBody{
+  padding:28px 20px;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:8px;
+  background:#fafafa;
+  color:var(--muted);
+  font-size:13px;
+  font-weight:600;
+  text-align:center;
+  min-height:180px;
+  justify-content:center;
+}
+
+.reportCardBody span.icon{ font-size:32px; }
+
+/* ========== PACKAGES ========== */
+.pkgGrid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:24px;
+}
+
+@media(max-width:640px){ .pkgGrid{ grid-template-columns:1fr; } }
+
+.pkgCard{
+  border:1px solid var(--border);
+  border-radius:var(--radius);
+  padding:36px 32px;
+  background:#fff;
+  box-shadow: var(--shadow-sm);
+  display:flex;
+  flex-direction:column;
+  gap:0;
+  transition: box-shadow .2s, transform .2s;
+}
+
+.pkgCard:hover{ box-shadow:0 4px 24px rgba(0,0,0,.09); transform:translateY(-2px); }
+
+.pkgCard.featured{ border-color: var(--brand); border-width:2px; }
+
+.pkgTag{
+  font-size:11px;
+  font-weight:700;
+  text-transform:uppercase;
+  letter-spacing:.9px;
+  color:var(--muted);
+  margin-bottom:10px;
+}
+
+.pkgName{
+  font-family:var(--font-display);
+  font-size:26px;
+  font-weight:400;
+  margin-bottom:6px;
+  display:flex;
+  align-items:center;
+  gap:10px;
+}
+
+.badge{
+  font-family:var(--font-body);
+  font-size:11px;
+  font-weight:700;
+  background:var(--brand);
+  color:#fff;
+  padding:3px 9px;
+  border-radius:999px;
+  letter-spacing:.3px;
+  vertical-align:middle;
+}
+
+.pkgPrice{
+  font-size:42px;
+  font-family:var(--font-display);
+  font-weight:400;
+  letter-spacing:-1px;
+  color:var(--text);
+  margin-bottom:6px;
+  line-height:1;
+}
+
+.pkgSub{
+  font-size:13px;
+  color:var(--muted);
+  font-weight:500;
+  padding-bottom:20px;
+  border-bottom:1px solid var(--border);
+  margin-bottom:20px;
+}
+
+.pkgList{
+  list-style:none;
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+  margin-bottom:28px;
+  flex:1;
+}
+
+.pkgList li{
+  font-size:14px;
+  color:var(--text);
+  font-weight:500;
+  display:flex;
+  align-items:flex-start;
+  gap:10px;
+  line-height:1.5;
+}
+
+.pkgList li::before{
+  content:"\2713";
+  color:var(--brand);
+  font-weight:900;
+  font-size:13px;
+  flex-shrink:0;
+  margin-top:1px;
+}
+
+.pkgList li.extra{ font-weight:700; }
+
+.pkgNote{
+  font-size:12px;
+  color:var(--muted);
+  font-weight:500;
+  margin-top:10px;
+}
+
+/* ========== HOW IT WORKS ========== */
+.howGrid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:24px;
+  margin-bottom:40px;
+}
+
+@media(max-width:720px){ .howGrid{ grid-template-columns:1fr; gap:16px; } }
+
+.stepCard{
+  padding:32px 28px;
+  border:1px solid var(--border);
+  border-radius:var(--radius);
+  background:#fff;
+  box-shadow: var(--shadow-sm);
+}
+
+.stepNum{
+  width:36px; height:36px;
+  border-radius:10px;
+  background:rgba(30,155,87,.10);
+  border:1px solid rgba(30,155,87,.20);
   display:flex;
   align-items:center;
   justify-content:center;
-  background: rgba(30,155,87,.14);
-  border: 1px solid rgba(30,155,87,.22);
-  font-weight: 900;
-  margin-bottom: 10px;
-  font-size: 16px;
+  font-weight:900;
+  font-size:15px;
+  color:var(--brand);
+  margin-bottom:16px;
 }
 
-/* FAQ */
-.faq{
+.stepTitle{
+  font-size:17px;
+  font-weight:700;
+  margin-bottom:8px;
+}
+
+.stepBody{
+  font-size:15px;
+  color:var(--muted);
+  font-weight:500;
+  line-height:1.6;
+}
+
+/* What we check */
+.checksCard{
+  border:1px solid var(--border);
+  border-radius:var(--radius);
+  padding:36px 32px;
+  background:#fff;
+  box-shadow: var(--shadow-sm);
+}
+
+.checksTitle{
+  font-size:19px;
+  font-weight:700;
+  margin-bottom:6px;
+}
+
+.checksSub{
+  font-size:15px;
+  color:var(--muted);
+  font-weight:500;
+  margin-bottom:24px;
+}
+
+.checksCols{
   display:grid;
-  grid-template-columns: repeat(2,1fr);
-  gap: 12px;
+  grid-template-columns:1fr 1fr;
+  gap:16px 32px;
 }
 
-@media(max-width:900px){ .faq{ grid-template-columns: 1fr; } }
+@media(max-width:560px){ .checksCols{ grid-template-columns:1fr; } }
+
+.checksCols ul{
+  list-style:none;
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+}
+
+.checksCols li{
+  font-size:14px;
+  font-weight:500;
+  color:var(--text);
+  display:flex;
+  align-items:flex-start;
+  gap:10px;
+}
+
+.checksCols li::before{
+  content:"\2713";
+  color:var(--brand);
+  font-weight:900;
+  font-size:13px;
+  flex-shrink:0;
+  margin-top:1px;
+}
+
+.checksNote{
+  font-size:12px;
+  color:var(--muted);
+  font-weight:500;
+  margin-top:20px;
+  padding-top:16px;
+  border-top:1px solid var(--border);
+}
+
+/* ========== SERVICE AREA ========== */
+.serviceCard{
+  border:1px solid var(--border);
+  border-radius:var(--radius);
+  padding:36px 32px;
+  background:#fff;
+  box-shadow: var(--shadow-sm);
+  max-width:680px;
+}
+
+.serviceTitle{
+  font-size:17px;
+  font-weight:700;
+  margin-bottom:10px;
+}
+
+.serviceBody{
+  font-size:15px;
+  color:var(--muted);
+  font-weight:500;
+  line-height:1.65;
+}
+
+.serviceNote{
+  font-size:13px;
+  color:var(--muted);
+  font-weight:500;
+  margin-top:14px;
+  padding-top:14px;
+  border-top:1px solid var(--border);
+}
+
+/* ========== FAQ ========== */
+.faqGrid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:12px;
+}
+
+@media(max-width:720px){ .faqGrid{ grid-template-columns:1fr; } }
 
 details{
-  padding: 14px 16px;
-  border-radius: 14px;
-  border: 1px solid var(--border);
-  background: rgba(255,255,255,.68);
+  border:1px solid var(--border);
+  border-radius:12px;
+  background:#fff;
+  padding:16px 20px;
+  transition:border-color .15s;
 }
+
+details[open]{ border-color:var(--brand); }
 
 summary{
   cursor:pointer;
-  font-weight: 700;
-  font-size: 15px;
-  list-style: none;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 10px;
-}
-
-summary::-webkit-details-marker{ display: none; }
-summary::after{ content: "+"; font-size: 18px; color: var(--brand); font-weight: 900; flex-shrink: 0; }
-details[open] summary::after{ content: "\2212"; }
-
-details p{ color: var(--muted); margin: 10px 0 0; font-weight: 500; font-size: 14.5px; }
-
-/* Contact */
-.contactGrid{
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 14px;
-}
-
-@media(max-width:700px){ .contactGrid{ grid-template-columns: 1fr; } }
-
-/* Footer */
-.footer{
-  padding: 22px 0 120px;
-  color: var(--muted);
-  font-size: 14px;
-}
-
-.split{
+  font-weight:700;
+  font-size:15px;
+  list-style:none;
   display:flex;
-  gap: 10px;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+  color:var(--text);
+}
+
+summary::-webkit-details-marker{ display:none; }
+
+summary::after{
+  content:"+";
+  font-size:20px;
+  color:var(--brand);
+  font-weight:400;
+  flex-shrink:0;
+  line-height:1;
+}
+
+details[open] summary::after{ content:"\2212"; }
+
+details p{
+  color:var(--muted);
+  margin-top:12px;
+  font-size:14.5px;
+  font-weight:500;
+  line-height:1.65;
+}
+
+/* ========== CONTACT ========== */
+.contactGrid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:16px;
+}
+
+@media(max-width:640px){ .contactGrid{ grid-template-columns:1fr; } }
+
+.contactCard{
+  border:1px solid var(--border);
+  border-radius:var(--radius);
+  padding:28px 24px;
+  background:#fff;
+  box-shadow: var(--shadow-sm);
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+}
+
+.contactCard h3{
+  font-size:15px;
+  font-weight:700;
+  color:var(--text);
+}
+
+.contactCard p{
+  font-size:14px;
+  color:var(--muted);
+  font-weight:500;
+  line-height:1.55;
+}
+
+/* ========== FOOTER ========== */
+.footer{
+  padding: 40px 0 100px;
+  border-top: 1px solid var(--border);
+}
+
+.footerInner{
+  max-width:var(--max);
+  margin:0 auto;
+  padding:0 32px;
+}
+
+.footerLine{
+  display:flex;
+  gap:16px;
   flex-wrap:wrap;
   align-items:center;
   justify-content:space-between;
-  font-weight: 500;
+  font-size:13px;
+  color:var(--muted);
+  font-weight:500;
+  margin-bottom:10px;
 }
 
-/* Floating mobile CTA */
+.footerLine a{ color:var(--muted); }
+.footerLine a:hover{ color:var(--text); }
+
+.footerDisclaimer{
+  font-size:12px;
+  color:#9CA3AF;
+  font-weight:500;
+  line-height:1.6;
+  max-width:72ch;
+}
+
+@media(max-width:640px){ .footerInner{ padding:0 20px; } }
+
+/* ========== FLOATING MOBILE CTA ========== */
 .floatCta{
-  position: fixed;
-  left: 50%;
-  transform: translateX(-50%);
-  bottom: 14px;
-  width: min(720px, calc(100% - 28px));
-  z-index: 90;
+  position:fixed;
+  left:50%;
+  transform:translateX(-50%);
+  bottom:14px;
+  width:min(680px,calc(100% - 28px));
+  z-index:200;
   display:none;
   gap:10px;
-  padding: 10px;
-  border-radius: 18px;
-  background: rgba(255,255,255,.96);
-  border: 1px solid rgba(11,18,32,.10);
-  box-shadow: 0 16px 44px rgba(11,18,32,.18);
-  backdrop-filter: blur(12px);
+  padding:10px;
+  border-radius:16px;
+  background:rgba(255,255,255,.96);
+  border:1px solid rgba(0,0,0,.08);
+  box-shadow:0 16px 48px rgba(0,0,0,.16);
+  backdrop-filter:blur(14px);
 }
 
-.floatCta .btn{ flex: 1 1 auto; }
+.floatCta .btn{ flex:1 1 auto; border-radius:8px; font-size:14px; }
 
 @media(max-width:820px){ .floatCta{ display:flex; } }
 
-ul{ margin: 10px 0 0; padding-left: 18px; }
-.tile ul{ color: var(--muted); font-weight: 500; }
-.tile ul li{ margin-bottom: 5px; }
-</style>
+body{ padding-bottom:80px; }
 
+@media(min-width:821px){ body{ padding-bottom:0; } }
+
+/* ========== UTILITIES ========== */
+.text-muted{ color:var(--muted); }
+.fw-700{ font-weight:700; }
+</style>
 <!-- Structured Data -->
 <script type="application/ld+json">
 {
@@ -729,22 +973,8 @@ ul{ margin: 10px 0 0; padding-left: 18px; }
     "@type":"OfferCatalog",
     "name":"Pre-purchase vehicle inspection packages",
     "itemListElement":[
-      {
-        "@type":"Offer",
-        "name":"Standard Inspection",
-        "price":"249",
-        "priceCurrency":"AUD",
-        "availability":"https://schema.org/InStock",
-        "itemOffered":{"@type":"Service","name":"Standard pre-purchase inspection - everyday passenger cars under $30k"}
-      },
-      {
-        "@type":"Offer",
-        "name":"Premium Inspection",
-        "price":"349",
-        "priceCurrency":"AUD",
-        "availability":"https://schema.org/InStock",
-        "itemOffered":{"@type":"Service","name":"Premium pre-purchase inspection - 4WDs, utes, SUVs, prestige and vehicles over $30k"}
-      }
+      {"@type":"Offer","name":"Standard Inspection","price":"249","priceCurrency":"AUD","availability":"https://schema.org/InStock","itemOffered":{"@type":"Service","name":"Standard pre-purchase inspection - everyday passenger cars under $30k"}},
+      {"@type":"Offer","name":"Premium Inspection","price":"349","priceCurrency":"AUD","availability":"https://schema.org/InStock","itemOffered":{"@type":"Service","name":"Premium pre-purchase inspection - 4WDs, utes, SUVs, prestige and vehicles over $30k"}}
     ]
   }
 }
@@ -755,38 +985,10 @@ ul{ margin: 10px 0 0; padding-left: 18px; }
   "@context":"https://schema.org",
   "@type":"FAQPage",
   "mainEntity":[
-    {
-      "@type":"Question",
-      "name":"What is the difference between Standard and Premium?",
-      "acceptedAnswer":{
-        "@type":"Answer",
-        "text":"Standard ($249) suits everyday passenger cars under $30k. Premium ($349) is for 4WDs, utes, SUVs, prestige vehicles, or anything over $30k - it includes scan tool diagnostics, a PPSR check, and the option to attend the inspection."
-      }
-    },
-    {
-      "@type":"Question",
-      "name":"Can we attend the inspection?",
-      "acceptedAnswer":{
-        "@type":"Answer",
-        "text":"Yes - attendance is included in the Premium package (where access is permitted at the location)."
-      }
-    },
-    {
-      "@type":"Question",
-      "name":"What is a PPSR check?",
-      "acceptedAnswer":{
-        "@type":"Answer",
-        "text":"A PPSR check identifies if a vehicle has finance owing and may show stolen or written-off records. Included in Premium."
-      }
-    },
-    {
-      "@type":"Question",
-      "name":"How fast do we get the report?",
-      "acceptedAnswer":{
-        "@type":"Answer",
-        "text":"Same-day in most cases, depending on access and scheduling. If timing is tight, we'll tell you up front."
-      }
-    }
+    {"@type":"Question","name":"What is the difference between Standard and Premium?","acceptedAnswer":{"@type":"Answer","text":"Standard ($249) suits everyday passenger cars under $30k. Premium ($349) is for 4WDs, utes, SUVs, prestige vehicles, or anything over $30k - it includes scan tool diagnostics, a PPSR check, and the option to attend the inspection."}},
+    {"@type":"Question","name":"Can we attend the inspection?","acceptedAnswer":{"@type":"Answer","text":"Yes - attendance is included in the Premium package (where access is permitted at the location)."}},
+    {"@type":"Question","name":"What is a PPSR check?","acceptedAnswer":{"@type":"Answer","text":"A PPSR check identifies if a vehicle has finance owing and may show stolen or written-off records. Included in Premium."}},
+    {"@type":"Question","name":"How fast do we get the report?","acceptedAnswer":{"@type":"Answer","text":"Same-day in most cases, depending on access and scheduling. If timing is tight, we'll tell you up front."}}
   ]
 }
 </script>
@@ -796,56 +998,69 @@ ul{ margin: 10px 0 0; padding-left: 18px; }
 <body>
 <a class="srOnly" href="#top">Skip to content</a>
 
+<!-- NAV -->
 <div class="navWrap" style="position:relative;">
   <header class="nav">
     <a class="brand" href="#top" aria-label="TrueMark Vehicle Inspections">
       <img class="logoImg" src="logo.png" alt="TrueMark Vehicle Inspections logo"
-        onerror="this.onerror=null; this.src='https://truemarkinspections.com.au/logo.png';" />
+        onerror="this.onerror=null;this.src='https://truemarkinspections.com.au/logo.png';" />
       <span class="brandText">
-        <strong>TrueMark Vehicle Inspections</strong>
-        <span>Inspect Before You Invest.</span>
+        <strong>TrueMark</strong>
+        <span>Vehicle Inspections</span>
       </span>
     </a>
 
-    <button class="navToggle" id="navToggle" aria-label="Open navigation menu" aria-expanded="false" aria-controls="navlinks">
-      <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-        <rect y="4" width="22" height="2.2" rx="1.1" fill="#0B1220"/>
-        <rect y="10" width="22" height="2.2" rx="1.1" fill="#0B1220"/>
-        <rect y="16" width="22" height="2.2" rx="1.1" fill="#0B1220"/>
+    <nav class="navCenter" aria-label="Primary navigation">
+      <a href="#why">Why TrueMark</a>
+      <a href="#packages">Packages</a>
+      <a href="inspections.html">Inspected cars</a>
+      <a href="sell.html">Sell your car</a>
+      <a href="#how">How it works</a>
+      <a href="#faq">FAQ</a>
+    </nav>
+
+    <div class="navRight">
+      <a class="btn btn-ghost" href="tel:+61423636633" data-track="cta_call_header">Call</a>
+      <a class="btn btn-dark" href="booking.html" target="_blank" rel="noopener" data-track="cta_book_header">Book now &rarr;</a>
+    </div>
+
+    <button class="navToggle" id="navToggle" aria-label="Open navigation menu" aria-expanded="false" aria-controls="navlinks-mobile">
+      <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+        <rect y="3" width="20" height="2" rx="1" fill="#0B1220"/>
+        <rect y="9" width="20" height="2" rx="1" fill="#0B1220"/>
+        <rect y="15" width="20" height="2" rx="1" fill="#0B1220"/>
       </svg>
     </button>
-
-    <nav class="navlinks" id="navlinks" aria-label="Primary navigation">
-      <a class="link" href="#packages">Packages</a>
-      <a class="link" href="inspections.html">Inspected cars</a>
-      <a class="link" href="sell.html">Sell your car</a>
-      <a class="link" href="#sample-report">Sample report</a>
-      <a class="link" href="#how">How it works</a>
-      <a class="link" href="#service-area">Service area</a>
-      <a class="link" href="#faq">FAQ</a>
-      <a class="btn secondary" href="#contact">Contact</a>
-      <div class="deskCta" aria-label="Quick actions">
-        <a class="btn ghost small" href="tel:+61423636633" data-track="cta_call_header">Call</a>
-        <a class="btn stripe small"
-          href="booking.html"
-          target="_blank" rel="noopener" data-track="cta_book_header">Book now &rarr;</a>
-      </div>
-    </nav>
   </header>
+
+  <nav class="navlinks-mobile" id="navlinks-mobile" aria-label="Mobile navigation">
+    <a href="#why">Why TrueMark</a>
+    <a href="#packages">Packages</a>
+    <a href="inspections.html">Inspected cars</a>
+    <a href="sell.html">Sell your car</a>
+    <a href="#how">How it works</a>
+    <a href="#service-area">Service area</a>
+    <a href="#faq">FAQ</a>
+    <a href="#contact">Contact</a>
+    <div class="mob-ctas">
+      <a class="btn btn-ghost" href="tel:+61423636633" data-track="cta_call_header">Call</a>
+      <a class="btn btn-dark" href="booking.html" target="_blank" rel="noopener" data-track="cta_book_header">Book now &rarr;</a>
+    </div>
+  </nav>
 </div>
 
-<div class="container">
+<!-- HERO -->
+<main id="top">
+  <section class="hero">
+    <div class="wrap">
+      <h1>Don&rsquo;t Buy a Car Blind.<br/>Inspect Before You Invest.</h1>
 
-  <!-- HERO -->
-  <main id="top" class="hero">
-    <section class="card heroLeft">
-      <h1>Don't Buy a Car Blind.<br/>Inspect Before You Invest.</h1>
-      <p class="sub">
-        Mobile pre-purchase inspections across <strong>Sydney's Eastern Suburbs</strong> &mdash; and metro Sydney by quote.
-        Clear verdict, photo evidence, and negotiation notes. <strong>Same-day reports in most cases.</strong>
+      <p class="heroSub">
+        Mobile pre-purchase inspections across <strong>Sydney&rsquo;s Eastern Suburbs</strong> &mdash; and metro Sydney by quote.
+        Clear verdict, photo evidence, and negotiation notes. Same-day reports in most cases.
       </p>
 
-      <div class="pills" role="list" aria-label="Highlights">
+      <div class="heroPills" role="list" aria-label="Highlights">
         <span class="pill" role="listitem">Clear verdict + priorities</span>
         <span class="pill" role="listitem">Photos in every report</span>
         <span class="pill" role="listitem">Negotiation notes included</span>
@@ -853,366 +1068,236 @@ ul{ margin: 10px 0 0; padding-left: 18px; }
         <span class="pill" role="listitem">Phone walkthrough of findings</span>
       </div>
 
-      <div class="trustStrip" aria-label="Trust highlights">
-        <span>$50 deposit</span>
-        <span class="trustDot">&middot;</span>
-        <span>Same-day reports</span>
-        <span class="trustDot">&middot;</span>
-        <span>Phone walkthrough included</span>
-        <span class="trustDot">&middot;</span>
-        <span>Eastern Suburbs Sydney</span>
+      <div class="heroActions">
+        <a class="btn btn-dark" href="booking.html" target="_blank" rel="noopener" data-track="cta_book_hero">Request a booking &rarr;</a>
+        <a class="btn btn-ghost" href="tel:+61423636633" data-track="cta_call_hero">Call 0423 636 633</a>
+        <a class="btn btn-ghost" href="#packages" data-track="cta_view_packages">See packages</a>
       </div>
 
-      <div class="ctaRow">
-        <a class="btn dark"
-          href="booking.html"
-          target="_blank" rel="noopener" data-track="cta_book_hero">Request a booking &rarr;</a>
-        <a class="btn primary" href="tel:+61423636633" data-track="cta_call_hero">Call 0423 636 633</a>
-        <a class="btn ghost" href="#packages" data-track="cta_view_packages">See packages</a>
-      </div>
+      <p class="heroMeta">$50 deposit &middot; Refundable 24hrs+ before &middot; Balance on the day</p>
 
-      <p class="depositNote">$50 deposit secures your time &mdash; refundable if you cancel 24hrs+ before &middot; Balance paid on the day</p>
-
-      <div class="contactQuick" aria-label="Quick contact">
-        <a class="btn ghostPill" href="sms:+61423636633" data-track="contact_sms">&#128172; Text</a>
-        <a class="btn ghostPill" href="mailto:truemarkinspect@gmail.com" data-track="contact_email">&#9993; Email</a>
-        <a class="btn ghostPill" href="https://wa.me/61423636633" target="_blank" rel="noopener" data-track="contact_whatsapp">WhatsApp</a>
-      </div>
-
-      <div class="trustBar" aria-label="Promise">
-        <div>
-          <strong>Locally owned. No call centre.</strong>
-          <span class="mini"> We inspect it &middot; we write the report &middot; we talk you through it.</span>
-        </div>
-        <div class="mini">&mdash; Lenin, TrueMark Vehicle Inspections</div>
-      </div>
-    </section>
-
-    <aside class="card heroRight">
-      <div class="callout">
-        <strong>What you're buying is clarity.</strong><br/>
-        If a car has hidden issues, knowing before you pay can save you thousands in repairs and regret.
-      </div>
-
-      <div class="divider"></div>
-
-      <p class="small"><strong>Two packages. Simple.</strong></p>
-      <p class="small">
-        <strong>Standard &mdash; $249</strong><br/>
-        Everyday passenger cars under $30k.
-      </p>
-      <p class="small">
-        <strong>Premium &mdash; $349</strong><br/>
-        4WDs, utes, SUVs, prestige, or any vehicle over $30k. Includes scan tool, PPSR check, and attendance option.
-      </p>
-
-      <div class="divider"></div>
-
-      <p class="small">
-        <strong>Service area:</strong> Eastern Suburbs Sydney &mdash; Bondi, Randwick, Coogee, Maroubra, Paddington, Rose Bay, Double Bay and surrounds. Metro Sydney available by quote.
-      </p>
-
-      <p class="small">
-        <strong>Quick contacts:</strong><br/>
-        Phone: <a href="tel:+61423636633">0423 636 633</a><br/>
-        Email: <a href="mailto:truemarkinspect@gmail.com">truemarkinspect@gmail.com</a>
-      </p>
-
-      <p class="small">
-        <strong>Vehicles:</strong> cars, 4WDs, utes, vans, and light commercial. We don't inspect heavy trucks or vehicles requiring a different licence class.
-      </p>
-
-      <p class="small">
-        <strong>Limitations:</strong> all inspections are non-invasive (no dismantling). Hidden or intermittent issues can exist &mdash; we'll be clear about this in the report.
-      </p>
-    </aside>
-  </main>
-
-  <!-- WHY -->
-  <section class="section" id="why">
-    <h2>Why buyers choose TrueMark</h2>
-    <p class="muted">We focus on what you actually need: clear priorities, evidence, and straight advice.</p>
-
-    <div class="grid3">
-      <div class="card tile">
-        <h3>We handle the seller/dealer</h3>
-        <p class="muted">Send us the listing &mdash; we coordinate access and timing with the seller or dealership directly.</p>
-      </div>
-      <div class="card tile">
-        <h3>Clear verdict + priorities</h3>
-        <p class="muted">Issues are split into <strong>fix now</strong>, <strong>soon</strong>, and <strong>monitor</strong> &mdash; then a verdict: proceed / caution / avoid.</p>
-      </div>
-      <div class="card tile">
-        <h3>Negotiation notes</h3>
-        <p class="muted">The report includes notes so you can ask for repairs or a price reduction with confidence.</p>
-      </div>
+      <p class="heroTrust">Locally owned. No call centre. We inspect it &middot; write the report &middot; talk you through it.</p>
     </div>
+  </section>
 
-    <div class="grid2" style="margin-top:14px;">
-      <div class="card tile">
-        <h3>What the verdict means</h3>
-        <ul>
-          <li><strong>Proceed:</strong> no major red flags &mdash; normal wear noted</li>
-          <li><strong>Caution:</strong> issues found &mdash; negotiate or budget for repairs</li>
-          <li><strong>Avoid:</strong> serious concerns &mdash; we recommend walking away</li>
-        </ul>
+  <!-- WHY TRUEMARK -->
+  <section class="sec" id="why">
+    <div class="wrap">
+      <p class="secLabel">Why TrueMark</p>
+      <h2 class="secTitle">Everything a buyer actually needs</h2>
+      <p class="secSub">We focus on what changes your decision &mdash; clear priorities, photo evidence, and straight advice.</p>
+
+      <div class="grid3">
+        <div class="featureCard">
+          <span class="featureEmoji">&#128222;</span>
+          <div class="featureTitle">We handle the seller/dealer</div>
+          <p class="featureBody">Send us the listing &mdash; we coordinate access and timing with the seller or dealership directly.</p>
+        </div>
+        <div class="featureCard">
+          <span class="featureEmoji">&#9989;</span>
+          <div class="featureTitle">Clear verdict + priorities</div>
+          <p class="featureBody">Issues are split into <strong>fix now</strong>, <strong>soon</strong>, and <strong>monitor</strong> &mdash; then a verdict: proceed, caution, or avoid.</p>
+        </div>
+        <div class="featureCard">
+          <span class="featureEmoji">&#128221;</span>
+          <div class="featureTitle">Negotiation notes</div>
+          <p class="featureBody">The report includes notes so you can ask for repairs or a price reduction with confidence.</p>
+        </div>
       </div>
-      <div class="card tile">
-        <h3>Locally owned &amp; operated</h3>
-        <p class="muted">No franchise. No call centre. One inspector who knows the work &mdash; we inspect it, write the report, and walk you through the findings on a call.</p>
+
+      <div class="grid2" style="margin-top:24px;">
+        <div class="featureCard">
+          <div class="featureTitle">What the verdict means</div>
+          <ul style="list-style:none;display:flex;flex-direction:column;gap:10px;margin-top:14px;">
+            <li style="font-size:14px;font-weight:500;color:var(--muted);"><strong style="color:#1E9B57;">&#10003; Proceed</strong> &mdash; no major red flags, normal wear noted</li>
+            <li style="font-size:14px;font-weight:500;color:var(--muted);"><strong style="color:#b45309;">&#9888; Caution</strong> &mdash; issues found, negotiate or budget for repairs</li>
+            <li style="font-size:14px;font-weight:500;color:var(--muted);"><strong style="color:#dc2626;">&#10007; Avoid</strong> &mdash; serious concerns, we recommend walking away</li>
+          </ul>
+        </div>
+        <div class="featureCard">
+          <div class="featureTitle">Locally owned &amp; operated</div>
+          <p class="featureBody" style="margin-top:14px;">No franchise. No call centre. One inspector who knows the work &mdash; we inspect it, write the report, and walk you through the findings on a call.</p>
+          <p class="featureBody" style="margin-top:10px;">&mdash; Lenin, TrueMark Vehicle Inspections</p>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- ââââââââââââââââââââââââââââââ
-       SELLING A CAR? SECTION
-  ââââââââââââââââââââââââââââââ -->
-  <section class="section" style="background:var(--surface,#f7f3f0);" id="sell-your-car">
-    <div class="container">
-      <div style="display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center;max-width:1100px;margin:0 auto;">
+  <!-- SELLING A CAR -->
+  <section class="sec" id="sell-your-car">
+    <div class="wrap">
+      <p class="secLabel">For Private Sellers</p>
+      <h2 class="secTitle">Selling a car?</h2>
+      <p class="secSub">Get your car independently inspected before you list it. Buyers pay more when the report backs up your price &mdash; and your car appears on our Inspected Cars page for 90 days.</p>
+
+      <div class="sellGrid">
         <div>
-          <p class="label" style="color:#1E9B57;font-size:0.78rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:10px;">For private sellers</p>
-          <h2 style="font-family:'DM Serif Display',serif;font-size:clamp(1.8rem,3.5vw,2.4rem);margin-bottom:16px;line-height:1.2;">Selling a car?</h2>
-          <p style="color:#6b7280;font-size:1rem;margin-bottom:24px;line-height:1.65;">Get your car independently inspected before you list it. Buyers pay more when the report backs up your price â and your car appears on our Inspected Cars page for 90 days.</p>
-          <ul style="list-style:none;display:flex;flex-direction:column;gap:12px;">
-            <li style="display:flex;align-items:flex-start;gap:10px;font-size:0.95rem;color:#1a1a1a;">
-              <span style="color:#1E9B57;font-weight:700;font-size:1.1rem;flex-shrink:0;">â</span>
-              <span><strong>Stand out in any ad</strong> â paste your unique TrueMark link into Gumtree, Facebook Marketplace or Carsales</span>
-            </li>
-            <li style="display:flex;align-items:flex-start;gap:10px;font-size:0.95rem;color:#1a1a1a;">
-              <span style="color:#1E9B57;font-weight:700;font-size:1.1rem;flex-shrink:0;">â</span>
-              <span><strong>Justify your asking price</strong> â an independent report gives buyers confidence and reduces lowball offers</span>
-            </li>
-            <li style="display:flex;align-items:flex-start;gap:10px;font-size:0.95rem;color:#1a1a1a;">
-              <span style="color:#1E9B57;font-weight:700;font-size:1.1rem;flex-shrink:0;">â</span>
-              <span><strong>Listed on our Inspected Cars page</strong> â 90-day listing included with every seller package</span>
-            </li>
+          <ul class="sellFeatureList">
+            <li><strong>Stand out in any ad</strong> &mdash; paste your unique TrueMark link into Gumtree, Facebook Marketplace or Carsales</li>
+            <li><strong>Justify your asking price</strong> &mdash; an independent report gives buyers confidence and reduces lowball offers</li>
+            <li><strong>Listed on our Inspected Cars page</strong> &mdash; 90-day listing included with every seller package</li>
           </ul>
+          <div style="margin-top:28px;">
+            <a class="btn btn-dark" href="sell.html" data-track="cta_sell_section">Learn more about selling &rarr;</a>
+          </div>
         </div>
-        <div>
-          <div style="background:#fff;border:1.5px solid #e5e7eb;border-radius:16px;padding:32px;box-shadow:0 4px 20px rgba(0,0,0,0.07);">
-            <p style="font-size:0.75rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:#6b7280;margin-bottom:20px;">Seller packages</p>
-            <div style="display:flex;flex-direction:column;gap:16px;margin-bottom:28px;">
-              <div style="display:flex;justify-content:space-between;align-items:center;padding:16px;border:1.5px solid #e5e7eb;border-radius:10px;">
-                <div>
-                  <p style="font-weight:700;font-size:0.95rem;color:#1a1a1a;">Seller Standard</p>
-                  <p style="font-size:0.8rem;color:#6b7280;">Cars under $30k</p>
-                </div>
-                <p style="font-family:'DM Serif Display',serif;font-size:1.8rem;color:#1E9B57;font-weight:400;">$199</p>
-              </div>
-              <div style="display:flex;justify-content:space-between;align-items:center;padding:16px;border:2px solid #1E9B57;border-radius:10px;background:#f0faf4;">
-                <div>
-                  <p style="font-weight:700;font-size:0.95rem;color:#1a1a1a;">Seller Premium</p>
-                  <p style="font-size:0.8rem;color:#6b7280;">4WDs, utes, prestige &amp; over $30k</p>
-                </div>
-                <p style="font-family:'DM Serif Display',serif;font-size:1.8rem;color:#1E9B57;font-weight:400;">$299</p>
-              </div>
+
+        <div class="sellCard">
+          <p class="secLabel" style="margin-bottom:20px;">Seller packages</p>
+          <div class="sellPkgRow">
+            <div>
+              <div class="sellPkgName">Seller Standard</div>
+              <div class="sellPkgSub">Cars under $30k</div>
             </div>
-            <a href="sell.html" class="sell-section-cta">Learn more about selling →</a>
+            <div class="sellPrice">$199</div>
+          </div>
+          <div class="sellPkgRow featured">
+            <div>
+              <div class="sellPkgName">Seller Premium</div>
+              <div class="sellPkgSub">4WDs, utes, prestige &amp; over $30k</div>
+            </div>
+            <div class="sellPrice">$299</div>
           </div>
         </div>
       </div>
     </div>
-    <style>
-      @media (max-width: 768px) {
-        #sell-your-car > .container > div { grid-template-columns: 1fr !important; gap: 28px !important; }
-      }
-    
-      .sell-section-cta{display:block;text-align:center;padding:13px 20px;background:#1E9B57;color:#fff;font-family:'DM Sans',sans-serif;font-weight:700;font-size:0.95rem;border-radius:8px;text-decoration:none;transition:background 0.2s;}
-      .sell-section-cta:hover{background:#167a44;}
-      .floatingMobileCTA{display:none;position:fixed;bottom:0;left:0;right:0;background:#fff;border-top:1px solid #e5e7eb;padding:12px 20px;z-index:200;}
-      .floatingMobileCTA a{display:block;text-align:center;background:#1E9B57;color:#fff;font-weight:700;font-size:1rem;padding:14px;border-radius:10px;text-decoration:none;font-family:'DM Sans',sans-serif;}
-      @media(max-width:768px){.floatingMobileCTA{display:block!important;}body{padding-bottom:80px;}}
-</style>
   </section>
 
-
-
-
   <!-- SAMPLE REPORT -->
-  <section id="sample-report" class="section">
-    <h2>See what you're getting</h2>
-    <p class="muted">Every inspection comes with a detailed PDF report. Here's a real example &mdash; same format, same detail, just with test data.</p>
+  <section class="sec" id="sample-report">
+    <div class="wrap">
+      <p class="secLabel">Sample Report</p>
+      <h2 class="secTitle">See what you&rsquo;re getting</h2>
+      <p class="secSub">Every inspection comes with a detailed PDF report. Here&rsquo;s a real example &mdash; same format, same detail, just with test data.</p>
 
-    <div class="card tile" style="max-width: 860px;">
-
-      <!-- Page preview strip -->
-      <div style="display:flex; gap:12px; overflow-x:auto; padding-bottom:8px; margin-bottom:20px;">
-        <div style="flex-shrink:0; width:220px; border-radius:12px; overflow:hidden; border:1px solid var(--border); box-shadow:var(--shadow);">
-          <div style="background:var(--brand); color:#fff; font-size:11px; font-weight:700; text-align:center; padding:5px 8px; letter-spacing:.4px;">PAGE 1 &mdash; EXECUTIVE SUMMARY</div>
-          <div style="background:#f5f5f5; display:flex; align-items:center; justify-content:center; height:260px; color:var(--muted); font-size:13px; font-weight:600; flex-direction:column; gap:6px;">
-            <span style="font-size:28px;">&#128202;</span>
+      <div class="reportPreviews">
+        <div class="reportCard">
+          <div class="reportCardHeader green">Page 1 &mdash; Executive Summary</div>
+          <div class="reportCardBody">
+            <span class="icon">&#128202;</span>
             <span>Verdict &middot; Section Dials</span>
             <span>Risk Score &middot; Deal Rating</span>
           </div>
         </div>
-        <div style="flex-shrink:0; width:220px; border-radius:12px; overflow:hidden; border:1px solid var(--border); box-shadow:var(--shadow);">
-          <div style="background:#374151; color:#fff; font-size:11px; font-weight:700; text-align:center; padding:5px 8px; letter-spacing:.4px;">PAGE 2 &mdash; TYRE ANALYSIS</div>
-          <div style="background:#f5f5f5; display:flex; align-items:center; justify-content:center; height:260px; color:var(--muted); font-size:13px; font-weight:600; flex-direction:column; gap:6px;">
-            <span style="font-size:28px;">&#128309;</span>
+        <div class="reportCard">
+          <div class="reportCardHeader">Page 2 &mdash; Tyre Analysis</div>
+          <div class="reportCardBody">
+            <span class="icon">&#128309;</span>
             <span>Tyre Position Map</span>
             <span>Tread Depths &middot; Roadworthy</span>
           </div>
         </div>
-        <div style="flex-shrink:0; width:220px; border-radius:12px; overflow:hidden; border:1px solid var(--border); box-shadow:var(--shadow);">
-          <div style="background:#374151; color:#fff; font-size:11px; font-weight:700; text-align:center; padding:5px 8px; letter-spacing:.4px;">PAGE 3 &mdash; KEY FINDINGS</div>
-          <div style="background:#f5f5f5; display:flex; align-items:center; justify-content:center; height:260px; color:var(--muted); font-size:13px; font-weight:600; flex-direction:column; gap:6px;">
-            <span style="font-size:28px;">&#9888;&#65039;</span>
+        <div class="reportCard">
+          <div class="reportCardHeader">Page 3 &mdash; Key Findings</div>
+          <div class="reportCardBody">
+            <span class="icon">&#9888;&#65039;</span>
             <span>Priority Issues</span>
             <span>Negotiation Points</span>
           </div>
         </div>
       </div>
 
-      <!-- What's in it + verdict guide -->
-      <div class="grid2" style="margin-bottom:20px;">
-        <div>
-          <h3 style="margin-bottom:10px;">What every report includes</h3>
-          <ul style="margin:0; padding-left:18px; color:var(--muted); font-weight:500; font-size:14px;">
-            <li style="margin-bottom:5px;"><strong>Verdict</strong> &mdash; Proceed / Caution / Do Not Proceed</li>
-            <li style="margin-bottom:5px;"><strong>Deal Rating</strong> &mdash; out of 10</li>
-            <li style="margin-bottom:5px;"><strong>Section dials</strong> &mdash; Engine, Brakes, Tyres, Electrical, Body &amp; more</li>
-            <li style="margin-bottom:5px;"><strong>Tyre depth map</strong> &mdash; all 4 corners, inner/centre/outer</li>
-            <li style="margin-bottom:5px;"><strong>Key findings table</strong> &mdash; priority, cost estimate, action</li>
-            <li style="margin-bottom:5px;"><strong>Negotiation points</strong> &mdash; ready to use with the seller</li>
-            <li style="margin-bottom:5px;"><strong>Estimated repair exposure</strong> &mdash; dollar range</li>
-            <li><strong>Scan tool fault codes</strong> (Premium only)</li>
-          </ul>
-        </div>
-        <div>
-          <h3 style="margin-bottom:10px;">How to read the verdict</h3>
-          <div style="display:flex; flex-direction:column; gap:8px;">
-            <div style="padding:10px 14px; border-radius:10px; background:rgba(30,155,87,.08); border:1px solid rgba(30,155,87,.25); font-size:14px;">
-              <strong style="color:var(--brand);">&#10003; PROCEED</strong><br/>
-              <span style="color:var(--muted); font-weight:500;">No major red flags. Normal wear noted. Good to go.</span>
-            </div>
-            <div style="padding:10px 14px; border-radius:10px; background:rgba(234,179,8,.08); border:1px solid rgba(234,179,8,.35); font-size:14px;">
-              <strong style="color:#b45309;">&#9888; PROCEED WITH CAUTION</strong><br/>
-              <span style="color:var(--muted); font-weight:500;">Issues found. Negotiate or budget for repairs.</span>
-            </div>
-            <div style="padding:10px 14px; border-radius:10px; background:rgba(239,68,68,.08); border:1px solid rgba(239,68,68,.25); font-size:14px;">
-              <strong style="color:#dc2626;">&#10007; DO NOT PROCEED</strong><br/>
-              <span style="color:var(--muted); font-weight:500;">Serious concerns. We recommend walking away.</span>
-            </div>
-          </div>
-        </div>
+      <div style="display:flex;gap:16px;flex-wrap:wrap;align-items:center;padding-top:24px;border-top:1px solid var(--border);">
+        <a class="btn btn-dark" href="TrueMark_Sample_Inspection_Report.pdf" target="_blank" rel="noopener" data-track="download_sample_report">&#128196; Download Sample Report (PDF)</a>
+        <span style="font-size:13px;color:var(--muted);font-weight:500;">3 pages &middot; Toyota Hilux 2019 &middot; Test data only</span>
       </div>
-
-      <!-- Download CTA -->
-      <div style="display:flex; align-items:center; gap:14px; flex-wrap:wrap; padding-top:16px; border-top:1px solid var(--border);">
-        <a class="btn dark" href="TrueMark_Sample_Inspection_Report.pdf" target="_blank" rel="noopener" data-track="download_sample_report">
-          &#128196; Download Sample Report (PDF)
-        </a>
-        <span class="small" style="margin:0;">3 pages &nbsp;&middot;&nbsp; Toyota Hilux 2019 &nbsp;&middot;&nbsp; Test data only</span>
-      </div>
-
     </div>
   </section>
 
   <!-- PACKAGES -->
-  <section id="packages" class="section">
-    <h2>Packages</h2>
-    <p class="muted">Two straightforward options &mdash; the right one depends on the vehicle, not upselling.</p>
+  <section class="sec" id="packages">
+    <div class="wrap">
+      <p class="secLabel">Packages</p>
+      <h2 class="secTitle">Two packages. Simple.</h2>
+      <p class="secSub">The right one depends on the vehicle, not upselling.</p>
 
-    <div class="grid2" aria-label="Packages" style="max-width: 800px;">
+      <div class="pkgGrid">
+        <!-- Standard -->
+        <div class="pkgCard" id="pkg-standard">
+          <div class="pkgTag">Everyday passenger cars under $30k</div>
+          <div class="pkgName">Standard</div>
+          <div class="pkgPrice">$249</div>
+          <div class="pkgSub">Passenger cars, hatchbacks, sedans, wagons.</div>
 
-      <!-- Standard -->
-      <div class="card pkgCard" id="pkg-standard">
-        <div class="pkgTag">Everyday passenger cars under $30k</div>
-        <div class="pkgName">Standard</div>
-        <div class="price">$249</div>
-        <div class="pkgSub">Passenger cars, hatchbacks, sedans, wagons.</div>
+          <ul class="pkgList">
+            <li>We coordinate access with seller/dealer</li>
+            <li>Visual + operational checks (non-invasive)</li>
+            <li>Road test where permitted &amp; safe</li>
+            <li>Photo evidence in report</li>
+            <li>Clear verdict + priority issues</li>
+            <li>Same-day PDF report (typical)</li>
+            <li>Phone walkthrough of key findings</li>
+            <li>Negotiation notes included</li>
+          </ul>
 
-        <ul class="pkgList">
-          <li>We coordinate access with seller/dealer</li>
-          <li>Visual + operational checks (non-invasive)</li>
-          <li>Road test where permitted &amp; safe</li>
-          <li>Photo evidence in report</li>
-          <li>Clear verdict + priority issues</li>
-          <li>Same-day PDF report (typical)</li>
-          <li>Phone walkthrough of key findings</li>
-          <li>Negotiation notes included</li>
-        </ul>
-
-        <div class="ctaRow">
-          <a class="btn dark"
-            href="booking.html"
-            target="_blank" rel="noopener" data-track="book_standard">Book Standard &rarr;</a>
+          <a class="btn btn-dark" href="booking.html" target="_blank" rel="noopener" data-track="book_standard">Book Standard &rarr;</a>
+          <p class="pkgNote">$50 deposit secures the time. Balance paid on the day.</p>
         </div>
-        <p class="small">$50 deposit secures the time. Balance paid on the day.</p>
+
+        <!-- Premium -->
+        <div class="pkgCard featured" id="pkg-premium">
+          <div class="pkgTag">4WDs, utes, SUVs, prestige &amp; over $30k</div>
+          <div class="pkgName">Premium <span class="badge">Recommended</span></div>
+          <div class="pkgPrice">$349</div>
+          <div class="pkgSub">Higher-value or more complex vehicles deserve more thorough checking.</div>
+
+          <ul class="pkgList">
+            <li>Everything in Standard</li>
+            <li class="extra">Scan tool diagnostics (where supported)</li>
+            <li class="extra">PPSR check &mdash; finance, stolen &amp; write-off history</li>
+            <li class="extra">Option to attend the inspection (where permitted)</li>
+            <li>Road test where permitted &amp; safe</li>
+            <li>Photo evidence in report</li>
+            <li>Clear verdict + priority issues</li>
+            <li>Same-day PDF report (typical)</li>
+            <li>Phone walkthrough of key findings</li>
+            <li>Negotiation notes included</li>
+          </ul>
+
+          <a class="btn btn-primary" href="booking.html" target="_blank" rel="noopener" data-track="book_premium">Book Premium &rarr;</a>
+          <p class="pkgNote">$50 deposit secures the time. Balance paid on the day.</p>
+        </div>
       </div>
 
-      <!-- Premium -->
-      <div class="card pkgCard cardHighlight" id="pkg-premium">
-        <div class="pkgTag">4WDs, utes, SUVs, prestige &amp; over $30k</div>
-        <div class="pkgName">Premium <span class="badge">Recommended</span></div>
-        <div class="price">$349</div>
-        <div class="pkgSub">Higher-value or more complex vehicles deserve more thorough checking.</div>
-
-        <ul class="pkgList">
-          <li>Everything in Standard</li>
-          <li class="extra">Scan tool diagnostics (where supported)</li>
-          <li class="extra">PPSR check &mdash; finance, stolen &amp; write-off history</li>
-          <li class="extra">Option to attend the inspection (where permitted)</li>
-          <li>Road test where permitted &amp; safe</li>
-          <li>Photo evidence in report</li>
-          <li>Clear verdict + priority issues</li>
-          <li>Same-day PDF report (typical)</li>
-          <li>Phone walkthrough of key findings</li>
-          <li>Negotiation notes included</li>
-        </ul>
-
-        <div class="ctaRow">
-          <a class="btn stripe"
-            href="booking.html"
-            target="_blank" rel="noopener" data-track="book_premium">Book Premium &rarr;</a>
-        </div>
-        <p class="small">$50 deposit secures the time. Balance paid on the day.</p>
-      </div>
-
+      <p style="font-size:14px;color:var(--muted);font-weight:500;margin-top:24px;max-width:60ch;">Not sure which package? If the vehicle is a 4WD, ute, SUV, prestige brand, or priced over $30k &mdash; go Premium. Standard is for everyday passenger cars under $30k. Still unsure? <a href="tel:+61423636633">Give us a call</a>.</p>
     </div>
-
-    <p class="small" style="margin-top:14px; max-width:600px;">
-      Not sure which package? If the vehicle is a 4WD, ute, SUV, prestige brand, or priced over $30k &mdash; go Premium. If it's a standard passenger car under $30k &mdash; Standard is the right call. Still unsure? <a href="tel:+61423636633">give us a call</a>.
-    </p>
   </section>
 
   <!-- HOW IT WORKS -->
-  <section id="how" class="section">
-    <h2>How it works</h2>
-    <p class="muted">Simple process. No back-and-forth.</p>
+  <section class="sec" id="how">
+    <div class="wrap">
+      <p class="secLabel">How It Works</p>
+      <h2 class="secTitle">Simple process. No back-and-forth.</h2>
+      <p class="secSub">Three steps from listing to decision.</p>
 
-    <div class="how">
-      <div class="card step">
-        <div class="num">1</div>
-        <h3>Send the listing</h3>
-        <p class="muted">Send the car link + suburb + best times. We confirm availability and the right package for the vehicle.</p>
+      <div class="howGrid">
+        <div class="stepCard">
+          <div class="stepNum">1</div>
+          <div class="stepTitle">Send the listing</div>
+          <p class="stepBody">Send the car link + suburb + best times. We confirm availability and the right package for the vehicle.</p>
+        </div>
+        <div class="stepCard">
+          <div class="stepNum">2</div>
+          <div class="stepTitle">We inspect on-site</div>
+          <p class="stepBody">We coordinate access with the seller or dealer and carry out the inspection. Premium customers can attend for a start/end walkthrough where permitted.</p>
+        </div>
+        <div class="stepCard">
+          <div class="stepNum">3</div>
+          <div class="stepTitle">Report + call</div>
+          <p class="stepBody">You get a PDF report (same-day in most cases) and a phone walkthrough of the key findings so you can make a fast, confident decision.</p>
+        </div>
       </div>
-      <div class="card step">
-        <div class="num">2</div>
-        <h3>We inspect on-site</h3>
-        <p class="muted">We coordinate access with the seller or dealer and carry out the inspection. Premium customers can attend for a start/end walkthrough where permitted.</p>
-      </div>
-      <div class="card step">
-        <div class="num">3</div>
-        <h3>Report + call</h3>
-        <p class="muted">You get a PDF report (same-day in most cases) and a phone walkthrough of the key findings so you can make a fast, confident decision.</p>
-      </div>
-    </div>
 
-    <div class="card tile" style="margin-top:14px;">
-      <h3>What we check</h3>
-      <p class="muted">Buyer-focused &mdash; safety items, costly repairs, and anything that changes the decision.</p>
-      <div class="grid2" style="margin-top:10px;">
-        <div>
+      <div class="checksCard" style="margin-top:32px;">
+        <div class="checksTitle">What we check</div>
+        <p class="checksSub">Buyer-focused &mdash; safety items, costly repairs, and anything that changes the decision.</p>
+        <div class="checksCols">
           <ul>
             <li>Body condition, signs of repairs, leaks, corrosion</li>
             <li>Engine bay &mdash; visual + operational checks</li>
             <li>Tyres, brakes (visual), suspension feel</li>
             <li>Lights, electrics, interior basics</li>
           </ul>
-        </div>
-        <div>
           <ul>
             <li>Road test where permitted &amp; safe</li>
             <li>Scan tool diagnostics (Premium &mdash; where supported)</li>
@@ -1220,177 +1305,165 @@ ul{ margin: 10px 0 0; padding-left: 18px; }
             <li>Photos + priorities + negotiation notes</li>
           </ul>
         </div>
+        <p class="checksNote">All inspections are non-invasive. If a check can&rsquo;t be completed due to access, time, or safety, it&rsquo;s noted clearly in the report.</p>
       </div>
-      <p class="small">All inspections are non-invasive. If a check can't be completed due to access, time, or safety, it's noted clearly in the report.</p>
     </div>
   </section>
 
   <!-- SERVICE AREA -->
-  <section id="service-area" class="section">
-    <h2>Service area</h2>
-    <p class="muted">Based in the Eastern Suburbs &mdash; also covering metro Sydney by quote.</p>
+  <section class="sec" id="service-area">
+    <div class="wrap">
+      <p class="secLabel">Service Area</p>
+      <h2 class="secTitle">Eastern Suburbs and beyond</h2>
+      <p class="secSub">Based in the Eastern Suburbs &mdash; also covering metro Sydney by quote.</p>
 
-    <div class="card tile">
-      <h3>Eastern Suburbs (standard travel included)</h3>
-      <p class="muted">
-        Bondi, Bondi Junction, Randwick, Coogee, Maroubra, Paddington, Rose Bay, Double Bay, Vaucluse, Waverley, Clovelly, Kensington, Bronte, Tamarama, and nearby suburbs.
-      </p>
-      <p class="small">Outside this area? Still get in touch &mdash; we'll confirm travel time and any additional cost up front. Most of metro Sydney is doable.</p>
+      <div class="serviceCard">
+        <div class="serviceTitle">Eastern Suburbs (standard travel included)</div>
+        <p class="serviceBody">Bondi, Bondi Junction, Randwick, Coogee, Maroubra, Paddington, Rose Bay, Double Bay, Vaucluse, Waverley, Clovelly, Kensington, Bronte, Tamarama, and nearby suburbs.</p>
+        <p class="serviceNote">Outside this area? Still get in touch &mdash; we&rsquo;ll confirm travel time and any additional cost up front. Most of metro Sydney is doable.</p>
+      </div>
     </div>
   </section>
 
   <!-- FAQ -->
-  <section id="faq" class="section">
-    <h2>FAQ</h2>
+  <section class="sec" id="faq">
+    <div class="wrap">
+      <p class="secLabel">FAQ</p>
+      <h2 class="secTitle">Common questions</h2>
+      <p class="secSub">Everything you need to know before booking.</p>
 
-    <div class="faq">
-      <details>
-        <summary>What's the difference between Standard and Premium?</summary>
-        <p>Standard ($249) covers everyday passenger cars under $30k &mdash; visual and operational inspection, road test where permitted, photos, verdict, and phone walkthrough. Premium ($349) adds scan tool diagnostics, a PPSR check (finance/stolen/write-off history), and the option to attend the inspection. It's designed for 4WDs, utes, SUVs, prestige vehicles, or anything over $30k.</p>
-      </details>
-
-      <details>
-        <summary>Can we attend the inspection?</summary>
-        <p>Attendance is included with the Premium package. You can join for a start/end walkthrough where access is permitted at the location.</p>
-      </details>
-
-      <details>
-        <summary>Do you deal with the seller/dealer?</summary>
-        <p>Yes. We coordinate access and timing directly &mdash; you don't have to chase anyone.</p>
-      </details>
-
-      <details>
-        <summary>What is a PPSR check?</summary>
-        <p>A PPSR (Personal Property Securities Register) check identifies if a vehicle has finance owing and may show stolen or written-off records. Included in Premium.</p>
-      </details>
-
-      <details>
-        <summary>How fast do we get the report?</summary>
-        <p>Same-day in most cases, depending on access and scheduling. If timing is tight, we'll tell you up front.</p>
-      </details>
-
-      <details>
-        <summary>What does "non-invasive" mean?</summary>
-        <p>No dismantling or disassembly. The inspection is visual and operational &mdash; based on what's observable at the time. If something can't be checked, we'll note it clearly.</p>
-      </details>
-
-      <details>
-        <summary>What vehicles do you inspect?</summary>
-        <p>Cars, 4WDs, utes, vans, and light commercial vehicles. We don't inspect heavy trucks or vehicles requiring a different licence class.</p>
-      </details>
-
-      <details>
-        <summary>What if the seller won't allow a road test?</summary>
-        <p>We'll note it in the report. Conclusions on drive-related items will be limited and we'll be transparent about that.</p>
-      </details>
-
-      <details>
-        <summary>Is the deposit refundable?</summary>
-        <p>Yes &mdash; the $50 deposit is refundable if you cancel more than 24 hours before the booking. Cancellations within 24 hours may forfeit the deposit due to scheduling.</p>
-      </details>
-
-      <details>
-        <summary>Do you cover all of Sydney?</summary>
-        <p>Eastern Suburbs are our home base and standard travel is included. For metro Sydney outside of that, we can usually get there &mdash; just ask and we'll confirm any travel cost up front.</p>
-      </details>
+      <div class="faqGrid">
+        <details>
+          <summary>What&rsquo;s the difference between Standard and Premium?</summary>
+          <p>Standard ($249) covers everyday passenger cars under $30k &mdash; visual and operational inspection, road test where permitted, photos, verdict, and phone walkthrough. Premium ($349) adds scan tool diagnostics, a PPSR check (finance/stolen/write-off history), and the option to attend the inspection. It&rsquo;s designed for 4WDs, utes, SUVs, prestige vehicles, or anything over $30k.</p>
+        </details>
+        <details>
+          <summary>Can we attend the inspection?</summary>
+          <p>Attendance is included with the Premium package. You can join for a start/end walkthrough where access is permitted at the location.</p>
+        </details>
+        <details>
+          <summary>Do you deal with the seller/dealer?</summary>
+          <p>Yes. We coordinate access and timing directly &mdash; you don&rsquo;t have to chase anyone.</p>
+        </details>
+        <details>
+          <summary>What is a PPSR check?</summary>
+          <p>A PPSR (Personal Property Securities Register) check identifies if a vehicle has finance owing and may show stolen or written-off records. Included in Premium.</p>
+        </details>
+        <details>
+          <summary>How fast do we get the report?</summary>
+          <p>Same-day in most cases, depending on access and scheduling. If timing is tight, we&rsquo;ll tell you up front.</p>
+        </details>
+        <details>
+          <summary>What does &ldquo;non-invasive&rdquo; mean?</summary>
+          <p>No dismantling or disassembly. The inspection is visual and operational &mdash; based on what&rsquo;s observable at the time. If something can&rsquo;t be checked, we&rsquo;ll note it clearly.</p>
+        </details>
+        <details>
+          <summary>What vehicles do you inspect?</summary>
+          <p>Cars, 4WDs, utes, vans, and light commercial vehicles. We don&rsquo;t inspect heavy trucks or vehicles requiring a different licence class.</p>
+        </details>
+        <details>
+          <summary>What if the seller won&rsquo;t allow a road test?</summary>
+          <p>We&rsquo;ll note it in the report. Conclusions on drive-related items will be limited and we&rsquo;ll be transparent about that.</p>
+        </details>
+        <details>
+          <summary>Is the deposit refundable?</summary>
+          <p>Yes &mdash; the $50 deposit is refundable if you cancel more than 24 hours before the booking. Cancellations within 24 hours may forfeit the deposit due to scheduling.</p>
+        </details>
+        <details>
+          <summary>Do you cover all of Sydney?</summary>
+          <p>Eastern Suburbs are our home base and standard travel is included. For metro Sydney outside of that, we can usually get there &mdash; just ask and we&rsquo;ll confirm any travel cost up front.</p>
+        </details>
+      </div>
     </div>
   </section>
 
   <!-- CONTACT -->
-  <section id="contact" class="section">
-    <h2>Get in touch</h2>
-    <p class="muted">Quickest way is a call or text. We'll get back to you fast.</p>
+  <section class="sec" id="contact">
+    <div class="wrap">
+      <p class="secLabel">Contact</p>
+      <h2 class="secTitle">Get in touch</h2>
+      <p class="secSub">Quickest way is a call or text. We&rsquo;ll get back to you fast.</p>
 
-    <div class="contactGrid">
-      <div class="card tile">
-        <h3>Call or text</h3>
-        <p class="muted" style="margin:0 0 12px;">Best for quick questions or if you want to run a car by us before booking.</p>
-        <a class="btn dark" href="tel:+61423636633" data-track="contact_call">&#128222; 0423 636 633</a>
-      </div>
-
-      <div class="card tile">
-        <h3>SMS</h3>
-        <p class="muted" style="margin:0 0 12px;">Prefer to text? Send us the listing link and your suburb.</p>
-        <a class="btn sms" href="sms:+61423636633" data-track="contact_sms">&#128172; Text 0423 636 633</a>
-      </div>
-
-      <div class="card tile">
-        <h3>WhatsApp</h3>
-        <p class="muted" style="margin:0 0 12px;">Message us on WhatsApp with the listing link and best times.</p>
-        <a class="btn whatsapp" href="https://wa.me/61423636633" target="_blank" rel="noopener" data-track="contact_whatsapp">&#128172; WhatsApp Us</a>
-      </div>
-
-      <div class="card tile">
-        <h3>Email</h3>
-        <p class="muted" style="margin:0 0 12px;">Send us the listing link, suburb, and best times and we'll get back to you.</p>
-        <a class="btn primary" href="mailto:truemarkinspect@gmail.com" data-track="contact_email">&#9993; truemarkinspect@gmail.com</a>
-      </div>
-
-      <div class="card tile">
-        <h3>Book Standard &mdash; $249</h3>
-        <p class="muted" style="margin:0 0 12px;">Everyday passenger cars under $30k.</p>
-        <a class="btn dark"
-          href="booking.html"
-          target="_blank" rel="noopener" data-track="book_standard_contact">Book Standard &rarr;</a>
-      </div>
-
-      <div class="card tile">
-        <h3>Book Premium &mdash; $349</h3>
-        <p class="muted" style="margin:0 0 12px;">4WDs, utes, SUVs, prestige &amp; over $30k. Includes scan tool + PPSR.</p>
-        <a class="btn stripe"
-          href="booking.html"
-          target="_blank" rel="noopener" data-track="book_premium_contact">Book Premium &rarr;</a>
+      <div class="contactGrid">
+        <div class="contactCard">
+          <h3>Call or text</h3>
+          <p>Best for quick questions or if you want to run a car by us before booking.</p>
+          <a class="btn btn-ghost" href="tel:+61423636633" data-track="contact_call">&#128222; 0423 636 633</a>
+        </div>
+        <div class="contactCard">
+          <h3>SMS</h3>
+          <p>Prefer to text? Send us the listing link and your suburb.</p>
+          <a class="btn btn-ghost" href="sms:+61423636633" data-track="contact_sms">&#128172; Text 0423 636 633</a>
+        </div>
+        <div class="contactCard">
+          <h3>WhatsApp</h3>
+          <p>Message us on WhatsApp with the listing link and best times.</p>
+          <a class="btn btn-ghost" href="https://wa.me/61423636633" target="_blank" rel="noopener" data-track="contact_whatsapp">&#128172; WhatsApp Us</a>
+        </div>
+        <div class="contactCard">
+          <h3>Email</h3>
+          <p>Send us the listing link, suburb, and best times and we&rsquo;ll get back to you.</p>
+          <a class="btn btn-ghost" href="mailto:truemarkinspect@gmail.com" data-track="contact_email">&#9993; truemarkinspect@gmail.com</a>
+        </div>
+        <div class="contactCard">
+          <h3>Book Standard &mdash; $249</h3>
+          <p>Everyday passenger cars under $30k.</p>
+          <a class="btn btn-dark" href="booking.html" target="_blank" rel="noopener" data-track="book_standard_contact">Book Standard &rarr;</a>
+        </div>
+        <div class="contactCard">
+          <h3>Book Premium &mdash; $349</h3>
+          <p>4WDs, utes, SUVs, prestige &amp; over $30k. Includes scan tool + PPSR.</p>
+          <a class="btn btn-primary" href="booking.html" target="_blank" rel="noopener" data-track="book_premium_contact">Book Premium &rarr;</a>
+        </div>
       </div>
     </div>
   </section>
 
-</div><!-- /container -->
+</main>
 
-<!-- Footer -->
+<!-- FOOTER -->
 <footer class="footer">
-  <div class="container">
-    <div class="divider"></div>
-    <div class="split" style="margin-top:16px;">
+  <div class="footerInner">
+    <div class="footerLine">
       <span>&copy; 2026 TrueMark Vehicle Inspections &mdash; ABN 53 384 207 098</span>
-      <span>Sydney, NSW &nbsp;&middot;&nbsp; <a href="tel:+61423636633">0423 636 633</a> &nbsp;&middot;&nbsp; <a href="mailto:truemarkinspect@gmail.com">truemarkinspect@gmail.com</a></span>
+      <span>
+        <a href="tel:+61423636633">0423 636 633</a>
+        &nbsp;&middot;&nbsp;
+        <a href="mailto:truemarkinspect@gmail.com">truemarkinspect@gmail.com</a>
+        &nbsp;&middot;&nbsp; Sydney, NSW
+      </span>
     </div>
-    <p class="small" style="margin-top:8px;">
-      Inspections are non-invasive and visual/operational only. Reports reflect observable condition at the time of inspection. Hidden or intermittent faults may not be identified.
-    </p>
+    <p class="footerDisclaimer">Inspections are non-invasive and visual/operational only. Reports reflect observable condition at the time of inspection. Hidden or intermittent faults may not be identified.</p>
   </div>
 </footer>
 
-<!-- Floating mobile CTA -->
+<!-- FLOATING MOBILE CTA -->
 <div class="floatCta" aria-label="Quick booking actions">
-  <a class="btn ghost" href="tel:+61423636633" data-track="float_call">&#128222; Call</a>
-  <a class="btn sms" href="sms:+61423636633" data-track="float_sms">&#128172; SMS</a>
-  <a class="btn dark"
-    href="booking.html"
-    target="_blank" rel="noopener" data-track="float_book">Book now &rarr;</a>
+  <a class="btn btn-ghost" href="tel:+61423636633" data-track="float_call">&#128222; Call</a>
+  <a class="btn btn-ghost" href="sms:+61423636633" data-track="float_sms">&#128172; SMS</a>
+  <a class="btn btn-dark" href="booking.html" target="_blank" rel="noopener" data-track="float_book">Book now &rarr;</a>
 </div>
 
 <script>
 // Hamburger nav toggle
 const navToggle = document.getElementById('navToggle');
-const navlinks = document.getElementById('navlinks');
-if (navToggle && navlinks) {
+const navlinksMobile = document.getElementById('navlinks-mobile');
+if (navToggle && navlinksMobile) {
   navToggle.addEventListener('click', () => {
-    const open = navlinks.classList.toggle('open');
+    const open = navlinksMobile.classList.toggle('open');
     navToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
     navToggle.setAttribute('aria-label', open ? 'Close navigation menu' : 'Open navigation menu');
   });
-  // Close on link click
-  navlinks.querySelectorAll('a').forEach(a => {
+  navlinksMobile.querySelectorAll('a').forEach(a => {
     a.addEventListener('click', () => {
-      navlinks.classList.remove('open');
+      navlinksMobile.classList.remove('open');
       navToggle.setAttribute('aria-expanded', 'false');
       navToggle.setAttribute('aria-label', 'Open navigation menu');
     });
   });
-  // Close on outside click
   document.addEventListener('click', (e) => {
-    if (!navToggle.contains(e.target) && !navlinks.contains(e.target)) {
-      navlinks.classList.remove('open');
+    if (!navToggle.contains(e.target) && !navlinksMobile.contains(e.target)) {
+      navlinksMobile.classList.remove('open');
       navToggle.setAttribute('aria-expanded', 'false');
     }
   });
@@ -1402,7 +1475,7 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
     const target = document.querySelector(a.getAttribute('href'));
     if (target) {
       e.preventDefault();
-      const offset = 72;
+      const offset = 70;
       const top = target.getBoundingClientRect().top + window.scrollY - offset;
       window.scrollTo({ top, behavior: 'smooth' });
     }
@@ -1419,7 +1492,5 @@ document.querySelectorAll('[data-track]').forEach(el => {
 });
 </script>
 
-
-  <div class="floatingMobileCTA"><a href="booking.html">Book an inspection</a></div>
 </body>
-    </html>
+</html>
