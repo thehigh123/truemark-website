@@ -385,24 +385,17 @@ h3{
   margin-top: 14px;
 }
 
-.trust{
-  display:grid;
-  grid-template-columns: repeat(2,1fr);
-  gap:10px;
+.trustStrip{
+  display:flex;
+  flex-wrap:wrap;
+  align-items:center;
+  gap:6px;
   margin-top: 14px;
+  font-size: 13px;
+  color: var(--muted);
+  font-weight: 500;
 }
-
-@media(max-width:520px){ .trust{ grid-template-columns: 1fr; } }
-
-.trustItem{
-  padding: 12px;
-  border-radius: 14px;
-  border: 1px solid var(--border);
-  background: rgba(255,255,255,.65);
-  color: rgba(11,18,32,.78);
-  font-weight: 700;
-  font-size: 14px;
-}
+.trustDot{ color: var(--border); font-size: 16px; line-height: 1; }
 
 .callout{
   padding: 14px;
@@ -429,12 +422,8 @@ h3{
 
 .trustBar{
   margin-top: 14px;
-  padding: 14px;
-  border-radius: 16px;
-  border: 1px solid rgba(11,18,32,.08);
-  background: rgba(255,255,255,.72);
   display:flex;
-  gap:12px;
+  gap:8px;
   flex-wrap:wrap;
   align-items:center;
   justify-content:space-between;
@@ -443,34 +432,32 @@ h3{
 .trustBar strong{ font-weight: 900; }
 .trustBar .mini{ color: var(--muted); font-weight: 500; font-size: 13px; }
 
-/* Deposit CTA box */
-.depositBox{
-  margin-top: 14px;
-  padding: 16px;
-  border-radius: 16px;
-  border: 1px solid rgba(30,155,87,.30);
-  background: rgba(30,155,87,.06);
-  display: flex;
-  align-items: center;
-  gap: 14px;
-  flex-wrap: wrap;
-}
-
-.depositBox .depositText{
-  flex: 1 1 180px;
-}
-
-.depositBox .depositText strong{
-  display: block;
-  font-weight: 900;
-  font-size: 15px;
-  margin-bottom: 2px;
-}
-
-.depositBox .depositText span{
+.depositNote{
+  margin-top: 10px;
   font-size: 13px;
   color: var(--muted);
   font-weight: 500;
+}
+
+.contactQuick{
+  display:flex;
+  gap:8px;
+  flex-wrap:wrap;
+  margin-top: 12px;
+}
+
+.btn.ghostPill{
+  padding: 7px 14px;
+  border-radius: 999px;
+  border: 1px solid rgba(11,18,32,.15);
+  background: transparent;
+  color: var(--text);
+  font-size: 13px;
+  font-weight: 600;
+}
+.btn.ghostPill:hover{
+  background: rgba(11,18,32,.04);
+  border-color: rgba(11,18,32,.25);
 }
 
 /* Sections */
@@ -866,6 +853,16 @@ ul{ margin: 10px 0 0; padding-left: 18px; }
         <span class="pill" role="listitem">Phone walkthrough of findings</span>
       </div>
 
+      <div class="trustStrip" aria-label="Trust highlights">
+        <span>$50 deposit</span>
+        <span class="trustDot">&middot;</span>
+        <span>Same-day reports</span>
+        <span class="trustDot">&middot;</span>
+        <span>Phone walkthrough included</span>
+        <span class="trustDot">&middot;</span>
+        <span>Eastern Suburbs Sydney</span>
+      </div>
+
       <div class="ctaRow">
         <a class="btn dark"
           href="booking.html"
@@ -874,21 +871,12 @@ ul{ margin: 10px 0 0; padding-left: 18px; }
         <a class="btn ghost" href="#packages" data-track="cta_view_packages">See packages</a>
       </div>
 
-      <div class="trust" aria-label="Trust highlights">
-        <div class="trustItem">Deposit <strong>$50</strong> secures a time</div>
-        <div class="trustItem">We explain findings on a call</div>
-        <div class="trustItem">Fix now vs later &mdash; clearly separated</div>
-        <div class="trustItem">Buy / negotiate / walk away &mdash; straight advice</div>
-      </div>
+      <p class="depositNote">$50 deposit secures your time &mdash; refundable if you cancel 24hrs+ before &middot; Balance paid on the day</p>
 
-      <div class="depositBox">
-        <div class="depositText">
-          <strong>$50 deposit secures your booking</strong>
-          <span>Refundable if you cancel more than 24 hours before. Balance paid on the day.</span>
-        </div>
-        <a class="btn stripe"
-          href="booking.html"
-          target="_blank" rel="noopener" data-track="cta_deposit_hero">Book &amp; Pay $50 Deposit &rarr;</a>
+      <div class="contactQuick" aria-label="Quick contact">
+        <a class="btn ghostPill" href="sms:+61423636633" data-track="contact_sms">&#128172; Text</a>
+        <a class="btn ghostPill" href="mailto:truemarkinspect@gmail.com" data-track="contact_email">&#9993; Email</a>
+        <a class="btn ghostPill" href="https://wa.me/61423636633" target="_blank" rel="noopener" data-track="contact_whatsapp">WhatsApp</a>
       </div>
 
       <div class="trustBar" aria-label="Promise">
