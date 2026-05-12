@@ -552,7 +552,8 @@
        FILTER BAR
   ══════════════════════════════════════════════ -->
   <section class="filter-section">
-    <div class="filter-bar" id="filterBar">
+    <!-- FILTER BAR: unhide when you have 10+ real listings — remove the style="display:none;" -->
+    <div class="filter-bar" id="filterBar" style="display:none;">
       <div class="filter-group">
         <label for="filterSearch">Search</label>
         <input type="text" id="filterSearch" placeholder="Make, model, suburb…" />
@@ -615,7 +616,7 @@
           <option value="Premium">Premium</option>
         </select>
       </div>
-      <button class="filter-reset-btn" id="filterReset" type="button">Reset filters</button>
+      <button class="filter-reset-btn" id="filterReset" type="button" style="display:none;">Reset filters</button>
     </div>
   </section>
 
